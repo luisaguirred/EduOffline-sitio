@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduPlay — Enseña jugando</title>
+<meta name="description" content="EduPlay reúne asistencia, evaluación, exámenes y juegos para tu clase. Se instala en tu computadora y tus datos se quedan contigo.">
+<link rel="icon" href="assets/icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>try{var t=localStorage.getItem('eduplay_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#inicio" aria-label="EduPlay, inicio"><img src="assets/icono.png" alt="" width="26" height="26"></a>
+  <nav class="nav" aria-label="Principal" data-light>
+    <a href="#inicio" class="light-item">Inicio</a>
+    <a href="#funciones" class="light-item">Funciones</a>
+    <a href="#juegos" class="light-item">Juegos</a>
+    <a href="#como-funciona" class="light-item">Cómo funciona</a>
+    <a href="#tus-datos" class="light-item">Tus datos</a>
+    <a href="#descargar" class="light-item">Descargar</a>
+  </nav>
+  <div class="top-end">
+    <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true">◐</span></button>
+    <a class="top-cta" href="#descargar">Obtener EduPlay</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio" data-spy>
+    <svg class="rings" viewBox="-500 -500 1000 1000" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+      <circle r="110"/><circle r="185"/><circle r="270"/><circle r="365"/><circle r="470"/>
+      <circle class="tick" r="270"/><circle class="tick" r="470"/>
+    </svg>
+    <div class="float-cards" aria-hidden="true">
+      <div class="fc c1"><b>⚡</b><span>QuizBlast</span><i>Pregunta 3 de 12</i></div>
+      <div class="fc c2 tint-a"><b>🚀</b><span>Duelo de Naves</span><i>Equipo azul al frente</i></div>
+      <div class="fc c3"><b>✓</b><span>Asistencia</span><i>Sesión por QR</i></div>
+      <div class="fc c4 tint-b"><b>📝</b><span>Modo Examen</span><i>Inicio sincronizado</i></div>
+      <div class="fc c5"><b>🧩</b><span>MemoPares</span><i>Encuentra los pares</i></div>
+      <div class="fc c6 tint-c"><b>▦</b><span>Rúbrica</span><i>Puntos por criterio</i></div>
+      <div class="fc c7"><b>🎞</b><span>Video interactivo</span><i>Preguntas en el video</i></div>
+      <div class="fc c8 tint-a"><b>📚</b><span>Banco de estudio</span><i>Descarga en PDF</i></div>
+    </div>
+    <div class="hero-in">
+      <h1 class="wordmark">EDUPLAY</h1>
+      <p class="tagline">Enseña jugando, <em>evalúa sin complicarte.</em></p>
+      <p class="lead">Asistencia, tareas, exámenes y juegos en vivo para tu clase, en un solo programa que corre en tu computadora.</p>
+      <div class="actions">
+        <a class="btn solid" href="#descargar"><span aria-hidden="true">↓</span> Obtener para Windows</a>
+        <a class="btn line" href="#funciones"><span aria-hidden="true">▦</span> Ver funciones</a>
+      </div>
+      <p class="meta">Windows <i>·</i> Tus datos en tu computadora <i>·</i> Alumnos por la red de tu escuela</p>
+    </div>
+  </section>
+
+  <section class="band" id="funciones" data-spy>
+    <header class="band-h"><span>01 / Funciones</span><span>Todo el curso en un lugar</span></header>
+    <h2 class="big">Una sola herramienta <em>para toda la clase</em></h2>
+    <div class="tabs" role="tablist" aria-label="Categorías de funciones" data-light data-tabs>
+      <button class="light-item" role="tab" id="t-eval" aria-controls="p-eval" aria-selected="true">Evaluación</button>
+      <button class="light-item" role="tab" id="t-exam" aria-controls="p-exam" aria-selected="false" tabindex="-1">Exámenes</button>
+      <button class="light-item" role="tab" id="t-cont" aria-controls="p-cont" aria-selected="false" tabindex="-1">Contenido</button>
+      <button class="light-item" role="tab" id="t-vivo" aria-controls="p-vivo" aria-selected="false" tabindex="-1">En vivo</button>
+      <button class="light-item" role="tab" id="t-movil" aria-controls="p-movil" aria-selected="false" tabindex="-1">Celular</button>
+    </div>
+    <div class="panels">
+      <article class="panel" role="tabpanel" id="p-eval" aria-labelledby="t-eval">
+        <div><h3>Calificaciones claras, unidad por unidad</h3><p>Define el peso de cada criterio, califica con rúbricas o listas de cotejo y genera reportes en PDF y Excel.</p></div>
+        <ul><li>Calificación rápida de entregas</li><li>Rúbricas y listas de cotejo</li><li>Pesos por unidad y criterios propios</li><li>Asistencia por QR o pase de lista</li></ul>
+      </article>
+      <article class="panel" role="tabpanel" id="p-exam" aria-labelledby="t-exam" hidden>
+        <div><h3>Exámenes en línea y en papel</h3><p>Aplica exámenes con tiempo límite y supervisión, o imprime versiones con hoja de burbujas para calificar con la cámara.</p></div>
+        <ul><li>Inicio sincronizado o código de acceso</li><li>Supervisión e incidencias en vivo</li><li>Versiones A, B, C y D</li><li>Hoja de respuestas con lectura por cámara</li></ul>
+      </article>
+      <article class="panel" role="tabpanel" id="p-cont" aria-labelledby="t-cont" hidden>
+        <div><h3>Prepara una vez, reutiliza siempre</h3><p>Guarda reactivos, definiciones, materiales y actividades en bancos organizados por carpetas, y úsalos en cualquier grupo.</p></div>
+        <ul><li>Formularios con varios tipos de reactivo</li><li>Audio y video interactivo</li><li>Crucigramas y sopas de letras</li><li>Bancos de reactivos y diccionarios</li></ul>
+      </article>
+      <article class="panel" role="tabpanel" id="p-vivo" aria-labelledby="t-vivo" hidden>
+        <div><h3>La clase ocurre en tiempo real</h3><p>Presenta diapositivas sincronizadas, lanza preguntas, envía avisos y mide la participación desde tu pantalla.</p></div>
+        <ul><li>Presentaciones con preguntas</li><li>Avisos y encuestas en vivo</li><li>Temporizador y alumno al azar</li><li>Juegos para todo el grupo</li></ul>
+      </article>
+      <article class="panel" role="tabpanel" id="p-movil" aria-labelledby="t-movil" hidden>
+        <div><h3>Tu clase, también en el celular</h3><p>Lleva el control desde el teléfono mientras caminas por el salón, sin instalar nada más.</p></div>
+        <ul><li>Calificar entregas y ver contenido</li><li>Controlar juegos y presentaciones</li><li>Pase de lista y mensajes</li><li>Menú a tu medida</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="juegos" data-spy>
+    <header class="band-h"><span>02 / Juegos</span><span>Multijugador en el salón</span></header>
+    <h2 class="big right">Repasar <em>también puede ser competir</em></h2>
+    <ul class="grid-games">
+      <li><b>⚡</b>QuizBlast</li><li><b>🧩</b>MemoPares</li><li><b>🚀</b>Duelo de Naves</li><li><b>🎯</b>Francotirador de Errores</li>
+      <li><b>🎱</b>Bingo</li><li><b>🏁</b>BrainRace</li><li><b>⚡</b>Clasificación Relámpago</li><li><b>🕐</b>Línea de Tiempo</li>
+      <li><b>🛑</b>Stop / Basta</li><li><b>🌧️</b>WordRain</li><li><b>🧺</b>CatchTime</li><li><b>🎈</b>VerbBlast</li>
+    </ul>
+  </section>
+
+  <section class="band" id="como-funciona" data-spy>
+    <header class="band-h"><span>03 / Cómo funciona</span><span>Sin servidores que administrar</span></header>
+    <ol class="steps">
+      <li><span>01</span><h3>Instala</h3><p>EduPlay se instala en tu computadora y queda listo junto al reloj de Windows.</p></li>
+      <li><span>02</span><h3>Crea tu cuenta</h3><p>La primera vez creas tu cuenta de maestro y empiezas con tu primer grupo.</p></li>
+      <li><span>03</span><h3>Conecta a tu clase</h3><p>Tus alumnos entran desde su navegador, conectados a la misma red que tu computadora.</p></li>
+      <li><span>04</span><h3>Mantente al día</h3><p>Las nuevas versiones se descargan solas y se instalan cuando cierras el programa, nunca a media clase.</p></li>
+    </ol>
+  </section>
+
+  <section class="band" id="tus-datos" data-spy>
+    <header class="band-h"><span>04 / Tus datos</span><span>Bajo tu control</span></header>
+    <div class="abc">
+      <div><span>A</span><h3>En tu computadora</h3><p>Las calificaciones, entregas y listas de tus alumnos se guardan en tu equipo.</p></div>
+      <div><span>B</span><h3>Respaldos</h3><p>Configura respaldos automáticos en la carpeta que elijas. Antes de cada actualización se guarda una copia.</p></div>
+      <div><span>C</span><h3>Sin perder nada</h3><p>Actualizar o desinstalar el programa no borra tu carpeta de datos.</p></div>
+    </div>
+  </section>
+
+  <section class="final" id="descargar" data-spy>
+    <p class="eyebrow">05 / Descargar</p>
+    <h2>Empieza <em>tu próxima clase.</em></h2>
+    <!-- Sin dirección de descarga todavía: ver README.md → Pendientes. -->
+    <a class="btn solid disabled" aria-disabled="true"><span aria-hidden="true">↓</span> Muy pronto para Windows</a>
+    <p class="meta">Windows 10 y 11 de 64 bits</p>
+  </section>
+</main>
+
+<footer class="foot"><img src="assets/icono.png" alt="" width="20" height="20"><span>EduPlay © 2026</span><span>Hecho por un maestro, para maestros.</span></footer>
+<div class="ruler" aria-hidden="true"><span id="ruler-mark"></span></div>
+<script src="main.js"></script>
+</body>
+</html>
