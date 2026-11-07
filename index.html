@@ -3,38 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EduPlay — Enseña jugando</title>
-<meta name="description" content="EduPlay reúne asistencia, evaluación, exámenes y juegos para tu clase. Se instala en tu computadora y tus datos se quedan contigo.">
-<link rel="icon" href="assets/icono.png">
+<title>OfflineEdu — Enseña jugando</title>
+<meta name="description" content="OfflineEdu reúne asistencia, evaluación, exámenes y juegos para tu clase. Se instala en tu computadora y tus datos se quedan contigo.">
+<link rel="icon" href="assets/offlineedu-app-icon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/icono.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@500..700&family=Fraunces:opsz,wght@9..144,400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>try{var t=localStorage.getItem('eduplay_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script>try{var t=localStorage.getItem('offlineedu_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="#inicio" aria-label="EduPlay, inicio"><img src="assets/icono.png" alt="" width="26" height="26"></a>
+  <a class="brand" href="#inicio" aria-label="OfflineEdu, inicio"><img class="logo-l" src="assets/offlineedu-wordmark.svg" alt="OfflineEdu" height="26"><img class="logo-d" src="assets/offlineedu-wordmark-dark.svg" alt="" height="26"></a>
   <nav class="nav" aria-label="Principal" data-light>
     <a href="#inicio" class="light-item">Inicio</a>
     <a href="#funciones" class="light-item">Funciones</a>
+    <a href="#mas-funciones" class="light-item">Más funciones</a>
     <a href="#juegos" class="light-item">Juegos</a>
     <a href="#como-funciona" class="light-item">Cómo funciona</a>
+    <a href="#instalacion" class="light-item">Instalación</a>
     <a href="#tus-datos" class="light-item">Tus datos</a>
+    <a href="#preguntas" class="light-item">Preguntas</a>
     <a href="#descargar" class="light-item">Descargar</a>
   </nav>
   <div class="top-end">
-    <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true">◐</span></button>
-    <a class="top-cta" href="#descargar">Obtener EduPlay</a>
+    <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true"></span></button>
+    <a class="top-cta" href="#descargar">Obtener OfflineEdu</a>
   </div>
 </header>
 
 <main>
   <section class="hero" id="inicio" data-spy>
-    <svg class="rings" viewBox="-500 -500 1000 1000" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-      <circle r="110"/><circle r="185"/><circle r="270"/><circle r="365"/><circle r="470"/>
-      <circle class="tick" r="270"/><circle class="tick" r="470"/>
-    </svg>
+    <canvas class="saberes" id="saberes" aria-hidden="true"></canvas>
     <div class="float-cards" aria-hidden="true">
       <div class="fc c1"><b>⚡</b><span>QuizBlast</span><i>Pregunta 3 de 12</i></div>
       <div class="fc c2 tint-a"><b>🚀</b><span>Duelo de Naves</span><i>Equipo azul al frente</i></div>
@@ -46,7 +47,7 @@
       <div class="fc c8 tint-a"><b>📚</b><span>Banco de estudio</span><i>Descarga en PDF</i></div>
     </div>
     <div class="hero-in">
-      <h1 class="wordmark">EDUPLAY</h1>
+      <h1 class="wordmark"><img class="logo-l" src="assets/offlineedu-logo.svg" alt="OfflineEdu — Offline Education"><img class="logo-d" src="assets/offlineedu-logo-dark.svg" alt=""></h1>
       <p class="tagline">Enseña jugando, <em>evalúa sin complicarte.</em></p>
       <p class="lead">Asistencia, tareas, exámenes y juegos en vivo para tu clase, en un solo programa que corre en tu computadora.</p>
       <div class="actions">
@@ -60,6 +61,7 @@
   <section class="band" id="funciones" data-spy>
     <header class="band-h"><span>01 / Funciones</span><span>Todo el curso en un lugar</span></header>
     <h2 class="big">Una sola herramienta <em>para toda la clase</em></h2>
+    <p class="fn-cta"><a class="btn line" href="funciones.html">Ver todas las funciones en detalle →</a></p>
     <div class="tabs" role="tablist" aria-label="Categorías de funciones" data-light data-tabs>
       <button class="light-item" role="tab" id="t-eval" aria-controls="p-eval" aria-selected="true">Evaluación</button>
       <button class="light-item" role="tab" id="t-exam" aria-controls="p-exam" aria-selected="false" tabindex="-1">Exámenes</button>
@@ -70,30 +72,76 @@
     <div class="panels">
       <article class="panel" role="tabpanel" id="p-eval" aria-labelledby="t-eval">
         <div><h3>Calificaciones claras, unidad por unidad</h3><p>Define el peso de cada criterio, califica con rúbricas o listas de cotejo y genera reportes en PDF y Excel.</p></div>
-        <ul><li>Calificación rápida de entregas</li><li>Rúbricas y listas de cotejo</li><li>Pesos por unidad y criterios propios</li><li>Asistencia por QR o pase de lista</li></ul>
+        <ul><li data-info="Revisa las entregas de un grupo una tras otra y pon calificación y comentario sin salir de la pantalla. Puedes filtrar por pendientes, tardías o sin entregar.">Calificación rápida de entregas</li><li data-info="Califica proyectos y criterios con puntos por nivel o con casillas de cotejo. El alumno ve cada criterio, y puedes descargar la rúbrica calificada o en blanco en PDF.">Rúbricas y listas de cotejo</li><li data-info="Cada unidad reparte su 100 % entre asistencia, asignaciones, proyectos, examen y criterios que tú creas, como participación. También decides cuánto vale cada unidad en la calificación final.">Pesos por unidad y criterios propios</li><li data-info="Los alumnos registran su asistencia escaneando un QR con tolerancia de minutos, o tú pasas lista. Hay protección para que un alumno no marque por otro desde el mismo celular.">Asistencia por QR o pase de lista</li><li data-info="Descarga el reporte de cada unidad, el reporte final con todas las unidades y la hoja de cálculo con fórmulas para revisarla en Excel. También puedes imprimir rúbricas y listas de cotejo calificadas, con el logo de tu escuela.">Reportes en PDF y Excel</li></ul>
+        <div class="shots"><figure class="shot"><img src="assets/capturas/evaluacion.webp" alt="Resumen de la unidad con asistencia, asignaciones, proyectos, examen y calificación final de cada alumno" width="1600" height="1000" loading="lazy"><figcaption>Resumen por unidad, con el cálculo de cada criterio.</figcaption></figure><figure class="shot"><img src="assets/capturas/grupos.webp" alt="Lista de un grupo con cada alumno marcado en verde, amarillo o rojo según su asistencia" width="1600" height="1000" loading="lazy"><figcaption>Indicadores por alumno para ver de un vistazo quién necesita apoyo.</figcaption></figure></div>
       </article>
       <article class="panel" role="tabpanel" id="p-exam" aria-labelledby="t-exam" hidden>
         <div><h3>Exámenes en línea y en papel</h3><p>Aplica exámenes con tiempo límite y supervisión, o imprime versiones con hoja de burbujas para calificar con la cámara.</p></div>
-        <ul><li>Inicio sincronizado o código de acceso</li><li>Supervisión e incidencias en vivo</li><li>Versiones A, B, C y D</li><li>Hoja de respuestas con lectura por cámara</li></ul>
+        <ul><li data-info="Todos empiezan cuando tú lo indicas, o entran con un código que das en el salón. Puedes ajustar el tiempo para todos o finalizar el examen en cualquier momento.">Inicio sincronizado o código de acceso</li><li data-info="Ves en qué pregunta va cada alumno, su tiempo y si salió del examen. Un alumno que pierde la conexión espera tu aprobación para volver a entrar.">Supervisión e incidencias en vivo</li><li data-info="El mismo examen con preguntas y opciones en distinto orden para cada alumno, para reducir que se copien.">Versiones A, B, C y D</li><li data-info="Imprime el examen con hoja de burbujas y código QR. Después calificas cada hoja apuntando con la cámara de tu celular.">Hoja de respuestas con lectura por cámara</li></ul>
+        <div class="shots side"><figure class="shot"><img src="assets/capturas/supervision.webp" alt="Panel de supervisión de un examen con el avance, el tiempo y las incidencias de cada alumno" width="1100" height="1149" loading="lazy"><figcaption>Supervisión en vivo: avance, tiempo e incidencias.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/alumno-form.webp" alt="Cuestionario abierto en el celular de un alumno" width="560" height="1212" loading="lazy"><figcaption>Cada alumno responde desde su dispositivo.</figcaption></figure></div>
       </article>
       <article class="panel" role="tabpanel" id="p-cont" aria-labelledby="t-cont" hidden>
         <div><h3>Prepara una vez, reutiliza siempre</h3><p>Guarda reactivos, definiciones, materiales y actividades en bancos organizados por carpetas, y úsalos en cualquier grupo.</p></div>
-        <ul><li>Formularios con varios tipos de reactivo</li><li>Audio y video interactivo</li><li>Crucigramas y sopas de letras</li><li>Bancos de reactivos y diccionarios</li></ul>
+        <ul><li data-info="Opción múltiple, casillas, verdadero o falso, ordenar, unir columnas, texto corto y párrafo. Con calificación automática, explicación cuando el alumno se equivoca, secciones con audio, video o modelo 3D, y exportación a Google Forms.">Formularios con varios tipos de reactivo</li><li data-info="El video o audio se detiene en los momentos que elijas para hacer preguntas, y el alumno no puede adelantarse sin responder. Puede incluir subtítulos generados en tu computadora.">Audio y video interactivo</li><li data-info="Se arman solos a partir de un diccionario de términos y definiciones, y se califican automáticamente.">Crucigramas y sopas de letras</li><li data-info="Guarda preguntas, definiciones, materiales, actividades y exámenes en carpetas por materia y unidad, y reutilízalos en cualquier grupo o ciclo.">Bancos de reactivos y diccionarios</li></ul>
+        <div class="shots three"><figure class="shot"><img src="assets/capturas/contenido.webp" alt="Actividades de una clase organizadas por unidades" width="1600" height="1000" loading="lazy"><figcaption>Actividades organizadas por unidad.</figcaption></figure><figure class="shot"><img src="assets/capturas/editor.webp" alt="Editor de formularios con preguntas de opción múltiple" width="1600" height="1000" loading="lazy"><figcaption>Editor de formularios.</figcaption></figure><figure class="shot"><img src="assets/capturas/banco.webp" alt="Banco de reactivos organizado por materia y unidad" width="1600" height="1000" loading="lazy"><figcaption>Bancos por materia y unidad.</figcaption></figure></div>
       </article>
       <article class="panel" role="tabpanel" id="p-vivo" aria-labelledby="t-vivo" hidden>
         <div><h3>La clase ocurre en tiempo real</h3><p>Presenta diapositivas sincronizadas, lanza preguntas, envía avisos y mide la participación desde tu pantalla.</p></div>
-        <ul><li>Presentaciones con preguntas</li><li>Avisos y encuestas en vivo</li><li>Temporizador y alumno al azar</li><li>Juegos para todo el grupo</li></ul>
+        <ul><li data-info="Mientras proyectas tus diapositivas, cada alumno recibe en su dispositivo la pregunta, encuesta, imagen o video que preparaste para esa diapositiva.">Presentaciones con preguntas</li><li data-info="Envía en segundos un mensaje, una encuesta, una pregunta de verdadero o falso o de opción múltiple, y ve las respuestas de inmediato.">Avisos y encuestas en vivo</li><li data-info="Un temporizador visible en tu pantalla y en la de los alumnos, y una ruleta para elegir quién participa.">Temporizador y alumno al azar</li><li data-info="Trece juegos multijugador para repasar, con puntos que pueden sumarse a la calificación de la unidad si así lo decides.">Juegos para todo el grupo</li></ul>
+        <div class="shots single"><figure class="shot"><img src="assets/capturas/aviso.webp" alt="Ventana para enviar una pregunta de opción múltiple a toda la clase" width="960" height="948" loading="lazy"><figcaption>Lanza una pregunta a toda la clase en segundos.</figcaption></figure></div>
       </article>
       <article class="panel" role="tabpanel" id="p-movil" aria-labelledby="t-movil" hidden>
         <div><h3>Tu clase, también en el celular</h3><p>Lleva el control desde el teléfono mientras caminas por el salón, sin instalar nada más.</p></div>
-        <ul><li>Calificar entregas y ver contenido</li><li>Controlar juegos y presentaciones</li><li>Pase de lista y mensajes</li><li>Menú a tu medida</li></ul>
+        <ul><li data-info="Revisa entregas, rúbricas y listas de cotejo, y consulta las actividades de cada unidad. Editar contenido se hace en la computadora.">Calificar entregas y ver contenido</li><li data-info="Inicia un juego, avanza diapositivas, lanza preguntas y elige alumno al azar caminando por el salón.">Controlar juegos y presentaciones</li><li data-info="Pasa lista o abre el registro por QR, y responde mensajes de tus alumnos.">Pase de lista y mensajes</li><li data-info="Elige qué herramientas aparecen en la barra inferior y en qué orden, desde Mi cuenta.">Menú a tu medida</li></ul>
+        <div class="shots phones"><figure class="shot phone"><img src="assets/capturas/movil-juegos.webp" alt="Selector de juegos en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Inicia un juego.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/movil-examen.webp" alt="Supervisión de exámenes en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Supervisa un examen.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/movil-aviso.webp" alt="Envío de un aviso desde el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Envía un aviso.</figcaption></figure></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="mas-funciones" data-spy>
+    <header class="band-h"><span>02 / Más funciones</span><span>Para cada momento de la clase</span></header>
+    <h2 class="big">Y mucho más <em>que una lista de calificaciones</em></h2>
+    <p class="fn-cta"><a class="btn line" href="funciones.html">Ver la guía completa de funciones →</a></p>
+    <div class="features">
+      <article class="feature">
+        <div class="feature-text"><span class="tag">En el salón</span><h3>Modo Presentación</h3><p>Proyecta tu presentación y controla desde tu computadora o tu celular lo que cada alumno ve en su dispositivo, diapositiva por diapositiva.</p><ul><li data-info="Cada diapositiva puede tener su propio contenido para el alumno, que aparece solo al llegar a ella.">Preguntas, encuestas, imágenes y videos por diapositiva</li><li data-info="Los alumnos avisan si tienen una duda o quieren participar sin interrumpir la clase.">Reacciones, dudas y mano levantada</li><li data-info="Si la clase termina a media presentación, la siguiente vez puedes continuar en la misma diapositiva con ese grupo.">Retoma donde te quedaste</li><li data-info="Usa los controles desde tu celular sin que los dispositivos de los alumnos cambien de pantalla.">Modo maestro: solo tú controlas, sin llevar a los alumnos</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/pres-editor.webp" alt="Editor de una presentación con el contenido de cada diapositiva" width="1600" height="1000" loading="lazy"><figcaption>Prepara qué aparece en cada diapositiva.</figcaption></figure><figure class="shot"><img src="assets/capturas/pres-control.webp" alt="Panel para controlar una presentación en curso" width="860" height="980" loading="lazy"><figcaption>Controla la sesión en vivo.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/pres-alumno.webp" alt="Pregunta de opción múltiple en el celular de un alumno durante una presentación" width="560" height="1212" loading="lazy"><figcaption>Así la ve el alumno.</figcaption></figure></div>
+      </article>
+      <article class="feature">
+        <div class="feature-text"><span class="tag">Planeación</span><h3>Clases</h3><p>Arma una clase completa como una secuencia de pasos y dale inicio con un clic. El temporizador te sugiere cuándo avanzar, pero tú decides siempre.</p><ul><li data-info="Ordena los pasos de la clase una vez y repítelos con cada grupo.">Asistencia, presentación, aviso y actividad en un solo plan</li><li data-info="El temporizador te sugiere cuándo pasar al siguiente paso, pero nunca avanza solo.">Minutos sugeridos para cada paso</li><li data-info="Una clase guardada sirve para todos tus grupos de la misma materia.">Reutilízala con cualquier grupo</li><li data-info="Inicia y avanza la clase desde el panel del celular.">También desde el celular</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/clase.webp" alt="Editor de una clase con pasos de asistencia, presentación y aviso" width="1000" height="820" loading="lazy"><figcaption>Cada paso tiene su tiempo sugerido.</figcaption></figure></div>
+      </article>
+      <article class="feature">
+        <div class="feature-text"><span class="tag">En vivo</span><h3>Transmisión en vivo</h3><p>Convierte tu celular en una cámara para mostrar un experimento, tu cuaderno o el pizarrón en la pantalla de cada alumno, sin salir de tu red.</p><ul><li data-info="Controla lo que ven tus alumnos sin cortar la transmisión.">Pausa, oculta la vista o cambia de cámara</li><li data-info="Dibuja flechas, círculos o texto sobre lo que transmites y guarda capturas para tus alumnos.">Anota sobre la imagen y toma capturas</li><li data-info="Desde su pantalla pueden pedir ayuda o escribir una pregunta mientras ven la transmisión.">Los alumnos piden ayuda y hacen preguntas</li><li data-info="Baja la calidad si la red del salón está saturada.">Elige la calidad del video</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/cam-alumno.webp" alt="Pizarrón transmitido en vivo en la pantalla de un alumno" width="1600" height="1000" loading="lazy"><figcaption>La transmisión en la pantalla del alumno.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/cam-maestro.webp" alt="Controles de transmisión en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Los controles en tu celular.</figcaption></figure></div>
+      </article>
+      <article class="feature">
+        <div class="feature-text"><span class="tag">Matemáticas</span><h3>Graficadora</h3><p>Una herramienta para explorar funciones que funciona sin internet. Tú la habilitas por clase y los alumnos la usan libremente.</p><ul><li data-info="Escribe expresiones como y = 2x + 1 o puntos como (2, 3), uno por renglón.">Funciones, puntos y rectas</li><li data-info="Usa letras como a o b en una función y aparecen deslizadores para ver cómo cambia la gráfica.">Parámetros con deslizadores</li><li data-info="La graficadora muestra dónde cada función corta los ejes.">Raíces y cortes con los ejes</li><li data-info="Mueve un punto con el ratón o el dedo y su coordenada se actualiza.">Puntos que se pueden arrastrar</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/graficadora.webp" alt="Graficadora con una parábola, una función seno y un punto" width="1600" height="1000" loading="lazy"><figcaption>Varias funciones en la misma gráfica.</figcaption></figure></div>
+      </article>
+      <article class="feature">
+        <div class="feature-text"><span class="tag">Para tus alumnos</span><h3>Panel del alumno</h3><p>Cada alumno ve sus clases, actividades pendientes, calificaciones, asistencia y juegos desde cualquier dispositivo, sin instalar nada.</p><ul><li data-info="El alumno ve qué le falta entregar, qué ya entregó y su calificación en cada actividad.">Actividades ordenadas por unidad</li><li data-info="Consulta su calificación por unidad y por criterio, incluida su asistencia.">Calificación y avance por unidad</li><li data-info="Guarda las preguntas que quiera repasar y las descarga en PDF.">Mi banco para estudiar</li><li data-info="Escribe al maestro de cada clase y recibe sus avisos.">Mensajes con su maestro</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/alumno-unidad.webp" alt="Actividades y calificaciones de una unidad en el panel del alumno" width="1600" height="1000" loading="lazy"><figcaption>Sus actividades y calificaciones.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/alumno-movil.webp" alt="Actividades pendientes de un alumno en su celular" width="560" height="1212" loading="lazy"><figcaption>También en su celular.</figcaption></figure></div>
+      </article>
+      <article class="feature">
+        <div class="feature-text"><span class="tag">Para ti</span><h3>Panel del maestro en el celular</h3><p>Lleva la clase contigo mientras caminas por el salón: revisa entregas, responde mensajes y controla lo que pasa en vivo. Tú eliges el orden del menú.</p><ul><li data-info="Califica entregas con rúbrica, lista de cotejo o calificación rápida.">Asignaciones y entregas por unidad</li><li data-info="Conversaciones por alumno, con aviso de mensajes nuevos.">Mensajes con tus alumnos</li><li data-info="Inicia y controla presentaciones y clases armadas.">Presentaciones y clases en vivo</li></ul></div>
+        <div class="feature-shots"><figure class="shot phone"><img src="assets/capturas/mv-asignaciones.webp" alt="Asignaciones por unidad en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Asignaciones.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/mv-mensajes.webp" alt="Conversaciones con alumnos en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Mensajes.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/mv-presentar.webp" alt="Inicio de una presentación desde el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Presentación.</figcaption></figure></div>
+      </article>
+      <article class="feature">
+        <div class="feature-text"><span class="tag">Dinámicas</span><h3>Herramientas para el salón</h3><p>Pequeñas ayudas para mantener a todo el grupo participando, listas en tu celular.</p><ul><li data-info="Forma equipos al azar, de un tamaño elegido, solo con los alumnos presentes o como tú decidas.">Equipos al azar o a mano</li><li data-info="El micrófono mide el ruido del salón y el semáforo cambia de color.">Semáforo de ruido con el micrófono</li><li data-info="Se ve en tu pantalla y en la de los alumnos, y lo controlas desde la computadora o el celular.">Temporizador visible</li><li data-info="Dinámicas en las que los alumnos se pasan el turno o responden en grupo para no quedar eliminados.">Participación en cadena y supervivencia colectiva</li><li data-info="Una ruleta para elegir quién participa, solo entre los alumnos presentes si lo prefieres.">Alumno al azar</li></ul></div>
+        <div class="feature-shots"><figure class="shot phone"><img src="assets/capturas/mv-equipos.webp" alt="Formador de equipos en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Equipos.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/mv-ruido.webp" alt="Semáforo de ruido en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Semáforo de ruido.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/mv-tiempo.webp" alt="Temporizador en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Temporizador.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/mv-supervivencia.webp" alt="Juego de supervivencia colectiva en el celular del maestro" width="560" height="1212" loading="lazy"><figcaption>Supervivencia colectiva.</figcaption></figure></div>
+      </article>
+      <article class="feature">
+        <div class="feature-text"><span class="tag">Organización</span><h3>Horarios</h3><p>Tu horario de trabajo se arma solo a partir de tus clases. Agrega juntas, asesorías o cualquier nota en la celda que quieras.</p><ul><li data-info="Los días y horas de cada grupo forman tu horario semanal.">Automático desde tus grupos</li><li data-info="Un grupo puede tener más de una sesión el mismo día.">Varias horas por día en un grupo</li><li data-info="Si lo prefieres, escribe tu horario celda por celda.">O créalo a mano</li><li data-info="Anota juntas, asesorías o recordatorios en cualquier hora.">Textos propios en cada celda</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/horario.webp" alt="Horario semanal con las clases de la maestra y notas propias" width="1600" height="1000" loading="lazy"><figcaption>Tu semana de un vistazo.</figcaption></figure></div>
       </article>
     </div>
   </section>
 
   <section class="band" id="juegos" data-spy>
-    <header class="band-h"><span>02 / Juegos</span><span>Multijugador en el salón</span></header>
+    <header class="band-h"><span>03 / Juegos</span><span>Multijugador en el salón</span></header>
     <h2 class="big right">Repasar <em>también puede ser competir</em></h2>
+    <div class="shots single wide"><figure class="shot"><img src="assets/capturas/juegos.webp" alt="Sección de juegos con los trece juegos disponibles y la opción de abrir una sala de QuizBlast" width="1600" height="1000" loading="lazy"><figcaption>Trece juegos listos para abrir una sala con tu grupo.</figcaption></figure></div>
     <ul class="grid-games">
       <li><b>⚡</b>QuizBlast</li><li><b>🧩</b>MemoPares</li><li><b>🚀</b>Duelo de Naves</li><li><b>🎯</b>Francotirador de Errores</li>
       <li><b>🎱</b>Bingo</li><li><b>🏁</b>BrainRace</li><li><b>⚡</b>Clasificación Relámpago</li><li><b>🕐</b>Línea de Tiempo</li>
@@ -102,26 +150,211 @@
   </section>
 
   <section class="band" id="como-funciona" data-spy>
-    <header class="band-h"><span>03 / Cómo funciona</span><span>Sin servidores que administrar</span></header>
+    <header class="band-h"><span>04 / Cómo funciona</span><span>Sin servidores que administrar</span></header>
     <ol class="steps">
-      <li><span>01</span><h3>Instala</h3><p>EduPlay se instala en tu computadora y queda listo junto al reloj de Windows.</p></li>
+      <li><span>01</span><h3>Instala</h3><p>OfflineEdu se instala en tu computadora y queda listo junto al reloj de Windows.</p></li>
       <li><span>02</span><h3>Crea tu cuenta</h3><p>La primera vez creas tu cuenta de maestro y empiezas con tu primer grupo.</p></li>
       <li><span>03</span><h3>Conecta a tu clase</h3><p>Tus alumnos entran desde su navegador, conectados a la misma red que tu computadora.</p></li>
-      <li><span>04</span><h3>Mantente al día</h3><p>Las nuevas versiones se descargan solas y se instalan cuando cierras el programa, nunca a media clase.</p></li>
+      <li><span>04</span><h3>Mantente al día</h3><p>OfflineEdu te avisa cuando hay una versión nueva. La descargas cuando quieras y se instala al cerrar el programa, nunca a media clase.</p></li>
     </ol>
   </section>
 
+  <section class="band" id="instalacion" data-spy>
+    <header class="band-h"><span>05 / Instalación</span><span>Tu salón, tu red</span></header>
+    <h2 class="big">Guía de instalación <em>con tu propio router</em></h2>
+    <div class="guide">
+      <p class="guide-lead">La forma más sencilla es llevar tu computadora y un router propio: los alumnos se conectan a tu red y OfflineEdu funciona aunque no haya internet. Usamos el <strong>Xiaomi Router AX3000T</strong> como ejemplo; cualquier router con las mismas características sirve.</p>
+
+      <figure class="guide-diagram" aria-label="Diagrama: la computadora del maestro conectada por cable al router, y los alumnos conectados por Wi-Fi">
+        <svg viewBox="0 0 760 210" role="img">
+          <title>Computadora del maestro conectada por cable al router; los alumnos se conectan por Wi-Fi</title>
+          <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="30" y="58" width="140" height="88" rx="8"/><path d="M14 158h172l-14 16H28z"/>
+            <path d="M170 128 C 250 128, 260 140, 318 140" stroke-dasharray="7 7"/>
+            <rect x="318" y="118" width="124" height="46" rx="10"/>
+            <path d="M338 118V72M362 118V62M398 118V62M422 118V72"/>
+            <path d="M470 96a38 38 0 0 1 0 64M490 80a62 62 0 0 1 0 96" />
+            <rect x="560" y="48" width="44" height="76" rx="8"/><rect x="630" y="72" width="44" height="76" rx="8"/><rect x="590" y="118" width="44" height="76" rx="8"/>
+          </g>
+          <g font-family="inherit" font-size="15" font-weight="700" fill="currentColor" text-anchor="middle">
+            <text x="100" y="40">Tu computadora</text><text x="100" y="198">OfflineEdu</text>
+            <text x="244" y="118">Cable de red</text>
+            <text x="380" y="190">Router</text>
+            <text x="640" y="30">Alumnos por Wi-Fi</text>
+          </g>
+        </svg>
+      </figure>
+
+      <h3>1. Lo que necesitas</h3>
+      <div class="req-table" role="region" aria-label="Requisitos" tabindex="0">
+        <table>
+          <thead><tr><th scope="col"></th><th scope="col">Mínimo</th><th scope="col">Recomendado</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Computadora</th><td>Windows 10 u 11 de 64 bits, 4 núcleos, 8 GB de RAM, SSD con 30 GB libres</td><td>6 núcleos o más, 16 GB de RAM, SSD de 256 GB</td></tr>
+            <tr><th scope="row">Router</th><td>Wi-Fi 5 (802.11ac) de doble banda, para unos 25 alumnos</td><td>Wi-Fi 6 (802.11ax) con MU-MIMO y OFDMA, como el Xiaomi AX3000T</td></tr>
+            <tr><th scope="row">Alumnos por router</th><td>Hasta 25 conectados a la vez</td><td>30 a 40 por router; para más, un segundo router en malla</td></tr>
+            <tr><th scope="row">Conexión de tu computadora</th><td>Wi-Fi</td><td>Cable de red Cat 5e o Cat 6 (más estable)</td></tr>
+            <tr><th scope="row">Energía</th><td>Contacto para la computadora y el router</td><td>Multicontacto con regulador o un no-break pequeño</td></tr>
+            <tr><th scope="row">Alumnos</th><td colspan="2">Cualquier celular, tableta o computadora con un navegador actualizado, sin instalar nada</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="guide-note">Las cifras de alumnos por router son una estimación para uso real en el salón; los fabricantes anuncian más dispositivos en condiciones de laboratorio.</p>
+
+      <h3>2. Qué debe tener el router</h3>
+      <ul class="guide-list">
+        <li><strong>Doble banda (2.4 GHz y 5 GHz).</strong> La de 5 GHz es más rápida y se satura menos.</li>
+        <li><strong>MU-MIMO y OFDMA.</strong> Permiten atender a varios dispositivos al mismo tiempo en lugar de uno por uno; OFDMA aprovecha más en celulares con Wi-Fi 6.</li>
+        <li><strong>Puertos Gigabit.</strong> Para conectar tu computadora por cable.</li>
+        <li><strong>Seguridad WPA2 o WPA3.</strong> Usa el modo mixto WPA2/WPA3: algunos celulares antiguos no se conectan si solo eliges WPA3.</li>
+        <li><strong>Reserva de dirección IP (DHCP estático).</strong> Para que tu computadora tenga siempre la misma dirección.</li>
+        <li><strong>Que permita la conexión entre dispositivos.</strong> El “aislamiento de clientes” y la red de invitados impiden que los alumnos lleguen a tu computadora.</li>
+        <li><strong>Que funcione sin internet.</strong> No hace falta conectarlo a un módem.</li>
+      </ul>
+      <div class="router-card">
+        <h4>Ejemplo: Xiaomi Router AX3000T</h4>
+        <ul>
+          <li>Wi-Fi 6 de doble banda: hasta 2402 Mbps en 5 GHz (con canal de 160 MHz) y 574 Mbps en 2.4 GHz</li>
+          <li>MU-MIMO, OFDMA y WPA3</li>
+          <li>4 antenas externas y 4 puertos Gigabit</li>
+          <li>Procesador de doble núcleo a 1.3 GHz y 256 MB de memoria</li>
+          <li>Botón de malla para sumar un segundo router y emparejamiento por NFC con celulares Android</li>
+        </ul>
+      </div>
+
+      <h3>3. Configura el router</h3>
+      <ol class="guide-steps">
+        <li>Conecta el router a la corriente. No necesitas conectarlo a internet.</li>
+        <li>Conecta tu computadora a uno de sus puertos con el cable de red (o a su Wi-Fi inicial).</li>
+        <li>Abre en el navegador <code>192.168.31.1</code> o <code>router.miwifi.com</code>. También puedes usar la app de Xiaomi en tu celular.</li>
+        <li>En el asistente, crea la contraseña de administración del router y anótala.</li>
+        <li>Ponle un nombre a la red, por ejemplo <code>Salon-OfflineEdu</code>, y una contraseña para los alumnos. Elige seguridad WPA2/WPA3.</li>
+        <li>Mantén desactivada la red de invitados y cualquier opción de aislamiento entre dispositivos.</li>
+      </ol>
+
+      <h3 id="ip-estatica">4. Dale a tu computadora una IP fija</h3>
+      <p>Si la dirección de tu computadora cambia, los alumnos dejan de encontrarla. Hay dos formas de fijarla; te recomendamos la primera.</p>
+      <div class="guide-two">
+        <div>
+          <h4>Opción A (recomendada): reservarla en el router</h4>
+          <ol class="guide-steps">
+            <li>Conecta tu computadora al router como la usarás en clase: por cable o por Wi-Fi. Cada una tiene su propia dirección física (MAC).</li>
+            <li>Si te conectas por Wi-Fi, desactiva en Windows las direcciones aleatorias para esa red: <em>Configuración → Red e Internet → Wi-Fi → (tu red) → Dirección de hardware aleatoria: Desactivado</em>. Si no, la reserva no funcionará.</li>
+            <li>En <code>192.168.31.1</code>, busca la lista de dispositivos conectados o la configuración de red local (LAN/DHCP) y la opción para <strong>asignar una IP fija o estática</strong> a un dispositivo. El nombre exacto cambia según la versión del sistema del router.</li>
+            <li>Elige tu computadora (por su nombre o su dirección MAC) y asígnale una dirección, por ejemplo <code>192.168.31.10</code>. Guarda.</li>
+            <li>Desconecta y vuelve a conectar tu computadora para que tome la dirección nueva.</li>
+          </ol>
+        </div>
+        <div>
+          <h4>Opción B: fijarla en Windows</h4>
+          <ol class="guide-steps">
+            <li>En la configuración de red local del router, revisa el rango de direcciones que reparte (DHCP) y elige una <strong>fuera de ese rango</strong>, para que no la reciba otro dispositivo.</li>
+            <li>En Windows: <em>Configuración → Red e Internet → (Ethernet o Wi-Fi) → Asignación de IP → Editar → Manual → IPv4</em>.</li>
+            <li>Escribe la dirección elegida, máscara <code>255.255.255.0</code>, puerta de enlace <code>192.168.31.1</code> y DNS <code>192.168.31.1</code>. Guarda.</li>
+          </ol>
+          <p class="guide-note">Si cambias de router o de red, regresa esta opción a “Automático”.</p>
+        </div>
+      </div>
+
+      <h3>5. Prepara Windows e instala OfflineEdu</h3>
+      <ol class="guide-steps">
+        <li>Marca la red del router como <strong>privada</strong>: <em>Configuración → Red e Internet → (tu red) → Tipo de perfil de red: Privada</em>. Si queda como pública, Windows bloquea a los alumnos.</li>
+        <li>Instala OfflineEdu y crea tu cuenta de maestro la primera vez que lo abras.</li>
+        <li>En el ícono de OfflineEdu junto al reloj, elige <strong>Copiar dirección para alumnos</strong>. Será algo como <code>http://192.168.31.10:3000</code>.</li>
+      </ol>
+
+      <h3>6. Conecta a tus alumnos</h3>
+      <ol class="guide-steps">
+        <li>Los alumnos se conectan a la red del salón con la contraseña que creaste.</li>
+        <li>Abren la dirección en su navegador o escanean el código QR de la pantalla de inicio de sesión.</li>
+        <li>Para transmitir con la cámara de tu celular se usa la dirección segura (<code>https://…:3001</code>); la primera vez, acepta el aviso del navegador.</li>
+      </ol>
+
+      <h3 id="linux-mac">Linux y macOS</h3>
+      <p>Por ahora el instalador es solo para Windows. En Linux y macOS, OfflineEdu se instala de forma manual con los archivos del programa; es para usuarios con algo de experiencia en la terminal.</p>
+      <div class="guide-two">
+        <div>
+          <h4>Instalar y abrir OfflineEdu</h4>
+          <ol class="guide-steps">
+            <li>Instala <strong>Node.js 20</strong> (versión LTS) desde <code>nodejs.org</code>.</li>
+            <li>Abre una terminal en la carpeta del programa e instala sus componentes: <code>npm ci --omit=dev</code></li>
+            <li>Inícialo con tus datos en una carpeta aparte: <code>OFFLINEEDU_DATA_DIR=~/OfflineEdu-datos node server.js</code></li>
+            <li>La primera vez, la terminal muestra la contraseña temporal del administrador: guárdala. Luego abre <code>http://localhost:3000</code> y crea tu cuenta de maestro.</li>
+            <li>Deja la terminal abierta durante la clase; al cerrarla, OfflineEdu se detiene.</li>
+          </ol>
+          <p class="guide-note">En estos sistemas no hay ícono junto al reloj ni actualizaciones automáticas, y los subtítulos en tiempo real aún no están disponibles en macOS. Algunos componentes pueden pedir herramientas de compilación al instalarse.</p>
+        </div>
+        <div>
+          <h4>Dirección para tus alumnos</h4>
+          <ul class="guide-list">
+            <li><strong>macOS:</strong> <em>Ajustes del Sistema → Red → (Wi-Fi o Ethernet) → Detalles → TCP/IP</em> muestra tu dirección IP.</li>
+            <li><strong>Linux:</strong> en una terminal, <code>hostname -I</code>.</li>
+            <li>Tus alumnos abren <code>http://(tu dirección):3000</code> o escanean el código QR de la pantalla de inicio de sesión.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide-two">
+        <div>
+          <h4>IP fija en macOS</h4>
+          <ol class="guide-steps">
+            <li>Para reservarla en el router (opción A), desactiva la dirección privada de esa red: <em>Ajustes del Sistema → Red → Wi-Fi → Detalles → Dirección Wi-Fi privada: Desactivado</em>.</li>
+            <li>Para fijarla en el equipo (opción B): <em>Detalles → TCP/IP → Configurar IPv4: Manualmente</em>, con la dirección elegida, máscara <code>255.255.255.0</code> y router <code>192.168.31.1</code>. En <em>DNS</em> agrega <code>192.168.31.1</code>.</li>
+            <li>Si el firewall de macOS está activo, permite las conexiones entrantes de <strong>node</strong> cuando lo pregunte.</li>
+          </ol>
+        </div>
+        <div>
+          <h4>IP fija en Linux (Ubuntu y similares)</h4>
+          <ol class="guide-steps">
+            <li>Para reservarla en el router (opción A), evita la dirección aleatoria: en <em>Configuración → Wi-Fi → ⚙ de tu red → Identidad</em>, deja la dirección clonada en <strong>Permanente</strong>.</li>
+            <li>Para fijarla en el equipo (opción B): en <em>⚙ de tu red → IPv4 → Manual</em>, escribe la dirección, máscara <code>255.255.255.0</code>, puerta de enlace y DNS <code>192.168.31.1</code>.</li>
+            <li>Si usas el firewall <code>ufw</code>, abre los puertos de OfflineEdu: <code>sudo ufw allow 3000:3001/tcp</code></li>
+          </ol>
+        </div>
+      </div>
+
+      <h3>Si algo no funciona</h3>
+      <ul class="guide-list">
+        <li><strong>Los alumnos no abren la página:</strong> revisa que la red de Windows sea privada, que estén en la misma red y que el router no aísle dispositivos.</li>
+        <li><strong>Funcionaba y dejó de funcionar:</strong> probablemente cambió la dirección de tu computadora; fíjala con el paso 4.</li>
+        <li><strong>Se cae con muchos alumnos:</strong> conecta tu computadora por cable y suma un segundo router en malla.</li>
+        <li><strong>Exámenes:</strong> un router sin internet ayuda al modo anti-trampa, que pausa el examen si detecta conexión a internet.</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="band" id="tus-datos" data-spy>
-    <header class="band-h"><span>04 / Tus datos</span><span>Bajo tu control</span></header>
+    <header class="band-h"><span>06 / Tus datos</span><span>Bajo tu control</span></header>
     <div class="abc">
       <div><span>A</span><h3>En tu computadora</h3><p>Las calificaciones, entregas y listas de tus alumnos se guardan en tu equipo.</p></div>
-      <div><span>B</span><h3>Respaldos</h3><p>Configura respaldos automáticos en la carpeta que elijas. Antes de cada actualización se guarda una copia.</p></div>
+      <div><span>B</span><h3>Respaldos</h3><p>Elige qué incluir, programa respaldos automáticos y restaura cuando lo necesites. Antes de cada actualización se guarda una copia.</p></div>
       <div><span>C</span><h3>Sin perder nada</h3><p>Actualizar o desinstalar el programa no borra tu carpeta de datos.</p></div>
+    </div>
+    <div class="shots single"><figure class="shot"><img src="assets/capturas/respaldo.webp" alt="Configuración de respaldos con las casillas para elegir qué incluir y la opción de restaurar" width="1100" height="1016" loading="lazy"><figcaption>Tú decides qué se respalda y dónde.</figcaption></figure></div>
+  </section>
+
+  <section class="band" id="preguntas" data-spy>
+    <header class="band-h"><span>07 / Preguntas frecuentes</span><span>Respuestas rápidas</span></header>
+    <h2 class="big right">Preguntas <em>frecuentes</em></h2>
+    <div class="faq">
+      <details class="faq-item"><summary>¿Necesito internet?</summary><p>No. OfflineEdu funciona en la red de tu salón, aunque no tenga internet. Solo algunas funciones lo necesitan: generar voces para conversaciones, exportar a Google Forms y descargar actualizaciones.</p></details>
+      <details class="faq-item"><summary>¿Mis alumnos tienen que instalar algo?</summary><p>No. Entran desde el navegador de su celular, tableta o computadora, conectados a la misma red que tu computadora.</p></details>
+      <details class="faq-item"><summary>¿Cuántos alumnos pueden conectarse a la vez?</summary><p>En nuestras pruebas, más de 200 alumnos entregaron actividades al mismo tiempo sin demoras. Cuando todo un grupo inicia sesión en el mismo instante, la entrada puede tardar unos segundos. En la práctica, el límite suele ser el router: calcula de 30 a 40 alumnos por router.</p></details>
+      <details class="faq-item"><summary>¿Dónde se guardan mis datos?</summary><p>En tu computadora. En Windows, en <code>%APPDATA%\OfflineEdu\datos</code>; en Linux y macOS, en la carpeta que indiques al iniciarlo. Actualizar o desinstalar el programa no borra esa carpeta.</p></details>
+      <details class="faq-item"><summary>¿Cómo hago respaldos?</summary><p>En <strong>Configuración → Respaldo automático</strong> eliges la carpeta o memoria USB, cada cuántas horas y qué incluir. Para restaurar, eliges el respaldo con <strong>Explorar</strong> y decides si combinarlo con tus datos actuales o reemplazarlos; ambas opciones piden tu contraseña.</p></details>
+      <details class="faq-item"><summary>¿Varios maestros pueden usar la misma computadora?</summary><p>Sí. Cada maestro entra con su cuenta y solo ve sus grupos, alumnos, contenidos y respaldos. El administrador crea las cuentas de maestro y puede administrar la información de todos, así que esa cuenta debe tenerla alguien de confianza.</p></details>
+      <details class="faq-item"><summary>¿Puedo usar la red Wi-Fi de la escuela?</summary><p>Sí, si permite que los dispositivos se comuniquen entre sí. Muchas redes escolares lo bloquean (aislamiento de clientes); en ese caso, usa un router propio como el de esta guía.</p></details>
+      <details class="faq-item"><summary>Mis alumnos no pueden abrir la página. ¿Qué reviso?</summary><p>Que estén en la misma red que tu computadora, que en Windows la red sea <strong>privada</strong>, que el router no aísle dispositivos y que tu computadora no haya cambiado de dirección. Para evitar lo último, fija su IP.</p></details>
+      <details class="faq-item"><summary>¿Por qué el navegador dice que la conexión no es segura?</summary><p>La dirección segura (<code>https</code>) usa un certificado creado por tu propia computadora, que el navegador no reconoce. Solo hace falta para transmitir con la cámara del celular: acepta el aviso la primera vez.</p></details>
+      <details class="faq-item"><summary>Olvidé mi contraseña. ¿Qué hago?</summary><p>Si eres maestro, el administrador puede asignarte una nueva desde <strong>Cuentas</strong>. Si olvidaste la del administrador, se puede restablecer desde la computadora donde está instalado OfflineEdu.</p></details>
+      <details class="faq-item"><summary>¿Cómo se actualiza?</summary><p>En Windows, OfflineEdu te avisa cuando hay una versión nueva. La descargas desde <strong>Configuración → Actualizaciones</strong> y se instala al cerrar el programa o con <strong>Instalar ahora</strong>; antes se guarda una copia de tus datos. En Linux y macOS, la actualización es manual.</p></details>
+      <details class="faq-item"><summary>¿Qué pasa si se va la luz?</summary><p>Lo que ya se entregó queda guardado. Si estaba corriendo un examen, su tiempo sigue contando aunque la computadora esté apagada. Un no-break pequeño evita estos cortes.</p></details>
+      <details class="faq-item"><summary>¿Qué puedo hacer desde la computadora y qué desde el celular?</summary><div class="faq-two"><div><strong>Computadora</strong><p>Todo: crear grupos y unidades, preparar actividades, exámenes, bancos, presentaciones y clases; configurar la evaluación y descargar reportes; administrar cuentas, respaldos y actualizaciones.</p></div><div><strong>Celular</strong><p>Dar la clase caminando por el salón: alumno al azar, equipos, temporizador, semáforo de ruido, pase de lista y QR, avisos, presentaciones, clases armadas, juegos, transmisión con la cámara, supervisión de exámenes y calificación de hojas de burbujas, calificar entregas y mensajes. Crear y editar contenido se hace en la computadora.</p></div></div><p><a href="funciones.html#movil">Ver el panel del celular en detalle</a></p></details>
+      <details class="faq-item"><summary>¿Funciona en Mac y Linux?</summary><p>Sí, con instalación manual. Revisa la sección “Linux y macOS” de la guía de instalación.</p></details>
     </div>
   </section>
 
   <section class="final" id="descargar" data-spy>
-    <p class="eyebrow">05 / Descargar</p>
+    <p class="eyebrow">08 / Descargar</p>
     <h2>Empieza <em>tu próxima clase.</em></h2>
     <!-- Sin dirección de descarga todavía: ver README.md → Pendientes. -->
     <a class="btn solid disabled" aria-disabled="true"><span aria-hidden="true">↓</span> Muy pronto para Windows</a>
@@ -129,8 +362,16 @@
   </section>
 </main>
 
-<footer class="foot"><img src="assets/icono.png" alt="" width="20" height="20"><span>EduPlay © 2026</span><span>Hecho por un maestro, para maestros.</span></footer>
+<footer class="foot"><img src="assets/offlineedu-app-icon.svg" alt="" width="20" height="20"><span>OfflineEdu © 2026</span><span>Hecho por un maestro, para maestros.</span></footer>
 <div class="ruler" aria-hidden="true"><span id="ruler-mark"></span></div>
+<dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
+  <button class="lb-btn lb-close" type="button" aria-label="Cerrar">✕</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-btn lb-next" type="button" aria-label="Imagen siguiente">›</button>
+</dialog>
 <script src="main.js"></script>
+<script src="lightbox.js"></script>
+<script src="detalles.js"></script>
 </body>
 </html>

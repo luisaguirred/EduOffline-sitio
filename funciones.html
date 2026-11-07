@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Todas las funciones de OfflineEdu</title>
+<meta name="description" content="Guía detallada de las funciones de OfflineEdu: panel del maestro, panel en el celular, tipos de asignaciones y de reactivos, bancos, conversaciones con voz y reportes.">
+<link rel="icon" href="assets/offlineedu-app-icon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@500..700&family=Fraunces:opsz,wght@9..144,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>try{var t=localStorage.getItem('offlineedu_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body class="fn-page">
+<header class="top">
+  <a class="brand" href="index.html" aria-label="OfflineEdu, inicio"><img class="logo-l" src="assets/offlineedu-wordmark.svg" alt="OfflineEdu" height="26"><img class="logo-d" src="assets/offlineedu-wordmark-dark.svg" alt="" height="26"></a>
+  <nav class="nav fn-nav" aria-label="Secciones">
+    <a href="#escritorio">Escritorio</a><a href="#movil">Celular</a><a href="#asignaciones">Asignaciones</a><a href="#reactivos">Reactivos</a><a href="#bancos">Bancos</a><a href="#conversaciones">Voces</a><a href="#reportes">Reportes</a><a href="#alumno">Alumno</a>
+  </nav>
+  <div class="top-end">
+    <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true"></span></button>
+    <a class="top-cta" href="index.html#descargar">Obtener OfflineEdu</a>
+  </div>
+</header>
+<main>
+  <section class="band fn-hero">
+    <header class="band-h"><span><a href="index.html">← Inicio</a></span><span>Guía de funciones</span></header>
+    <h1 class="big">Todas las funciones <em>en detalle</em></h1>
+    <p class="fn-intro">Un recorrido por cada pestaña del panel del maestro, el panel en el celular, los tipos de asignaciones y reactivos, los bancos, el generador de conversaciones con voz y los reportes. Las capturas usan datos de demostración.</p>
+  </section>
+
+  <section class="band" id="escritorio">
+    <header class="band-h"><span>01 / Panel del maestro en la computadora</span><span>Pestañas y herramientas</span></header>
+    <div class="fn-body">
+      <p class="fn-lead">En la barra superior están las pestañas principales y, a la derecha, el selector de <strong>ciclo escolar</strong>, los <strong>mensajes</strong> 💬, las <strong>notificaciones</strong> 🔔, el cambio de tema y <strong>Mi cuenta</strong>.</p>
+      <nav class="fn-index" aria-label="Pestañas"><a href="#t-grupos">Grupos</a><a href="#t-contenido">Contenido</a><a href="#t-bancos">Bancos</a><a href="#t-evaluacion">Evaluación</a><a href="#t-juegos">Juegos</a><a href="#t-presentar">Presentar</a><a href="#t-clases">Clases</a><a href="#t-cuentas">Cuentas</a><a href="#t-config">Configuración</a><a href="#t-rapidas">Funciones rápidas</a><a href="#t-barra">Ciclos, mensajes y Mi cuenta</a></nav>
+      <article class="fn-tab" id="t-grupos">
+        <h3><span aria-hidden="true">👥</span> Grupos</h3>
+        <p>Tus clases del ciclo activo, con sus alumnos y su asistencia.</p>
+        <ul class="fn-list"><li><strong>Crear grupos</strong> con nombre, color, idioma de la clase y horario, incluso con varias sesiones el mismo día.</li><li><strong>Código de invitación</strong> para que los alumnos se unan solos, o inscripción desde Cuentas.</li><li><strong>Alumnos con indicadores</strong> de colores según su asistencia y sus entregas; tú defines los porcentajes de cada color.</li><li><strong>Ver detalles</strong> de cada alumno: asistencia sesión por sesión y calificaciones.</li><li><strong>Nota privada</strong> por alumno, que solo ves tú, y <strong>mensaje directo</strong>.</li><li><strong>Asistencia</strong>: sesiones por QR o pase de lista, tolerancia en minutos, bloqueo de un dispositivo por alumno y reapertura de sesiones.</li><li><strong>Ajustes de la clase</strong>: logo para los PDF, graficadora y chat para los alumnos.</li><li><strong>Orden de los grupos</strong> arrastrándolos.</li></ul>
+        <aside class="example"><span>Ejemplo de uso</span><p>Puedes escanear manualmente el QR de cada alumno. El semáforo del grupo ya muestra quién acumula faltas.</p></aside>
+        <div class="fn-shots"><figure class="shot"><img src="assets/capturas/grupos.webp" alt="Lista de un grupo con indicadores de color" width="1600" height="1000" loading="lazy"><figcaption>Indicadores por alumno.</figcaption></figure></div>
+      </article>
+      <article class="fn-tab" id="t-contenido">
+        <h3><span aria-hidden="true">📚</span> Contenido</h3>
+        <p>Las unidades de cada grupo y todas sus actividades.</p>
+        <ul class="fn-list"><li><strong>Unidades</strong> con su propio color y orden.</li><li><strong>＋ Nueva asignación</strong> con los <a href="#asignaciones">11 tipos disponibles</a>.</li><li><strong>Menú ⋮ de cada actividad</strong>: editar, ver entregas, duplicar, ocultar, programar desde cuándo se ve, asignarla solo a algunos alumnos, generar examen en papel y exportar a Google Forms.</li><li><strong>Editor de formularios</strong> a pantalla completa, con secciones, vista previa que simula lo que verá el alumno y selección de varios reactivos para moverlos, copiarlos o guardarlos en un banco.</li><li><strong>Bancos para el alumno</strong> por unidad: definiciones y preguntas de repaso que puedes mostrarle.</li><li><strong>Importar y exportar</strong> actividades entre grupos.</li></ul>
+        <aside class="example"><span>Ejemplo de uso</span><p>Preparas un cuestionario una vez y lo duplicas a tus tres grupos de la misma materia. En uno lo programas para que aparezca el lunes a las 8:00 y lo asignas solo a los alumnos que deben recuperar la unidad.</p></aside>
+        <div class="fn-shots"><figure class="shot"><img src="assets/capturas/contenido.webp" alt="Actividades organizadas por unidad" width="1600" height="1000" loading="lazy"><figcaption>Actividades por unidad.</figcaption></figure><figure class="shot"><img src="assets/capturas/editor.webp" alt="Editor de formularios" width="1600" height="1000" loading="lazy"><figcaption>Editor de formularios.</figcaption></figure></div>
+      </article>
+      <article class="fn-tab" id="t-bancos">
+        <h3><span aria-hidden="true">🗂</span> Bancos</h3>
+        <p>Tu material reutilizable, organizado por materia, unidad y carpetas.</p>
+        <ul class="fn-list"><li>Cinco tipos de banco: <a href="#bancos">reactivos, diccionarios, materiales, actividades y exámenes</a>.</li><li><strong>Explorador</strong> con pestañas por tipo, árbol de carpetas, buscador y carpetas anidadas que puedes renombrar.</li><li><strong>Insertar desde el banco</strong> en cualquier formulario, incluso una situación completa con todas sus preguntas.</li><li><strong>Formulario desde banco</strong>: cada alumno recibe una selección distinta de preguntas.</li></ul>
+        <aside class="example"><span>Ejemplo de uso</span><p>Guardas cada semestre tus mejores preguntas en el banco “Biología › Unidad 1”. Al semestre siguiente armas el examen eligiendo 20 al azar de entre 60, y cada alumno recibe una combinación distinta.</p></aside>
+        <div class="fn-shots"><figure class="shot"><img src="assets/capturas/banco.webp" alt="Banco de reactivos" width="1600" height="1000" loading="lazy"><figcaption>Bancos por materia y unidad.</figcaption></figure></div>
+      </article>
+      <article class="fn-tab" id="t-evaluacion">
+        <h3><span aria-hidden="true">📊</span> Evaluación</h3>
+        <p>Calificaciones calculadas automáticamente, unidad por unidad.</p>
+        <ul class="fn-list"><li><strong>Pesos por unidad</strong>: asistencia, asignaciones, proyectos, examen y criterios propios.</li><li><strong>Criterios personalizados</strong> con calificación manual, lista de cotejo o rúbrica.</li><li><strong>Peso entre unidades</strong> iguales o personalizados para la calificación final.</li><li><strong>Puntos extra</strong>, bonificación por juegos y canje de puntos de juego por calificación.</li><li><strong>Tabla resumen</strong> de la unidad con el cálculo de cada criterio por alumno.</li><li><strong><a href="#reportes">Reportes en PDF y Excel</a></strong>.</li></ul>
+        <aside class="example"><span>Ejemplo de uso</span><p>En la Unidad 2 decides que la asistencia vale 10 %, las tareas 40 %, el proyecto 20 % y el examen 30 %. Al cerrar la unidad descargas el reporte en PDF para firmarlo y la hoja de cálculo para tu control.</p></aside>
+        <div class="fn-shots"><figure class="shot"><img src="assets/capturas/evaluacion.webp" alt="Resumen de la unidad" width="1600" height="1000" loading="lazy"><figcaption>Resumen por unidad.</figcaption></figure></div>
+      </article>
+      <article class="fn-tab" id="t-juegos">
+        <h3><span aria-hidden="true">🎮</span> Juegos</h3>
+        <p>Trece juegos multijugador para repasar en el salón.</p>
+        <ul class="fn-list"><li>QuizBlast, MemoPares, Duelo de Naves, Francotirador de Errores, Bingo, BrainRace, Clasificación Relámpago, Línea de Tiempo, Stop / Basta, WordRain, CatchTime, VerbBlast y Palabra Oculta.</li><li><strong>Sala con lobby</strong>: los alumnos entran mientras eliges las preguntas.</li><li><strong>Preguntas desde tus bancos y diccionarios</strong> para QuizBlast.</li><li><strong>Solo la clase elegida</strong> ve la sesión del juego.</li><li><strong>Puntajes</strong> por alumno que pueden contar para la unidad.</li></ul>
+        <aside class="example"><span>Ejemplo de uso</span><p>Faltan diez minutos para terminar: abres QuizBlast con las preguntas del banco de la unidad, los alumnos entran con su celular y repasan compitiendo.</p></aside>
+        <div class="fn-shots"><figure class="shot"><img src="assets/capturas/juegos.webp" alt="Sección de juegos" width="1600" height="1000" loading="lazy"><figcaption>Selección de juegos.</figcaption></figure></div>
+      </article>
+      <article class="fn-tab" id="t-presentar">
+        <h3><span aria-hidden="true">🎬</span> Presentar</h3>
+        <p>Tus presentaciones con contenido interactivo para cada diapositiva.</p>
+        <ul class="fn-list"><li><strong>Editor</strong> por diapositiva: texto, encuesta, verdadero o falso, opción múltiple, imagen, audio, video o enlace.</li><li><strong>Control en vivo</strong> desde la computadora o el celular: avanzar, bloquear o fijar contenido, navegación libre y alumno al azar.</li><li><strong>Modo maestro</strong>: solo tú usas los controles, sin llevar a los alumnos a la presentación.</li><li><strong>Captura de pantalla</strong> para enviar a los alumnos lo que estás mostrando.</li><li><strong>Descarga</strong> de la presentación para la audiencia, durante o al final.</li><li><strong>Retomar</strong> en la diapositiva donde te quedaste con ese grupo.</li></ul>
+        <aside class="example"><span>Ejemplo de uso</span><p>En la diapositiva 3 de tu clase sobre la célula, cada alumno recibe la pregunta “¿Qué organelo produce la energía?” en su celular. Ves al instante cuántos acertaron antes de explicar.</p></aside>
+        <div class="fn-shots"><figure class="shot"><img src="assets/capturas/pres-editor.webp" alt="Editor de presentación" width="1600" height="1000" loading="lazy"><figcaption>Editor por diapositiva.</figcaption></figure><figure class="shot"><img src="assets/capturas/pres-control.webp" alt="Control de una presentación" width="860" height="980" loading="lazy"><figcaption>Control en vivo.</figcaption></figure></div>
+      </article>
+      <article class="fn-tab" id="t-clases">
+        <h3><span aria-hidden="true">📦</span> Clases</h3>
+        <p>Clases completas armadas como una secuencia de pasos.</p>
+        <ul class="fn-list"><li>Pasos de asistencia, presentación, aviso, actividad del banco y temporizador.</li><li>Minutos sugeridos por paso: el sistema sugiere avanzar, pero tú decides.</li><li>Se inician y controlan desde la computadora o el celular.</li></ul>
+        <aside class="example"><span>Ejemplo de uso</span><p>Tu clase de 50 minutos: 3 de pase de lista, 20 de presentación, 2 para una pregunta rápida y 15 para el cuestionario. La repites igual con cada grupo con un solo clic.</p></aside>
+        <div class="fn-shots"><figure class="shot"><img src="assets/capturas/clase.webp" alt="Editor de una clase" width="1000" height="820" loading="lazy"><figcaption>Pasos de una clase.</figcaption></figure></div>
+      </article>
+      <article class="fn-tab" id="t-cuentas">
+        <h3><span aria-hidden="true">👤</span> Cuentas</h3>
+        <p>Las cuentas de tus alumnos.</p>
+        <ul class="fn-list"><li><strong>Crear alumnos</strong> con apellidos y nombres, e inscribirlos en tus clases.</li><li><strong>Filtrar por clase</strong> y mover alumnos de una clase a otra.</li><li><strong>Activar o desactivar</strong> cuentas, restablecer contraseñas y desbloquear a quien falló varias veces su contraseña.</li><li>El <strong>administrador</strong> crea las cuentas de maestro; cada maestro solo ve a sus alumnos.</li></ul>
+        
+        
+      </article>
+      <article class="fn-tab" id="t-config">
+        <h3><span aria-hidden="true">⚙️</span> Configuración</h3>
+        <p>Ajustes de la plataforma.</p>
+        <ul class="fn-list"><li><strong>Idioma</strong> de tu panel: español o inglés.</li><li><strong>Actualizaciones</strong>: buscar, descargar e instalar versiones nuevas.</li><li><strong>Respaldo automático</strong> a la carpeta o memoria USB que elijas, cada cuántas horas y con lo que decidas incluir.</li><li><strong>Restaurar</strong> un respaldo eligiéndolo con <em>Explorar</em>, combinándolo con tus datos o reemplazándolos.</li><li><strong>Seguridad</strong>: bloqueo por intentos fallidos de contraseña.</li><li><strong>Modo invitado</strong> y registro de problemas para soporte.</li></ul>
+        
+        <div class="fn-shots"><figure class="shot"><img src="assets/capturas/respaldo.webp" alt="Configuración de respaldos" width="1100" height="1016" loading="lazy"><figcaption>Respaldos.</figcaption></figure></div>
+      </article>
+      <article class="fn-tab" id="t-rapidas">
+        <h3><span aria-hidden="true">⚡</span> Funciones rápidas</h3>
+        <p>Un menú en la barra superior con las herramientas que usas durante la clase, sin cambiar de pestaña.</p>
+        <ul class="fn-list"><li>🎲 <strong>Alumno aleatorio</strong> y 👥 <strong>equipos</strong>.</li><li>⏱ <strong>Temporizador</strong> en pantalla completa, que también ven los alumnos.</li><li>🎤 <strong>Semáforo de ruido</strong>, 🔗 <strong>cadena de participación</strong> y 💀 <strong>supervivencia</strong>.</li><li>📢 <strong>Aviso en vivo</strong> y 📲 <strong>código QR</strong> en pantalla completa para que los alumnos entren.</li><li>📐 <strong>Graficador</strong> y 🎙 <a href="#conversaciones"><strong>conversaciones con voz</strong></a>.</li></ul>
+        <aside class="example"><span>Ejemplo de uso</span><p>Notas que el grupo se distrae: abres el semáforo de ruido, que cambia a rojo cuando sube el volumen, y después eliges con la ruleta a quién le toca responder.</p></aside>
+      </article>
+      <article class="fn-tab" id="t-barra">
+        <h3><span aria-hidden="true">🧭</span> Ciclos, mensajes, notificaciones y Mi cuenta</h3>
+        <ul class="fn-list"><li><strong>Ciclos escolares</strong>: crea uno nuevo, copia tus grupos y cambia de ciclo; cada maestro tiene los suyos.</li><li><strong>Centro de mensajes</strong> con el historial de cada alumno.</li><li><strong>Notificaciones</strong>: eliges cuáles de los nueve tipos de aviso quieres recibir, como entregas tardías o exámenes terminados.</li><li><strong>Mi cuenta</strong>: foto, contraseña, tu horario semanal y el orden de la barra del celular.</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="movil">
+    <header class="band-h"><span>02 / Panel del maestro en el celular</span><span>Para usar caminando por el salón</span></header>
+    <div class="fn-body">
+      <p class="fn-lead">Abre la misma dirección en tu celular y entra con tu cuenta de maestro. La barra inferior reúne las herramientas para dar la clase; tú eliges cuáles aparecen y en qué orden desde <strong>Mi cuenta</strong>. Crear y editar contenido se hace en la computadora.</p>
+      <ul class="mob-grid"><li><span aria-hidden="true">🎲</span><div><strong>Alumno aleatorio</strong><p>Ruleta con tus alumnos, solo los presentes si lo prefieres.</p></div></li><li><span aria-hidden="true">👥</span><div><strong>Equipos</strong><p>Al azar, de un tamaño elegido o a mano, con temas por equipo.</p></div></li><li><span aria-hidden="true">📋</span><div><strong>Lista</strong><p>Pase de lista y registro por QR con la cámara.</p></div></li><li><span aria-hidden="true">⏱</span><div><strong>Tiempo</strong><p>Temporizador que ven tú y tus alumnos.</p></div></li><li><span aria-hidden="true">🔊</span><div><strong>Ruido</strong><p>Semáforo que mide el ruido con el micrófono.</p></div></li><li><span aria-hidden="true">🔗</span><div><strong>Cadena</strong><p>Participación en la que los alumnos se pasan el turno.</p></div></li><li><span aria-hidden="true">💀</span><div><strong>Supervivencia</strong><p>Preguntas para todo el grupo en las que nadie quiere quedar eliminado.</p></div></li><li><span aria-hidden="true">📢</span><div><strong>Aviso</strong><p>Mensaje, encuesta, verdadero o falso u opción múltiple.</p></div></li><li><span aria-hidden="true">📷</span><div><strong>Cámara</strong><p>Transmite en vivo lo que enfoca tu celular.</p></div></li><li><span aria-hidden="true">🎬</span><div><strong>Presentar</strong><p>Inicia y controla presentaciones.</p></div></li><li><span aria-hidden="true">📦</span><div><strong>Clases</strong><p>Inicia y avanza una clase armada.</p></div></li><li><span aria-hidden="true">📝</span><div><strong>Examen</strong><p>Supervisa un examen, configúralo y califica hojas de burbujas con la cámara.</p></div></li><li><span aria-hidden="true">🎮</span><div><strong>Juegos</strong><p>Inicia y controla los juegos.</p></div></li><li><span aria-hidden="true">📑</span><div><strong>Asignaciones</strong><p>Califica entregas con rúbrica, lista de cotejo o calificación rápida.</p></div></li><li><span aria-hidden="true">💬</span><div><strong>Mensajes</strong><p>Conversaciones con tus alumnos.</p></div></li></ul>
+      <aside class="example"><span>Ejemplo de uso</span><p>Mientras los alumnos resuelven el examen, recorres el salón con el celular: ves quién va atrasado, das cinco minutos más a todos y, al terminar, calificas las hojas de burbujas apuntando con la cámara.</p></aside>
+      <div class="fn-shots"><figure class="shot phone"><img src="assets/capturas/mv-asignaciones.webp" alt="Asignaciones en el celular" width="560" height="1212" loading="lazy"><figcaption>Asignaciones.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/movil-examen.webp" alt="Supervisión de exámenes en el celular" width="560" height="1212" loading="lazy"><figcaption>Examen.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/movil-juegos.webp" alt="Juegos en el celular" width="560" height="1212" loading="lazy"><figcaption>Juegos.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/mv-ruido.webp" alt="Semáforo de ruido" width="560" height="1212" loading="lazy"><figcaption>Ruido.</figcaption></figure></div>
+    </div>
+  </section>
+
+  <section class="band" id="asignaciones">
+    <header class="band-h"><span>03 / Tipos de asignaciones</span><span>11 tipos</span></header>
+    <div class="fn-body">
+      <div class="req-table" role="region" aria-label="Tipos de asignaciones" tabindex="0"><table>
+        <thead><tr><th scope="col">Tipo</th><th scope="col">Para qué sirve</th><th scope="col">Calificación</th></tr></thead>
+        <tbody><tr><th scope="row"><span aria-hidden="true">📋</span> Formulario</th><td>Preguntas de varios tipos con calificación automática, secciones, multimedia y explicaciones.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">📚</span> Formulario desde banco</th><td>Cada alumno recibe una selección aleatoria de preguntas de tus bancos.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">📝</span> Tarea</th><td>El alumno entrega texto o archivos.</td><td>Manual</td></tr><tr><th scope="row"><span aria-hidden="true">🎯</span> Audio o video interactivo</th><td>Preguntas en momentos del audio o video, con subtítulos opcionales.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">📄</span> Material</th><td>Archivos o enlaces para consultar.</td><td>No se califica</td></tr><tr><th scope="row"><span aria-hidden="true">📖</span> Banco de estudio</th><td>Preguntas para repasar, descargables en PDF.</td><td>No se califica</td></tr><tr><th scope="row"><span aria-hidden="true">📝</span> Examen</th><td>Con tiempo, supervisión, código de acceso, versiones y opción en papel.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">📦</span> Proyecto</th><td>Entrega calificada con rúbrica o lista de cotejo.</td><td>Manual con rúbrica</td></tr><tr><th scope="row"><span aria-hidden="true">🔎</span> Sopa de letras</th><td>Se arma con un diccionario de términos.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">🔤</span> Crucigrama</th><td>Se arma con términos y definiciones.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">🧊</span> Modelo 3D</th><td>Modelo tridimensional para explorar, como una célula.</td><td>No se califica</td></tr></tbody></table></div>
+      <aside class="example"><span>Ejemplo de uso</span><p>Para una práctica de inglés usas un audio interactivo: el audio se pausa en cada pregunta de comprensión y el alumno no puede adelantarse sin contestar. La calificación aparece sola en Evaluación.</p></aside>
+    </div>
+  </section>
+
+  <section class="band" id="reactivos">
+    <header class="band-h"><span>04 / Tipos de reactivos</span><span>Formularios, exámenes y bancos</span></header>
+    <div class="fn-body">
+      <h3>En formularios, exámenes y videos interactivos</h3>
+      <div class="type-grid"><div class="type-card"><span aria-hidden="true">✏️</span><strong>Texto corto</strong><p>Respuesta de una línea.</p></div><div class="type-card"><span aria-hidden="true">📝</span><strong>Párrafo</strong><p>Respuesta larga, calificada por el maestro.</p></div><div class="type-card"><span aria-hidden="true">🔘</span><strong>Opción múltiple</strong><p>Una sola respuesta correcta.</p></div><div class="type-card"><span aria-hidden="true">☑️</span><strong>Casillas</strong><p>Varias respuestas, con crédito parcial.</p></div><div class="type-card"><span aria-hidden="true">⚖️</span><strong>Verdadero / Falso</strong><p>Dos opciones.</p></div><div class="type-card"><span aria-hidden="true">🔢</span><strong>Ordenar</strong><p>Poner elementos en orden.</p></div><div class="type-card"><span aria-hidden="true">🔗</span><strong>Unir columnas</strong><p>Relacionar pares, con crédito parcial.</p></div></div>
+      <h3>Además, en los bancos</h3>
+      <div class="type-grid"><div class="type-card"><span aria-hidden="true">📖</span><strong>Descripción</strong><p>Texto o lectura de apoyo; no es pregunta.</p></div><div class="type-card"><span aria-hidden="true">📂</span><strong>Sección</strong><p>Agrupa preguntas sobre una misma situación.</p></div><div class="type-card"><span aria-hidden="true">🔤</span><strong>Definición</strong><p>Término y definición para crucigramas, sopas de letras y repasos.</p></div></div>
+      <ul class="fn-list"><li>Puntos por reactivo, reactivo obligatorio y opciones en orden aleatorio.</li><li>Imagen en la pregunta y explicación que el alumno ve si se equivoca.</li><li>Crédito parcial en casillas y unir columnas.</li><li>Secciones con texto, audio, video o modelo 3D.</li></ul>
+    </div>
+  </section>
+
+  <section class="band" id="bancos">
+    <header class="band-h"><span>05 / Tipos de bancos</span><span>Prepara una vez, reutiliza siempre</span></header>
+    <div class="fn-body">
+      <div class="type-grid"><div class="type-card"><span aria-hidden="true">❓</span><strong>Reactivos</strong><p>Preguntas listas para insertar en formularios, exámenes y juegos.</p></div><div class="type-card"><span aria-hidden="true">📖</span><strong>Diccionarios</strong><p>Términos y definiciones para crucigramas, sopas de letras, QuizBlast y el glosario del alumno.</p></div><div class="type-card"><span aria-hidden="true">📁</span><strong>Materiales</strong><p>Archivos y enlaces para reutilizar en tus actividades y presentaciones.</p></div><div class="type-card"><span aria-hidden="true">🧩</span><strong>Actividades</strong><p>Actividades completas que puedes usar en cualquier grupo o en una clase armada.</p></div><div class="type-card"><span aria-hidden="true">📝</span><strong>Exámenes</strong><p>Exámenes completos para aplicar de nuevo.</p></div></div>
+      <p>Todos se organizan por <strong>materia y unidad</strong>, con carpetas anidadas, buscador y selección de varios elementos para copiarlos, moverlos o eliminarlos.</p>
+    </div>
+  </section>
+
+  <section class="band" id="conversaciones">
+    <header class="band-h"><span>06 / Conversaciones con voz</span><span>Con tu cuenta de ElevenLabs</span></header>
+    <div class="fn-body">
+      <p class="fn-lead">Convierte un guion escrito en una conversación con voces distintas para cada personaje, y descárgala en MP3 para usarla en formularios, audios interactivos o presentaciones. Se abre desde <strong>Funciones rápidas → Conversaciones con voz</strong>.</p>
+      <div class="guide-two">
+        <div>
+          <h4>Conectar tu cuenta de ElevenLabs</h4>
+          <ol class="guide-steps">
+            <li>Entra a <code>elevenlabs.io</code> con tu cuenta.</li>
+            <li>Ve a <em>Developers → API Keys</em> y crea una clave. Puedes limitarla a los permisos de <em>Text to Speech</em> y <em>Voices</em>.</li>
+            <li>Copia la clave, pégala en OfflineEdu y pulsa <strong>Conectar</strong>.</li>
+          </ol>
+          <p class="guide-note">La clave se guarda solo en tu servidor de OfflineEdu, nunca se muestra completa ni se envía a los alumnos. Cada maestro conecta su propia cuenta, y el uso consume los créditos de tu plan de ElevenLabs. Necesita internet.</p>
+        </div>
+        <div>
+          <h4>Crear la conversación</h4>
+          <ol class="guide-steps">
+            <li>Escribe el guion, un renglón por intervención: <code>David: Hi Maria, how was your weekend?</code></li>
+            <li>OfflineEdu detecta los participantes y les asigna voces según su nombre; puedes cambiarlas.</li>
+            <li>Escucha la vista previa y descarga el MP3.</li>
+          </ol>
+          <p class="guide-note">Si vuelves a generar un audio que ya existe, se reutiliza sin gastar créditos de nuevo.</p>
+        </div>
+      </div>
+      <aside class="example"><span>Ejemplo de uso</span><p>Para una lección de inglés escribes el diálogo entre dos alumnos que llegan a la escuela. En un minuto tienes el audio con dos voces distintas y lo pones en un audio interactivo con preguntas de comprensión.</p></aside>
+    </div>
+  </section>
+
+  <section class="band" id="reportes">
+    <header class="band-h"><span>07 / Reportes descargables</span><span>PDF y Excel</span></header>
+    <div class="fn-body">
+      <ul class="fn-list"><li><strong>Reporte de la unidad (PDF)</strong>: calificación de cada alumno por criterio.</li><li><strong>Reporte final (PDF)</strong>: todas las unidades y la calificación final.</li><li><strong>Hoja de cálculo (Excel)</strong> con fórmulas, por unidad o completa.</li><li><strong>Rúbricas y listas de cotejo</strong> calificadas o en blanco (PDF).</li><li><strong>Examen en papel</strong>: versiones, hoja de burbujas y clave (PDF).</li><li><strong>Formularios, banco de estudio y definiciones</strong> en PDF.</li><li><strong>Logo de tu escuela</strong> por clase en los PDF.</li></ul>
+      <aside class="example"><span>Ejemplo de uso</span><p>Al cierre del parcial descargas el reporte final en PDF para entregarlo a dirección y la hoja de cálculo en Excel, que conserva las fórmulas para revisar cómo se obtuvo cada calificación.</p></aside>
+    </div>
+  </section>
+
+  <section class="band" id="alumno">
+    <header class="band-h"><span>08 / Lo que ve el alumno</span><span>Desde cualquier navegador</span></header>
+    <div class="fn-body">
+      <ul class="fn-list"><li><strong>Mis clases</strong>: actividades de cada unidad, pendientes y entregadas.</li><li><strong>Evaluación</strong>: calificación por unidad y por criterio, con los detalles de rúbricas y listas de cotejo.</li><li><strong>Asistencia</strong>: su registro de cada sesión.</li><li><strong>Juegos</strong> abiertos por su maestro y <strong>Mi banco</strong> para repasar y descargar en PDF.</li><li><strong>Mensajes</strong> con su maestro, glosario de la unidad y graficadora si su maestro la habilita.</li></ul>
+      <div class="fn-shots"><figure class="shot"><img src="assets/capturas/alumno-unidad.webp" alt="Actividades de un alumno" width="1600" height="1000" loading="lazy"><figcaption>Sus actividades y calificaciones.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/alumno-movil.webp" alt="Actividades en el celular de un alumno" width="560" height="1212" loading="lazy"><figcaption>En su celular.</figcaption></figure></div>
+    </div>
+  </section>
+</main>
+<footer class="foot"><img src="assets/offlineedu-app-icon.svg" alt="" width="20" height="20"><span>OfflineEdu © 2026</span><span><a href="index.html">Volver al inicio</a></span></footer>
+<dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
+  <button class="lb-btn lb-close" type="button" aria-label="Cerrar">✕</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-btn lb-next" type="button" aria-label="Imagen siguiente">›</button>
+</dialog>
+<script>
+document.querySelector('.theme').addEventListener('click',function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('offlineedu_sitio_tema',r.dataset.theme);}catch(e){}});
+</script>
+<script src="lightbox.js"></script>
+</body>
+</html>
