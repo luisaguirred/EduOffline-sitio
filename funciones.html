@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Todas las funciones de EduOffline</title>
-<meta name="description" content="Guía detallada de las funciones de EduOffline: panel del maestro, panel en el celular, tipos de asignaciones y de reactivos, bancos, conversaciones con voz y reportes.">
+<meta name="description" content="Guía detallada de las funciones de EduOffline: panel del maestro, panel en el celular, tipos de asignaciones y de reactivos, bancos, conversaciones con voz, reportes y panel de la dirección.">
 <link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@500..700&family=Fraunces:opsz,wght@9..144,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fuentes.css">
 <link rel="stylesheet" href="styles.css">
 <script>try{var t=localStorage.getItem('eduoffline_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
@@ -17,7 +15,7 @@
 <header class="top">
   <a class="brand" href="index.html" aria-label="EduOffline, inicio"><img class="logo-l" src="assets/eduoffline-horizontal.svg" alt="EduOffline" height="26"><img class="logo-d" src="assets/eduoffline-horizontal-dark.svg" alt="" height="26"></a>
   <nav class="nav fn-nav" aria-label="Secciones">
-    <a href="#escritorio">Escritorio</a><a href="#movil">Celular</a><a href="#asignaciones">Asignaciones</a><a href="#reactivos">Reactivos</a><a href="#bancos">Bancos</a><a href="#conversaciones">Voces</a><a href="#reportes">Reportes</a><a href="#alumno">Alumno</a>
+    <a href="#escritorio">Escritorio</a><a href="#movil">Celular</a><a href="#asignaciones">Asignaciones</a><a href="#reactivos">Reactivos</a><a href="#bancos">Bancos</a><a href="#conversaciones">Voces</a><a href="#reportes">Reportes</a><a href="#alumno">Alumno</a><a href="#direccion">Dirección</a>
   </nav>
   <div class="top-end">
     <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true"></span></button>
@@ -28,7 +26,7 @@
   <section class="band fn-hero">
     <header class="band-h"><span><a href="index.html">← Inicio</a></span><span>Guía de funciones</span></header>
     <h1 class="big">Todas las funciones <em>en detalle</em></h1>
-    <p class="fn-intro">Un recorrido por cada pestaña del panel del maestro, el panel en el celular, los tipos de asignaciones y reactivos, los bancos, el generador de conversaciones con voz y los reportes. Las capturas usan datos de demostración.</p>
+    <p class="fn-intro">Un recorrido por cada pestaña del panel del maestro, el panel en el celular, los tipos de asignaciones y reactivos, los bancos, el generador de conversaciones con voz, los reportes y el panel de la dirección. Las capturas usan datos de demostración.</p>
   </section>
 
   <section class="band" id="escritorio">
@@ -88,13 +86,13 @@
       <article class="fn-tab" id="t-cuentas">
         <h3><span aria-hidden="true">👤</span> Cuentas</h3>
         <p>Las cuentas de tus alumnos.</p>
-        <ul class="fn-list"><li><strong>Crear alumnos</strong> con apellidos y nombres, e inscribirlos en tus clases.</li><li><strong>Filtrar por clase</strong> y mover alumnos de una clase a otra.</li><li><strong>Activar o desactivar</strong> cuentas, restablecer contraseñas y desbloquear a quien falló varias veces su contraseña.</li><li>El <strong>administrador</strong> crea las cuentas de maestro; cada maestro solo ve a sus alumnos.</li></ul>
+        <ul class="fn-list"><li><strong>Crear alumnos</strong> con apellidos y nombres, e inscribirlos en tus clases.</li><li><strong>Filtrar por clase</strong> y mover alumnos de una clase a otra.</li><li><strong>Activar o desactivar</strong> cuentas, restablecer contraseñas y desbloquear a quien falló varias veces su contraseña.</li><li>La <a href="#direccion"><strong>dirección</strong></a> crea las cuentas de maestro; cada maestro solo ve a sus alumnos.</li></ul>
         
         
       </article>
       <article class="fn-tab" id="t-config">
         <h3><span aria-hidden="true">⚙️</span> Configuración</h3>
-        <p>Ajustes de la plataforma.</p>
+        <p>Ajustes de la plataforma. Si la escuela tiene <a href="#direccion">dirección</a>, los respaldos, las actualizaciones, la seguridad y el modo invitado los administra ella desde su panel; el maestro conserva el idioma y sus reportes de problemas.</p>
         <ul class="fn-list"><li><strong>Idioma</strong> de tu panel: español o inglés.</li><li><strong>Actualizaciones</strong>: buscar, descargar e instalar versiones nuevas.</li><li><strong>Respaldo automático</strong> a la carpeta o memoria USB que elijas, cada cuántas horas y con lo que decidas incluir.</li><li><strong>Restaurar</strong> un respaldo eligiéndolo con <em>Explorar</em>, combinándolo con tus datos o reemplazándolos.</li><li><strong>Seguridad</strong>: bloqueo por intentos fallidos de contraseña.</li><li><strong>Modo invitado</strong> y registro de problemas para soporte.</li></ul>
         
         <div class="fn-shots"><figure class="shot"><img src="assets/capturas/respaldo.webp" alt="Configuración de respaldos" width="1100" height="1016" loading="lazy"><figcaption>Respaldos.</figcaption></figure></div>
@@ -202,8 +200,18 @@
       <div class="fn-shots"><figure class="shot"><img src="assets/capturas/alumno-unidad.webp" alt="Actividades de un alumno" width="1600" height="1000" loading="lazy"><figcaption>Sus actividades y calificaciones.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/alumno-movil.webp" alt="Actividades en el celular de un alumno" width="560" height="1212" loading="lazy"><figcaption>En su celular.</figcaption></figure></div>
     </div>
   </section>
+
+  <section class="band" id="direccion">
+    <header class="band-h"><span>09 / Panel de la dirección</span><span>Para el director de la escuela</span></header>
+    <div class="fn-body">
+      <p class="fn-lead">El director entra con su propia cuenta, distinta a la de cualquier maestro, y llega a un panel aparte para administrar la escuela. Supervisa sin intervenir en el trabajo de cada maestro: no ve respuestas, entregas, mensajes ni notas privadas, y todo lo que hace queda registrado. La cuenta de la dirección se crea al instalar EduOffline.</p>
+      <ul class="fn-list"><li><strong>Inicio</strong>: alumnos, docentes, grupos, conexiones activas, espacio usado, estado del servidor y de la base de datos, último respaldo y actividad reciente.</li><li><strong>Docentes</strong>: crear cuentas, desactivarlas (se cierra su sesión al momento y sus datos se conservan), restablecer contraseñas y desbloquear. Al hacer clic en un docente ves sus grupos, materias y horario semanal.</li><li><strong>Alumnos</strong>: todos los de la escuela, con búsqueda, filtros por grupo y estado (activos, desactivados, bloqueados, nunca han entrado) y orden alfabético, por grupo o por último acceso.</li><li><strong>Grupos</strong>: todos los grupos con su docente. <strong>Transfiere un grupo</strong> a otro docente con sus alumnos, unidades, asignaciones, entregas, calificaciones y asistencia; los dos docentes reciben un aviso.</li><li><strong>Calificaciones en solo lectura</strong> de cualquier grupo. Cada consulta queda registrada y el maestro sabe que la dirección puede verlas.</li><li><strong>Configuración de la escuela</strong>: respaldos y restauración, actualizaciones, seguridad de inicio de sesión, modo invitado y el envío de estadísticas y reportes.</li><li><strong>Auditoría</strong>: inicios de sesión de docentes y de la dirección, intentos fallidos, cambios de cuentas, transferencias, consultas de calificaciones y cambios de configuración.</li></ul>
+      <aside class="example"><span>Ejemplo de uso</span><p>Una maestra se cambia de turno a mitad del semestre. El director transfiere sus grupos al maestro que la sustituye: él los encuentra en su panel con todas las calificaciones y la asistencia, sin volver a capturar nada.</p></aside>
+      <div class="fn-shots"><figure class="shot"><img src="assets/capturas/direccion.webp" alt="Inicio del panel de la dirección con el estado de la escuela y la actividad reciente" width="1600" height="1000" loading="lazy"><figcaption>Estado de la escuela.</figcaption></figure><figure class="shot"><img src="assets/capturas/direccion-docente.webp" alt="Ficha de un docente con sus grupos, materias y horario" width="1380" height="699" loading="lazy"><figcaption>Ficha de un docente.</figcaption></figure></div>
+    </div>
+  </section>
 </main>
-<footer class="foot"><img src="assets/eduoffline-app-icon.svg" alt="" width="20" height="20"><span>EduOffline © 2026</span><span><a href="index.html">Volver al inicio</a></span></footer>
+<footer class="foot"><img src="assets/eduoffline-app-icon.svg" alt="" width="20" height="20"><span>EduOffline © 2026</span><span><a href="index.html">Volver al inicio</a></span><span><a href="privacidad.html">Aviso de privacidad</a></span></footer>
 <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
   <button class="lb-btn lb-close" type="button" aria-label="Cerrar">✕</button>
   <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>

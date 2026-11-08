@@ -7,9 +7,7 @@
 <meta name="description" content="EduOffline reúne asistencia, evaluación, exámenes y juegos para tu clase. Se instala en tu computadora y tus datos se quedan contigo.">
 <link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@500..700&family=Fraunces:opsz,wght@9..144,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fuentes.css">
 <link rel="stylesheet" href="styles.css">
 <script>try{var t=localStorage.getItem('eduoffline_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
@@ -47,6 +45,7 @@
       <div class="fc c8 tint-a"><b>📚</b><span>Banco de estudio</span><i>Descarga en PDF</i></div>
       <div class="fc c9 tint-b"><b>📦</b><span>Clases empaquetadas</span><i>Paso 2 de 5</i></div>
       <div class="fc c10 tint-c"><b>📐</b><span>Graficadora</span><i>y = x² − 3</i></div>
+      <div class="fc c11 tint-a"><b>🏫</b><span>Modo administración</span><i>Docentes y grupos</i></div>
     </div>
     <div class="hero-in">
       <h1 class="wordmark"><img class="logo-l" src="assets/eduoffline-logo-lema.svg" alt="EduOffline — Offline Education"><img class="logo-d" src="assets/eduoffline-logo-lema-dark.svg" alt=""></h1>
@@ -147,6 +146,10 @@
       <article class="feature">
         <div class="feature-text"><span class="tag">Organización</span><h3>Horarios</h3><p>Tu horario de trabajo se arma solo a partir de tus clases. Agrega juntas, asesorías o cualquier nota en la celda que quieras.</p><ul><li data-info="Los días y horas de cada grupo forman tu horario semanal.">Automático desde tus grupos</li><li data-info="Un grupo puede tener más de una sesión el mismo día.">Varias horas por día en un grupo</li><li data-info="Si lo prefieres, escribe tu horario celda por celda.">O créalo a mano</li><li data-info="Anota juntas, asesorías o recordatorios en cualquier hora.">Textos propios en cada celda</li></ul></div>
         <div class="feature-shots"><figure class="shot"><img src="assets/capturas/horario.webp" alt="Horario semanal con las clases de la maestra y notas propias" width="1600" height="1000" loading="lazy"><figcaption>Tu semana de un vistazo.</figcaption></figure></div>
+      </article>
+      <article class="feature">
+        <div class="feature-text"><span class="tag">Para la dirección</span><h3>Panel de la dirección</h3><p>El director tiene su propia cuenta y su propio panel para administrar la escuela, sin entrar al trabajo de cada maestro. Todo lo que hace queda registrado.</p><ul><li data-info="Crea, desactiva y desbloquea cuentas, restablece contraseñas y consulta los grupos, materias y horario de cada docente.">Docentes y alumnos</li><li data-info="Pasa un grupo a otro docente con sus alumnos, unidades, asignaciones, entregas, calificaciones y asistencia. Los dos docentes reciben un aviso.">Transferir un grupo</li><li data-info="Consulta las calificaciones de cualquier grupo sin poder modificarlas. Cada consulta queda registrada y el maestro sabe que la dirección puede verlas.">Calificaciones en solo lectura</li><li data-info="Respaldos, actualizaciones, seguridad de inicio de sesión y modo invitado se administran desde un solo lugar.">Configuración de la escuela</li><li data-info="Inicios de sesión, intentos fallidos, cambios de cuentas, transferencias y cambios de configuración, con fecha y quién lo hizo.">Auditoría</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/direccion.webp" alt="Inicio del panel de la dirección con el estado de la escuela y la actividad reciente" width="1600" height="1000" loading="lazy"><figcaption>El estado de la escuela de un vistazo.</figcaption></figure></div>
       </article>
     </div>
   </section>
@@ -375,7 +378,7 @@
   </section>
 </main>
 
-<footer class="foot"><img src="assets/eduoffline-app-icon.svg" alt="" width="20" height="20"><span>EduOffline © 2026</span><span>Hecho por un maestro, para maestros.</span></footer>
+<footer class="foot"><img src="assets/eduoffline-app-icon.svg" alt="" width="20" height="20"><span>EduOffline © 2026</span><span>Hecho por un maestro, para maestros.</span><span><a href="privacidad.html">Aviso de privacidad</a></span></footer>
 <div class="ruler" aria-hidden="true"><span id="ruler-mark"></span></div>
 <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
   <button class="lb-btn lb-close" type="button" aria-label="Cerrar">✕</button>
