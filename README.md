@@ -1,4 +1,4 @@
-# Sitio de OfflineEdu
+# Sitio de EduOffline
 
 Sitio estático en HTML, CSS y JavaScript, sin compilación. Inspirado en el estilo editorial de getartcraft.com, sin usar su marca, textos ni imágenes.
 
@@ -29,8 +29,9 @@ En `#instalacion`, con el Xiaomi AX3000T como ejemplo. Los nombres de menú del 
 En `#preguntas`, con `<details>` (sin JavaScript). Linux y macOS se explican dentro de `#instalacion`; hoy su instalación es manual.
 
 ## Pendientes
-- **Descarga:** es libre. Cuando exista la primera versión, activa el botón de `#descargar` con https://github.com/luisaguirred/OfflineEdu-releases/releases/latest
+- **Descarga:** es libre. Cuando exista la primera versión, activa el botón de `#descargar` con https://github.com/luisaguirred/EduOffline-releases/releases/latest
 - **Donaciones:** falta el enlace del servicio que elija el maestro.
-- **Nombre:** OfflineEdu (antes EduPlay, registrado en el IMPI). El logo vectorizado está en `assets/offlineedu-*.svg`; el script que lo genera, en `contenido/Marca/`.
-- **Capturas:** están en `assets/capturas/`, en modo claro y tomadas de una plataforma de demostración, sin nada de la base real: los alumnos aparecen como "Alumno 01". Muestran la marca OfflineEdu, así que hay que repetirlas al cambiar el nombre.
+- **Nombre:** EduOffline (antes EduPlay, registrado en el IMPI). El logo vectorizado está en `assets/eduoffline-*.svg`; el script que lo genera, en `contenido/Marca/`.
+- **Capturas:** están en `assets/capturas/`, en modo claro y tomadas de una plataforma de demostración, sin nada de la base real: los alumnos aparecen como "Alumno 01". Muestran la marca EduOffline, así que hay que repetirlas al cambiar el nombre.
 - **Contacto y aviso de privacidad:** faltan los datos reales.
+- **Modelo 3D de muestra:** `modelo3d.js` convierte cada `<div class="m3d" data-src="…">` en un visor con la lista de partes (al elegir una se resalta y aparece qué es). Usa `vendor/model-viewer.min.js` (copia del que trae la plataforma) y `assets/modelos/celula-animal.glb` (generado con `contenido/ejemplos/celula-animal/make-cell.js`). Ambos pesan ~1 MB y solo se descargan cuando el visor está por aparecer en pantalla. Las descripciones de cada organelo están en `modelo3d.js`.

@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OfflineEdu — Enseña jugando</title>
-<meta name="description" content="OfflineEdu reúne asistencia, evaluación, exámenes y juegos para tu clase. Se instala en tu computadora y tus datos se quedan contigo.">
-<link rel="icon" href="assets/offlineedu-app-icon.svg" type="image/svg+xml">
+<title>EduOffline — Enseña jugando</title>
+<meta name="description" content="EduOffline reúne asistencia, evaluación, exámenes y juegos para tu clase. Se instala en tu computadora y tus datos se quedan contigo.">
+<link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@500..700&family=Fraunces:opsz,wght@9..144,400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>try{var t=localStorage.getItem('offlineedu_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script>try{var t=localStorage.getItem('eduoffline_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="#inicio" aria-label="OfflineEdu, inicio"><img class="logo-l" src="assets/offlineedu-wordmark.svg" alt="OfflineEdu" height="26"><img class="logo-d" src="assets/offlineedu-wordmark-dark.svg" alt="" height="26"></a>
+  <a class="brand" href="#inicio" aria-label="EduOffline, inicio"><img class="logo-l" src="assets/eduoffline-horizontal.svg" alt="EduOffline" height="26"><img class="logo-d" src="assets/eduoffline-horizontal-dark.svg" alt="" height="26"></a>
   <nav class="nav" aria-label="Principal" data-light>
     <a href="#inicio" class="light-item">Inicio</a>
     <a href="#funciones" class="light-item">Funciones</a>
@@ -29,7 +29,7 @@
   </nav>
   <div class="top-end">
     <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true"></span></button>
-    <a class="top-cta" href="#descargar">Obtener OfflineEdu</a>
+    <a class="top-cta" href="#descargar">Obtener EduOffline</a>
   </div>
 </header>
 
@@ -37,17 +37,19 @@
   <section class="hero" id="inicio" data-spy>
     <canvas class="saberes" id="saberes" aria-hidden="true"></canvas>
     <div class="float-cards" aria-hidden="true">
-      <div class="fc c1"><b>⚡</b><span>QuizBlast</span><i>Pregunta 3 de 12</i></div>
-      <div class="fc c2 tint-a"><b>🚀</b><span>Duelo de Naves</span><i>Equipo azul al frente</i></div>
+      <div class="fc c1"><b>🎬</b><span>Modo Presentación</span><i>Diapositiva 4 de 12</i></div>
+      <div class="fc c2 tint-a"><b>🎱</b><span>Bingo</span><i>B-12 · ¡Línea!</i></div>
       <div class="fc c3"><b>✓</b><span>Asistencia</span><i>Sesión por QR</i></div>
       <div class="fc c4 tint-b"><b>📝</b><span>Modo Examen</span><i>Inicio sincronizado</i></div>
-      <div class="fc c5"><b>🧩</b><span>MemoPares</span><i>Encuentra los pares</i></div>
+      <div class="fc c5"><b>🧊</b><span>Modelos 3D</span><i>Gira la célula</i></div>
       <div class="fc c6 tint-c"><b>▦</b><span>Rúbrica</span><i>Puntos por criterio</i></div>
       <div class="fc c7"><b>🎞</b><span>Video interactivo</span><i>Preguntas en el video</i></div>
       <div class="fc c8 tint-a"><b>📚</b><span>Banco de estudio</span><i>Descarga en PDF</i></div>
+      <div class="fc c9 tint-b"><b>📦</b><span>Clases empaquetadas</span><i>Paso 2 de 5</i></div>
+      <div class="fc c10 tint-c"><b>📐</b><span>Graficadora</span><i>y = x² − 3</i></div>
     </div>
     <div class="hero-in">
-      <h1 class="wordmark"><img class="logo-l" src="assets/offlineedu-logo.svg" alt="OfflineEdu — Offline Education"><img class="logo-d" src="assets/offlineedu-logo-dark.svg" alt=""></h1>
+      <h1 class="wordmark"><img class="logo-l" src="assets/eduoffline-logo-lema.svg" alt="EduOffline — Offline Education"><img class="logo-d" src="assets/eduoffline-logo-lema-dark.svg" alt=""></h1>
       <p class="tagline">Enseña jugando, <em>evalúa sin complicarte.</em></p>
       <p class="lead">Asistencia, tareas, exámenes y juegos en vivo para tu clase, en un solo programa que corre en tu computadora.</p>
       <div class="actions">
@@ -119,6 +121,17 @@
         <div class="feature-text"><span class="tag">Matemáticas</span><h3>Graficadora</h3><p>Una herramienta para explorar funciones que funciona sin internet. Tú la habilitas por clase y los alumnos la usan libremente.</p><ul><li data-info="Escribe expresiones como y = 2x + 1 o puntos como (2, 3), uno por renglón.">Funciones, puntos y rectas</li><li data-info="Usa letras como a o b en una función y aparecen deslizadores para ver cómo cambia la gráfica.">Parámetros con deslizadores</li><li data-info="La graficadora muestra dónde cada función corta los ejes.">Raíces y cortes con los ejes</li><li data-info="Mueve un punto con el ratón o el dedo y su coordenada se actualiza.">Puntos que se pueden arrastrar</li></ul></div>
         <div class="feature-shots"><figure class="shot"><img src="assets/capturas/graficadora.webp" alt="Graficadora con una parábola, una función seno y un punto" width="1600" height="1000" loading="lazy"><figcaption>Varias funciones en la misma gráfica.</figcaption></figure></div>
       </article>
+      <article class="feature feature-3d">
+        <div class="feature-text"><span class="tag">Ciencias</span><h3>Modelos 3D</h3><p>Sube un modelo 3D y tus alumnos lo giran, lo acercan y lo exploran desde su computadora o su celular, sin internet. Pruébalo aquí con la célula animal de ejemplo.</p><ul><li data-info="Se publica en la unidad como una actividad para ver: el alumno gira y acerca el modelo, sin entrega ni calificación.">Modelo 3D como material de la unidad</li><li data-info="Acompaña las preguntas de una sección de formulario o examen, igual que un audio o un video. Incluye de ejemplo la célula animal con 16 reactivos listos para importar.">Dentro de formularios y exámenes</li><li data-info="El modelo se guarda en tu computadora y el navegador del alumno lo conserva, para no descargarlo cada vez que lo abre.">Funciona sin internet</li><li data-info="Usa archivos .glb, el formato estándar de modelos 3D. Puedes exportarlos desde Blender u otros programas de modelado.">Archivos .glb</li></ul></div>
+        <div class="feature-shots">
+          <figure class="shot m3d-fig">
+          <div class="m3d" data-src="assets/modelos/celula-animal.glb" data-alt="Modelo 3D de una célula animal con sus organelos">
+            <div class="m3d-stage"><p class="m3d-status" role="status">El modelo 3D se carga al llegar aquí.</p></div>
+            <div class="m3d-side"><p class="m3d-note" aria-live="polite">Elige una parte para resaltarla.</p><ul class="m3d-parts" aria-label="Partes de la célula"></ul></div>
+          </div>
+          <figcaption>Muestra interactiva: gira la célula y elige un organelo para ver qué hace.</figcaption></figure>
+        </div>
+      </article>
       <article class="feature">
         <div class="feature-text"><span class="tag">Para tus alumnos</span><h3>Panel del alumno</h3><p>Cada alumno ve sus clases, actividades pendientes, calificaciones, asistencia y juegos desde cualquier dispositivo, sin instalar nada.</p><ul><li data-info="El alumno ve qué le falta entregar, qué ya entregó y su calificación en cada actividad.">Actividades ordenadas por unidad</li><li data-info="Consulta su calificación por unidad y por criterio, incluida su asistencia.">Calificación y avance por unidad</li><li data-info="Guarda las preguntas que quiera repasar y las descarga en PDF.">Mi banco para estudiar</li><li data-info="Escribe al maestro de cada clase y recibe sus avisos.">Mensajes con su maestro</li></ul></div>
         <div class="feature-shots"><figure class="shot"><img src="assets/capturas/alumno-unidad.webp" alt="Actividades y calificaciones de una unidad en el panel del alumno" width="1600" height="1000" loading="lazy"><figcaption>Sus actividades y calificaciones.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/alumno-movil.webp" alt="Actividades pendientes de un alumno en su celular" width="560" height="1212" loading="lazy"><figcaption>También en su celular.</figcaption></figure></div>
@@ -152,10 +165,10 @@
   <section class="band" id="como-funciona" data-spy>
     <header class="band-h"><span>04 / Cómo funciona</span><span>Sin servidores que administrar</span></header>
     <ol class="steps">
-      <li><span>01</span><h3>Instala</h3><p>OfflineEdu se instala en tu computadora y queda listo junto al reloj de Windows.</p></li>
+      <li><span>01</span><h3>Instala</h3><p>EduOffline se instala en tu computadora y queda listo junto al reloj de Windows.</p></li>
       <li><span>02</span><h3>Crea tu cuenta</h3><p>La primera vez creas tu cuenta de maestro y empiezas con tu primer grupo.</p></li>
       <li><span>03</span><h3>Conecta a tu clase</h3><p>Tus alumnos entran desde su navegador, conectados a la misma red que tu computadora.</p></li>
-      <li><span>04</span><h3>Mantente al día</h3><p>OfflineEdu te avisa cuando hay una versión nueva. La descargas cuando quieras y se instala al cerrar el programa, nunca a media clase.</p></li>
+      <li><span>04</span><h3>Mantente al día</h3><p>EduOffline te avisa cuando hay una versión nueva. La descargas cuando quieras y se instala al cerrar el programa, nunca a media clase.</p></li>
     </ol>
   </section>
 
@@ -163,7 +176,7 @@
     <header class="band-h"><span>05 / Instalación</span><span>Tu salón, tu red</span></header>
     <h2 class="big">Guía de instalación <em>con tu propio router</em></h2>
     <div class="guide">
-      <p class="guide-lead">La forma más sencilla es llevar tu computadora y un router propio: los alumnos se conectan a tu red y OfflineEdu funciona aunque no haya internet. Usamos el <strong>Xiaomi Router AX3000T</strong> como ejemplo; cualquier router con las mismas características sirve.</p>
+      <p class="guide-lead">La forma más sencilla es llevar tu computadora y un router propio: los alumnos se conectan a tu red y EduOffline funciona aunque no haya internet. Usamos el <strong>Xiaomi Router AX3000T</strong> como ejemplo; cualquier router con las mismas características sirve.</p>
 
       <figure class="guide-diagram" aria-label="Diagrama: la computadora del maestro conectada por cable al router, y los alumnos conectados por Wi-Fi">
         <svg viewBox="0 0 760 210" role="img">
@@ -177,7 +190,7 @@
             <rect x="560" y="48" width="44" height="76" rx="8"/><rect x="630" y="72" width="44" height="76" rx="8"/><rect x="590" y="118" width="44" height="76" rx="8"/>
           </g>
           <g font-family="inherit" font-size="15" font-weight="700" fill="currentColor" text-anchor="middle">
-            <text x="100" y="40">Tu computadora</text><text x="100" y="198">OfflineEdu</text>
+            <text x="100" y="40">Tu computadora</text><text x="100" y="198">EduOffline</text>
             <text x="244" y="118">Cable de red</text>
             <text x="380" y="190">Router</text>
             <text x="640" y="30">Alumnos por Wi-Fi</text>
@@ -228,7 +241,7 @@
         <li>Conecta tu computadora a uno de sus puertos con el cable de red (o a su Wi-Fi inicial).</li>
         <li>Abre en el navegador <code>192.168.31.1</code> o <code>router.miwifi.com</code>. También puedes usar la app de Xiaomi en tu celular.</li>
         <li>En el asistente, crea la contraseña de administración del router y anótala.</li>
-        <li>Ponle un nombre a la red, por ejemplo <code>Salon-OfflineEdu</code>, y una contraseña para los alumnos. Elige seguridad WPA2/WPA3.</li>
+        <li>Ponle un nombre a la red, por ejemplo <code>Salon-EduOffline</code>, y una contraseña para los alumnos. Elige seguridad WPA2/WPA3.</li>
         <li>Mantén desactivada la red de invitados y cualquier opción de aislamiento entre dispositivos.</li>
       </ol>
 
@@ -256,11 +269,11 @@
         </div>
       </div>
 
-      <h3>5. Prepara Windows e instala OfflineEdu</h3>
+      <h3>5. Prepara Windows e instala EduOffline</h3>
       <ol class="guide-steps">
         <li>Marca la red del router como <strong>privada</strong>: <em>Configuración → Red e Internet → (tu red) → Tipo de perfil de red: Privada</em>. Si queda como pública, Windows bloquea a los alumnos.</li>
-        <li>Instala OfflineEdu y crea tu cuenta de maestro la primera vez que lo abras.</li>
-        <li>En el ícono de OfflineEdu junto al reloj, elige <strong>Copiar dirección para alumnos</strong>. Será algo como <code>http://192.168.31.10:3000</code>.</li>
+        <li>Instala EduOffline y crea tu cuenta de maestro la primera vez que lo abras.</li>
+        <li>En el ícono de EduOffline junto al reloj, elige <strong>Copiar dirección para alumnos</strong>. Será algo como <code>http://192.168.31.10:3000</code>.</li>
       </ol>
 
       <h3>6. Conecta a tus alumnos</h3>
@@ -271,16 +284,16 @@
       </ol>
 
       <h3 id="linux-mac">Linux y macOS</h3>
-      <p>Por ahora el instalador es solo para Windows. En Linux y macOS, OfflineEdu se instala de forma manual con los archivos del programa; es para usuarios con algo de experiencia en la terminal.</p>
+      <p>Por ahora el instalador es solo para Windows. En Linux y macOS, EduOffline se instala de forma manual con los archivos del programa; es para usuarios con algo de experiencia en la terminal.</p>
       <div class="guide-two">
         <div>
-          <h4>Instalar y abrir OfflineEdu</h4>
+          <h4>Instalar y abrir EduOffline</h4>
           <ol class="guide-steps">
             <li>Instala <strong>Node.js 20</strong> (versión LTS) desde <code>nodejs.org</code>.</li>
             <li>Abre una terminal en la carpeta del programa e instala sus componentes: <code>npm ci --omit=dev</code></li>
-            <li>Inícialo con tus datos en una carpeta aparte: <code>OFFLINEEDU_DATA_DIR=~/OfflineEdu-datos node server.js</code></li>
+            <li>Inícialo con tus datos en una carpeta aparte: <code>EDUOFFLINE_DATA_DIR=~/EduOffline-datos node server.js</code></li>
             <li>La primera vez, la terminal muestra la contraseña temporal del administrador: guárdala. Luego abre <code>http://localhost:3000</code> y crea tu cuenta de maestro.</li>
-            <li>Deja la terminal abierta durante la clase; al cerrarla, OfflineEdu se detiene.</li>
+            <li>Deja la terminal abierta durante la clase; al cerrarla, EduOffline se detiene.</li>
           </ol>
           <p class="guide-note">En estos sistemas no hay ícono junto al reloj ni actualizaciones automáticas, y los subtítulos en tiempo real aún no están disponibles en macOS. Algunos componentes pueden pedir herramientas de compilación al instalarse.</p>
         </div>
@@ -307,7 +320,7 @@
           <ol class="guide-steps">
             <li>Para reservarla en el router (opción A), evita la dirección aleatoria: en <em>Configuración → Wi-Fi → ⚙ de tu red → Identidad</em>, deja la dirección clonada en <strong>Permanente</strong>.</li>
             <li>Para fijarla en el equipo (opción B): en <em>⚙ de tu red → IPv4 → Manual</em>, escribe la dirección, máscara <code>255.255.255.0</code>, puerta de enlace y DNS <code>192.168.31.1</code>.</li>
-            <li>Si usas el firewall <code>ufw</code>, abre los puertos de OfflineEdu: <code>sudo ufw allow 3000:3001/tcp</code></li>
+            <li>Si usas el firewall <code>ufw</code>, abre los puertos de EduOffline: <code>sudo ufw allow 3000:3001/tcp</code></li>
           </ol>
         </div>
       </div>
@@ -336,17 +349,17 @@
     <header class="band-h"><span>07 / Preguntas frecuentes</span><span>Respuestas rápidas</span></header>
     <h2 class="big right">Preguntas <em>frecuentes</em></h2>
     <div class="faq">
-      <details class="faq-item"><summary>¿Necesito internet?</summary><p>No. OfflineEdu funciona en la red de tu salón, aunque no tenga internet. Solo algunas funciones lo necesitan: generar voces para conversaciones, exportar a Google Forms y descargar actualizaciones.</p></details>
+      <details class="faq-item"><summary>¿Necesito internet?</summary><p>No. EduOffline funciona en la red de tu salón, aunque no tenga internet. Solo algunas funciones lo necesitan: generar voces para conversaciones, exportar a Google Forms y descargar actualizaciones.</p></details>
       <details class="faq-item"><summary>¿Mis alumnos tienen que instalar algo?</summary><p>No. Entran desde el navegador de su celular, tableta o computadora, conectados a la misma red que tu computadora.</p></details>
       <details class="faq-item"><summary>¿Cuántos alumnos pueden conectarse a la vez?</summary><p>En nuestras pruebas, más de 200 alumnos entregaron actividades al mismo tiempo sin demoras. Cuando todo un grupo inicia sesión en el mismo instante, la entrada puede tardar unos segundos. En la práctica, el límite suele ser el router: calcula de 30 a 40 alumnos por router.</p></details>
-      <details class="faq-item"><summary>¿Dónde se guardan mis datos?</summary><p>En tu computadora. En Windows, en <code>%APPDATA%\OfflineEdu\datos</code>; en Linux y macOS, en la carpeta que indiques al iniciarlo. Actualizar o desinstalar el programa no borra esa carpeta.</p></details>
+      <details class="faq-item"><summary>¿Dónde se guardan mis datos?</summary><p>En tu computadora. En Windows, en <code>%APPDATA%\EduOffline\datos</code>; en Linux y macOS, en la carpeta que indiques al iniciarlo. Actualizar o desinstalar el programa no borra esa carpeta.</p></details>
       <details class="faq-item"><summary>¿Cómo hago respaldos?</summary><p>En <strong>Configuración → Respaldo automático</strong> eliges la carpeta o memoria USB, cada cuántas horas y qué incluir. Para restaurar, eliges el respaldo con <strong>Explorar</strong> y decides si combinarlo con tus datos actuales o reemplazarlos; ambas opciones piden tu contraseña.</p></details>
       <details class="faq-item"><summary>¿Varios maestros pueden usar la misma computadora?</summary><p>Sí. Cada maestro entra con su cuenta y solo ve sus grupos, alumnos, contenidos y respaldos. El administrador crea las cuentas de maestro y puede administrar la información de todos, así que esa cuenta debe tenerla alguien de confianza.</p></details>
       <details class="faq-item"><summary>¿Puedo usar la red Wi-Fi de la escuela?</summary><p>Sí, si permite que los dispositivos se comuniquen entre sí. Muchas redes escolares lo bloquean (aislamiento de clientes); en ese caso, usa un router propio como el de esta guía.</p></details>
       <details class="faq-item"><summary>Mis alumnos no pueden abrir la página. ¿Qué reviso?</summary><p>Que estén en la misma red que tu computadora, que en Windows la red sea <strong>privada</strong>, que el router no aísle dispositivos y que tu computadora no haya cambiado de dirección. Para evitar lo último, fija su IP.</p></details>
       <details class="faq-item"><summary>¿Por qué el navegador dice que la conexión no es segura?</summary><p>La dirección segura (<code>https</code>) usa un certificado creado por tu propia computadora, que el navegador no reconoce. Solo hace falta para transmitir con la cámara del celular: acepta el aviso la primera vez.</p></details>
-      <details class="faq-item"><summary>Olvidé mi contraseña. ¿Qué hago?</summary><p>Si eres maestro, el administrador puede asignarte una nueva desde <strong>Cuentas</strong>. Si olvidaste la del administrador, se puede restablecer desde la computadora donde está instalado OfflineEdu.</p></details>
-      <details class="faq-item"><summary>¿Cómo se actualiza?</summary><p>En Windows, OfflineEdu te avisa cuando hay una versión nueva. La descargas desde <strong>Configuración → Actualizaciones</strong> y se instala al cerrar el programa o con <strong>Instalar ahora</strong>; antes se guarda una copia de tus datos. En Linux y macOS, la actualización es manual.</p></details>
+      <details class="faq-item"><summary>Olvidé mi contraseña. ¿Qué hago?</summary><p>Si eres maestro, el administrador puede asignarte una nueva desde <strong>Cuentas</strong>. Si olvidaste la del administrador, se puede restablecer desde la computadora donde está instalado EduOffline.</p></details>
+      <details class="faq-item"><summary>¿Cómo se actualiza?</summary><p>En Windows, EduOffline te avisa cuando hay una versión nueva. La descargas desde <strong>Configuración → Actualizaciones</strong> y se instala al cerrar el programa o con <strong>Instalar ahora</strong>; antes se guarda una copia de tus datos. En Linux y macOS, la actualización es manual.</p></details>
       <details class="faq-item"><summary>¿Qué pasa si se va la luz?</summary><p>Lo que ya se entregó queda guardado. Si estaba corriendo un examen, su tiempo sigue contando aunque la computadora esté apagada. Un no-break pequeño evita estos cortes.</p></details>
       <details class="faq-item"><summary>¿Qué puedo hacer desde la computadora y qué desde el celular?</summary><div class="faq-two"><div><strong>Computadora</strong><p>Todo: crear grupos y unidades, preparar actividades, exámenes, bancos, presentaciones y clases; configurar la evaluación y descargar reportes; administrar cuentas, respaldos y actualizaciones.</p></div><div><strong>Celular</strong><p>Dar la clase caminando por el salón: alumno al azar, equipos, temporizador, semáforo de ruido, pase de lista y QR, avisos, presentaciones, clases armadas, juegos, transmisión con la cámara, supervisión de exámenes y calificación de hojas de burbujas, calificar entregas y mensajes. Crear y editar contenido se hace en la computadora.</p></div></div><p><a href="funciones.html#movil">Ver el panel del celular en detalle</a></p></details>
       <details class="faq-item"><summary>¿Funciona en Mac y Linux?</summary><p>Sí, con instalación manual. Revisa la sección “Linux y macOS” de la guía de instalación.</p></details>
@@ -362,7 +375,7 @@
   </section>
 </main>
 
-<footer class="foot"><img src="assets/offlineedu-app-icon.svg" alt="" width="20" height="20"><span>OfflineEdu © 2026</span><span>Hecho por un maestro, para maestros.</span></footer>
+<footer class="foot"><img src="assets/eduoffline-app-icon.svg" alt="" width="20" height="20"><span>EduOffline © 2026</span><span>Hecho por un maestro, para maestros.</span></footer>
 <div class="ruler" aria-hidden="true"><span id="ruler-mark"></span></div>
 <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
   <button class="lb-btn lb-close" type="button" aria-label="Cerrar">✕</button>
@@ -373,5 +386,6 @@
 <script src="main.js"></script>
 <script src="lightbox.js"></script>
 <script src="detalles.js"></script>
+<script src="modelo3d.js"></script>
 </body>
 </html>

@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Todas las funciones de OfflineEdu</title>
-<meta name="description" content="Guía detallada de las funciones de OfflineEdu: panel del maestro, panel en el celular, tipos de asignaciones y de reactivos, bancos, conversaciones con voz y reportes.">
-<link rel="icon" href="assets/offlineedu-app-icon.svg" type="image/svg+xml">
+<title>Todas las funciones de EduOffline</title>
+<meta name="description" content="Guía detallada de las funciones de EduOffline: panel del maestro, panel en el celular, tipos de asignaciones y de reactivos, bancos, conversaciones con voz y reportes.">
+<link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@500..700&family=Fraunces:opsz,wght@9..144,400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>try{var t=localStorage.getItem('offlineedu_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script>try{var t=localStorage.getItem('eduoffline_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body class="fn-page">
 <header class="top">
-  <a class="brand" href="index.html" aria-label="OfflineEdu, inicio"><img class="logo-l" src="assets/offlineedu-wordmark.svg" alt="OfflineEdu" height="26"><img class="logo-d" src="assets/offlineedu-wordmark-dark.svg" alt="" height="26"></a>
+  <a class="brand" href="index.html" aria-label="EduOffline, inicio"><img class="logo-l" src="assets/eduoffline-horizontal.svg" alt="EduOffline" height="26"><img class="logo-d" src="assets/eduoffline-horizontal-dark.svg" alt="" height="26"></a>
   <nav class="nav fn-nav" aria-label="Secciones">
     <a href="#escritorio">Escritorio</a><a href="#movil">Celular</a><a href="#asignaciones">Asignaciones</a><a href="#reactivos">Reactivos</a><a href="#bancos">Bancos</a><a href="#conversaciones">Voces</a><a href="#reportes">Reportes</a><a href="#alumno">Alumno</a>
   </nav>
   <div class="top-end">
     <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true"></span></button>
-    <a class="top-cta" href="index.html#descargar">Obtener OfflineEdu</a>
+    <a class="top-cta" href="index.html#descargar">Obtener EduOffline</a>
   </div>
 </header>
 <main>
@@ -128,6 +128,14 @@
       <div class="req-table" role="region" aria-label="Tipos de asignaciones" tabindex="0"><table>
         <thead><tr><th scope="col">Tipo</th><th scope="col">Para qué sirve</th><th scope="col">Calificación</th></tr></thead>
         <tbody><tr><th scope="row"><span aria-hidden="true">📋</span> Formulario</th><td>Preguntas de varios tipos con calificación automática, secciones, multimedia y explicaciones.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">📚</span> Formulario desde banco</th><td>Cada alumno recibe una selección aleatoria de preguntas de tus bancos.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">📝</span> Tarea</th><td>El alumno entrega texto o archivos.</td><td>Manual</td></tr><tr><th scope="row"><span aria-hidden="true">🎯</span> Audio o video interactivo</th><td>Preguntas en momentos del audio o video, con subtítulos opcionales.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">📄</span> Material</th><td>Archivos o enlaces para consultar.</td><td>No se califica</td></tr><tr><th scope="row"><span aria-hidden="true">📖</span> Banco de estudio</th><td>Preguntas para repasar, descargables en PDF.</td><td>No se califica</td></tr><tr><th scope="row"><span aria-hidden="true">📝</span> Examen</th><td>Con tiempo, supervisión, código de acceso, versiones y opción en papel.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">📦</span> Proyecto</th><td>Entrega calificada con rúbrica o lista de cotejo.</td><td>Manual con rúbrica</td></tr><tr><th scope="row"><span aria-hidden="true">🔎</span> Sopa de letras</th><td>Se arma con un diccionario de términos.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">🔤</span> Crucigrama</th><td>Se arma con términos y definiciones.</td><td>Automática</td></tr><tr><th scope="row"><span aria-hidden="true">🧊</span> Modelo 3D</th><td>Modelo tridimensional para explorar, como una célula.</td><td>No se califica</td></tr></tbody></table></div>
+      <h3 id="modelo-3d">Modelo 3D de muestra</h3>
+      <p>Así ve el alumno un modelo 3D: lo gira arrastrando y lo acerca con la rueda del ratón o con dos dedos. Esta célula animal viene de ejemplo, junto con un formulario de 16 reactivos para importar.</p>
+      <figure class="shot m3d-fig">
+          <div class="m3d" data-src="assets/modelos/celula-animal.glb" data-alt="Modelo 3D de una célula animal con sus organelos">
+            <div class="m3d-stage"><p class="m3d-status" role="status">El modelo 3D se carga al llegar aquí.</p></div>
+            <div class="m3d-side"><p class="m3d-note" aria-live="polite">Elige una parte para resaltarla.</p><ul class="m3d-parts" aria-label="Partes de la célula"></ul></div>
+          </div>
+      </figure>
       <aside class="example"><span>Ejemplo de uso</span><p>Para una práctica de inglés usas un audio interactivo: el audio se pausa en cada pregunta de comprensión y el alumno no puede adelantarse sin contestar. La calificación aparece sola en Evaluación.</p></aside>
     </div>
   </section>
@@ -161,15 +169,15 @@
           <ol class="guide-steps">
             <li>Entra a <code>elevenlabs.io</code> con tu cuenta.</li>
             <li>Ve a <em>Developers → API Keys</em> y crea una clave. Puedes limitarla a los permisos de <em>Text to Speech</em> y <em>Voices</em>.</li>
-            <li>Copia la clave, pégala en OfflineEdu y pulsa <strong>Conectar</strong>.</li>
+            <li>Copia la clave, pégala en EduOffline y pulsa <strong>Conectar</strong>.</li>
           </ol>
-          <p class="guide-note">La clave se guarda solo en tu servidor de OfflineEdu, nunca se muestra completa ni se envía a los alumnos. Cada maestro conecta su propia cuenta, y el uso consume los créditos de tu plan de ElevenLabs. Necesita internet.</p>
+          <p class="guide-note">La clave se guarda solo en tu servidor de EduOffline, nunca se muestra completa ni se envía a los alumnos. Cada maestro conecta su propia cuenta, y el uso consume los créditos de tu plan de ElevenLabs. Necesita internet.</p>
         </div>
         <div>
           <h4>Crear la conversación</h4>
           <ol class="guide-steps">
             <li>Escribe el guion, un renglón por intervención: <code>David: Hi Maria, how was your weekend?</code></li>
-            <li>OfflineEdu detecta los participantes y les asigna voces según su nombre; puedes cambiarlas.</li>
+            <li>EduOffline detecta los participantes y les asigna voces según su nombre; puedes cambiarlas.</li>
             <li>Escucha la vista previa y descarga el MP3.</li>
           </ol>
           <p class="guide-note">Si vuelves a generar un audio que ya existe, se reutiliza sin gastar créditos de nuevo.</p>
@@ -195,7 +203,7 @@
     </div>
   </section>
 </main>
-<footer class="foot"><img src="assets/offlineedu-app-icon.svg" alt="" width="20" height="20"><span>OfflineEdu © 2026</span><span><a href="index.html">Volver al inicio</a></span></footer>
+<footer class="foot"><img src="assets/eduoffline-app-icon.svg" alt="" width="20" height="20"><span>EduOffline © 2026</span><span><a href="index.html">Volver al inicio</a></span></footer>
 <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
   <button class="lb-btn lb-close" type="button" aria-label="Cerrar">✕</button>
   <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
@@ -203,8 +211,9 @@
   <button class="lb-btn lb-next" type="button" aria-label="Imagen siguiente">›</button>
 </dialog>
 <script>
-document.querySelector('.theme').addEventListener('click',function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('offlineedu_sitio_tema',r.dataset.theme);}catch(e){}});
+document.querySelector('.theme').addEventListener('click',function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('eduoffline_sitio_tema',r.dataset.theme);}catch(e){}});
 </script>
 <script src="lightbox.js"></script>
+<script src="modelo3d.js"></script>
 </body>
 </html>

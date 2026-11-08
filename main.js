@@ -218,7 +218,7 @@
   document.querySelector('.theme').addEventListener('click',()=>{
     const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
     r.dataset.theme=dark?'light':'dark';
-    try{localStorage.setItem('offlineedu_sitio_tema',r.dataset.theme);}catch(e){}
+    try{localStorage.setItem('eduoffline_sitio_tema',r.dataset.theme);}catch(e){}
     saberes.refresh();
   });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>saberes.refresh());

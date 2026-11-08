@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="129.02 -139.09 771.85 771.85" width="256" height="256" role="img" aria-label="EduOffline"><title>EduOffline</title>
+<rect x="129.02" y="-139.09" width="771.85" height="771.85" rx="146.65" fill="#fff"/>
+<g transform="translate(-6.73 -5.34) scale(3.85)">
+<mask id="lapi"><rect x="0" y="0" width="273" height="221" fill="#fff"/><circle cx="191.2" cy="41.8" r="33.7" fill="#000"/><rect x="114.5" y="113.2" width="25" height="3.4" rx="1.7" fill="#000"/></mask>
+<mask id="wifi"><rect x="0" y="0" width="273" height="221" fill="#fff"/><path d="M168.07 61.21L214.33 22.39" stroke="#000" stroke-width="13"/></mask>
+<g mask="url(#lapi)"><g fill="none" stroke="#0e2f6d" stroke-linecap="round" stroke-linejoin="round">
+<rect x="67" y="36.5" width="121" height="66.5" rx="5" stroke-width="7.5"/>
+<path d="M85.5 51.5l3.8 3.6 6.2-6.4M85.5 68l3.8 3.6 6.2-6.4M85.5 84.5l3.8 3.6 6.2-6.4" stroke-width="3.6"/></g>
+<path d="M107.5 56H152.5M107.5 71.5H156M107.5 87H156" stroke="#3986e9" stroke-width="5" stroke-linecap="round"/>
+<path d="M51 109.5h155.5q3.2 0 4.4 3l2.6 6.6q1 3.4-2.4 3.4H48.5q-3.4 0-2.4-3.4l2.2-6.6q.9-3 2.7-3z" fill="#0e2f6d"/></g>
+<g mask="url(#wifi)"><path d="M168.79 36.99A30 30 0 0 1 211.21 36.99M176.21 44.41A19.5 19.5 0 0 1 203.79 44.41M183.89 50.92A9.5 9.5 0 0 1 196.11 50.92" fill="none" stroke="#0e2f6d" stroke-width="6" stroke-linecap="round"/>
+<circle cx="190" cy="58.2" r="2.8" fill="#0e2f6d"/></g>
+<circle cx="191.2" cy="41.8" r="30.2" fill="none" stroke="#fc5e01" stroke-width="7"/>
+<path d="M168.07 61.21L214.33 22.39" stroke="#fc5e01" stroke-width="7"/>
+</g>
+</svg>
