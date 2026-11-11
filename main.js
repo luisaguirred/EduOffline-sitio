@@ -1,4 +1,5 @@
 // Efecto de luz entre categorías: la misma función sirve para el menú y las pestañas.
+// Lo usan index.html y funciones.html: cada parte se activa solo si su elemento existe en la página.
 (function(){
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -64,8 +65,10 @@
   document.querySelectorAll('[data-spy]').forEach(s=>spy.observe(s));
   nav.items.forEach(a=>a.addEventListener('click',()=>nav.setActive(a)));
 
-  // Pestañas de funciones.
-  const tabsRoot=document.querySelector('[data-tabs]'),tabs=makeLight(tabsRoot);
+  // Pestañas de funciones (solo en la portada).
+  const tabsRoot=document.querySelector('[data-tabs]');
+  if(tabsRoot){
+  const tabs=makeLight(tabsRoot);
   function select(tab,focus){
     tabs.items.forEach(t=>{
       const on=t===tab;
@@ -85,9 +88,10 @@
       else if(e.key==='End'){e.preventDefault();select(tabs.items[n-1],true);}
     });
   });
+  }
 
   // Constelación de saberes: símbolos de varias materias unidos por trazos; las chispas viajan entre ellos.
-  const saberes=(function(){
+  const saberes=!document.getElementById('saberes')?{refresh(){}}:(function(){
     const canvas=document.getElementById('saberes'),ctx=canvas.getContext('2d'),hero=canvas.parentElement;
     const LABELS=['π','H₂O','Aa','E=mc²','∑','♪','√x','¿?','△','ñ','x²','ADN','∫','1/2','Fe','α','ABC','∞','°C','a²+b²','λ','%','Δ','Na'];
     let W=0,H=0,dpr=1,clear={x:0,y:0,rx:1,ry:1},nodes=[],links=[],sparks=[],pal={},raf=0,onScreen=true,pointer=null;
@@ -225,6 +229,8 @@
 
   // Regla lateral: avance de la página.
   const mark=document.getElementById('ruler-mark');
-  const onScroll=()=>{const m=document.documentElement.scrollHeight-innerHeight;mark.style.top=(m>0?scrollY/m*100:0)+'%';};
-  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  if(mark){
+    const onScroll=()=>{const m=document.documentElement.scrollHeight-innerHeight;mark.style.top=(m>0?scrollY/m*100:0)+'%';};
+    addEventListener('scroll',onScroll,{passive:true});onScroll();
+  }
 })();

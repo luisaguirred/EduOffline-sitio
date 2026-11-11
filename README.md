@@ -12,6 +12,7 @@ Desde esta carpeta: `python3 -m http.server 8080` y abre http://localhost:8080. 
 - `detalles.js`: despliega la descripción de cada función.
 - `funciones.html`: guía detallada de funciones.
 - `privacidad.html`: aviso de privacidad del sitio y del programa (enlazado desde el pie de página).
+- **Caché del navegador:** los enlaces a `styles.css`, `fuentes.css` y los `.js` llevan `?v=AAAAMMDD…` en las tres páginas. Al cambiar alguno de esos archivos, sube ese número en las tres para que los visitantes no vean la versión vieja.
 - `fuentes.css` y `assets/fuentes/`: tipografías servidas desde el propio sitio (Atkinson Hyperlegible, Caveat, Fraunces; licencia OFL). El sitio no hace peticiones a terceros: no volver a agregar Google Fonts ni analítica sin actualizar el aviso.
 - `main.js`: efecto de luz (`makeLight`), constelación de la portada (`saberes`), pestañas, tema y regla lateral.
 

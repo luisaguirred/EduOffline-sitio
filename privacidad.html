@@ -7,16 +7,18 @@
 <meta name="description" content="Cómo trata los datos este sitio y cómo trata EduOffline los datos de las escuelas, maestros y alumnos.">
 <link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
-<link rel="stylesheet" href="fuentes.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="fuentes.css?v=20261108b">
+<link rel="stylesheet" href="styles.css?v=20261108b">
 <style>.priv p,.priv li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}</style>
 <script>try{var t=localStorage.getItem('eduoffline_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body class="fn-page">
 <header class="top">
   <a class="brand" href="index.html" aria-label="EduOffline, inicio"><img class="logo-l" src="assets/eduoffline-horizontal.svg" alt="EduOffline" height="26"><img class="logo-d" src="assets/eduoffline-horizontal-dark.svg" alt="" height="26"></a>
-  <nav class="nav fn-nav" aria-label="Secciones">
-    <a href="#sitio">Este sitio</a><a href="#programa">El programa</a><a href="#derechos">Tus derechos</a>
+  <nav class="nav fn-nav" aria-label="Secciones" data-light>
+    <a href="#sitio" class="light-item">Este sitio</a>
+    <a href="#programa" class="light-item">El programa</a>
+    <a href="#derechos" class="light-item">Tus derechos</a>
   </nav>
   <div class="top-end">
     <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true"></span></button>
@@ -30,7 +32,7 @@
     <p class="fn-intro">EduOffline es un programa escolar que funciona en la red de cada escuela, sin necesidad de internet. Este aviso explica qué datos trata este sitio web y qué datos trata el programa cuando una escuela o un maestro lo instala.</p>
   </section>
 
-  <section class="band" id="sitio">
+  <section class="band" id="sitio" data-spy>
     <header class="band-h"><span>01 / Este sitio web</span><span>Lo que pasa al visitarlo</span></header>
     <div class="fn-body">
       <ul class="fn-list">
@@ -43,7 +45,7 @@
     </div>
   </section>
 
-  <section class="band" id="programa">
+  <section class="band" id="programa" data-spy>
     <header class="band-h"><span>02 / El programa EduOffline</span><span>Datos de escuelas, maestros y alumnos</span></header>
     <div class="fn-body">
       <h3>Los datos se quedan en la escuela</h3>
@@ -60,7 +62,7 @@
     </div>
   </section>
 
-  <section class="band" id="derechos">
+  <section class="band" id="derechos" data-spy>
     <header class="band-h"><span>03 / Tus derechos y contacto</span><span>Acceso, corrección, eliminación y oposición</span></header>
     <div class="fn-body">
       <ul class="fn-list">
@@ -72,8 +74,7 @@
   </section>
 </main>
 <footer class="foot"><img src="assets/eduoffline-app-icon.svg" alt="" width="20" height="20"><span>EduOffline © 2026</span><span><a href="index.html">Volver al inicio</a></span></footer>
-<script>
-document.querySelector('.theme').addEventListener('click',function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('eduoffline_sitio_tema',r.dataset.theme);}catch(e){}});
-</script>
+<div class="ruler" aria-hidden="true"><span id="ruler-mark"></span></div>
+<script src="main.js?v=20261108b"></script>
 </body>
 </html>
