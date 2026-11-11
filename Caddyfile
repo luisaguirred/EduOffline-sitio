@@ -10,6 +10,10 @@
 	root * /srv
 	encode zstd gzip
 
+	# Archivos de configuración y del repositorio: no se publican.
+	@private path /Caddyfile /Dockerfile /README.md /.dockerignore /.git /.git/*
+	respond @private 404
+
 	# www.tudominio.com → tudominio.com (una sola dirección para el sitio)
 	@www header_regexp www Host ^www\.(.+)$
 	redir @www https://{re.www.1}{uri} permanent
