@@ -3,12 +3,13 @@
 Sitio estático en HTML, CSS y JavaScript, sin compilación. Inspirado en el estilo editorial de getartcraft.com, sin usar su marca, textos ni imágenes.
 
 ## Ver el sitio
-Desde esta carpeta: `python3 -m http.server 8080` y abre http://localhost:8080. Se publica subiendo estos archivos a cualquier hosting estático.
+Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://localhost:8080. Se publica subiendo estos archivos a cualquier hosting estático.
 
 ## Publicación (GitHub → Railway, dominio en Namecheap)
-- Railway lee el sitio del repositorio de GitHub (rama `master`, carpeta `sitio/`) y lo vuelve a publicar solo cada vez que se sube un cambio a esa carpeta.
+- Este repositorio (`luisaguirred/EduOffline-sitio`, rama `main`) es solo el sitio, separado de la plataforma (`luisaguirred/EduOffline`). Railway lo vuelve a publicar solo cada vez que se sube un cambio a `main`.
 - `Dockerfile` + `Caddyfile`: imagen de Caddy que sirve los archivos en el puerto `PORT` que da Railway, con compresión, caché (las páginas siempre se revisan; CSS/JS con `?v=` un año; imágenes un día) y redirección de `www.` al dominio sin `www`. `.dockerignore` deja fuera este README y los archivos de configuración.
-- En Railway: servicio desde GitHub → Settings → **Root Directory** `/sitio`, **Branch** `master`, **Watch Paths** `/sitio/**`; Networking → **Generate Domain** para probar y **+ Custom Domain** para el dominio propio (Railway da un CNAME y un TXT; en Namecheap: Advanced DNS → CNAME `@` y `www` hacia el destino de Railway, y el TXT tal cual). El certificado HTTPS lo pone Railway solo (Let's Encrypt).
+- En Railway: New Project → Deploy from GitHub repo → `EduOffline-sitio` (rama `main`, sin Root Directory); Networking → **Generate Domain** para probar y **+ Custom Domain** para el dominio propio (Railway da un CNAME y un TXT; en Namecheap: Advanced DNS → CNAME `@` y `www` hacia el destino de Railway, y el TXT tal cual). El certificado HTTPS lo pone Railway solo (Let's Encrypt).
+- Las capturas y los íconos de los juegos vienen de la plataforma: los íconos son copias de `public/icons/games/` de `EduOffline`.
 
 ## Archivos
 - `index.html`: contenido, en orden de secciones.
