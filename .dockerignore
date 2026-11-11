@@ -1,4 +1,3 @@
-Dockerfile
-Caddyfile
-.dockerignore
+.git
 README.md
+.dockerignore
