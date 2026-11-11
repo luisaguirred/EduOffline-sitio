@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EduSort">
+  <title>EduSort</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD54A"/><stop offset="1" stop-color="#F5A623"/></linearGradient></defs>
+  <rect x="8" y="8" width="496" height="496" rx="118" fill="url(#g)"/>
+  <path d="M282 64 L196 236 H256 L222 356 L330 176 H268 L300 64 Z" fill="#FFFFFF"/>
+  <g fill="#FFFFFF"><path d="M72 330 H220 V432 Q220 446 206 446 H86 Q72 446 72 432 Z"/><path d="M292 330 H440 V432 Q440 446 426 446 H306 Q292 446 292 432 Z"/></g>
+  <g fill="#F5A623"><rect x="112" y="376" width="68" height="14" rx="7"/><rect x="332" y="376" width="68" height="14" rx="7"/></g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EduCatch">
+  <title>EduCatch</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFC24B"/><stop offset="1" stop-color="#F28A1E"/></linearGradient></defs>
+  <rect x="8" y="8" width="496" height="496" rx="118" fill="url(#g)"/>
+  <g fill="#FFFFFF"><rect x="170" y="70" width="64" height="64" rx="14" transform="rotate(-12 202 102)"/><rect x="292" y="120" width="64" height="64" rx="14" transform="rotate(10 324 152)"/><rect x="214" y="196" width="64" height="64" rx="14" transform="rotate(-4 246 228)"/></g>
+  <g fill="#8A4B10" opacity=".55"><circle cx="202" cy="102" r="9"/><circle cx="324" cy="152" r="9"/><circle cx="246" cy="228" r="9"/></g>
+  <path d="M96 286 H416 L380 426 Q376 440 362 440 H150 Q136 440 132 426 Z" fill="#FFFFFF"/>
+  <g stroke="#F28A1E" stroke-width="10" stroke-linecap="round"><path d="M150 330 H362"/><path d="M160 378 H352"/><path d="M200 300 L214 432"/><path d="M256 300 V432"/><path d="M312 300 L298 432"/></g>
+</svg>

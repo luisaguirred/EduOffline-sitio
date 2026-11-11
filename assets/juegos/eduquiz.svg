@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EduQuiz">
+  <title>EduQuiz</title>
+  <defs>
+    <linearGradient id="eqg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5DD2F6"/>
+      <stop offset="1" stop-color="#2D7CEA"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="496" height="496" rx="118" fill="url(#eqg)"/>
+  <!-- signo de interrogación -->
+  <path d="M74 214 C74 172 102 150 134 150 C168 150 192 172 192 204 C192 236 166 248 150 262 C138 272 134 282 134 302" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="134" cy="352" r="22" fill="#fff"/>
+  <!-- opciones A-D: etiquetas con punta a la izquierda -->
+  <g fill="#fff">
+    <path d="M238 92 H430 A14 14 0 0 1 444 106 V158 A14 14 0 0 1 430 172 H238 L202 132 Z"/>
+    <path d="M238 192 H430 A14 14 0 0 1 444 206 V258 A14 14 0 0 1 430 272 H238 L202 232 Z"/>
+    <path d="M238 292 H430 A14 14 0 0 1 444 306 V358 A14 14 0 0 1 430 372 H238 L202 332 Z"/>
+    <path d="M238 392 H430 A14 14 0 0 1 444 406 V458 A14 14 0 0 1 430 472 H238 L202 432 Z"/>
+  </g>
+  <g fill="none" stroke="#3A8FE3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- A. -->
+    <path d="M250 152 L266 110 L282 152 M256 137 H276"/>
+    <!-- B. -->
+    <path d="M254 210 V252 M254 210 H268 C286 210 286 230 268 230 H254 M254 230 H271 C291 230 291 252 271 252 H254"/>
+    <!-- C. -->
+    <path d="M286 318 C280 310 272 308 266 308 C254 308 246 318 246 331 C246 344 254 353 266 353 C273 353 280 350 286 343"/>
+    <!-- D. -->
+    <path d="M254 410 V452 M254 410 H264 C292 410 292 452 264 452 H254"/>
+  </g>
+  <g fill="#3A8FE3"><circle cx="298" cy="150" r="5"/><circle cx="302" cy="250" r="5"/><circle cx="302" cy="350" r="5"/><circle cx="302" cy="450" r="5"/></g>
+</svg>

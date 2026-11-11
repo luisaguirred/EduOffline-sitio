@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EduFlip">
+  <title>EduFlip</title>
+  <defs>
+    <!-- Carta centrada en (0,0): contorno azul marino, marco blanco y panel con esquinas cóncavas -->
+    <g id="efcard">
+      <rect x="-118" y="-164" width="236" height="328" rx="30" fill="#121C72"/>
+      <rect x="-104" y="-150" width="208" height="300" rx="20" fill="#FFFFFF"/>
+    </g>
+    <path id="efpanel" d="M-70 -132 H70 A18 18 0 0 0 88 -114 V114 A18 18 0 0 0 70 132 H-70 A18 18 0 0 0 -88 114 V-114 A18 18 0 0 0 -70 -132 Z"/>
+    <g id="efq">
+      <path d="M-46 -38 C-46 -78 -20 -98 10 -98 C42 -98 64 -76 64 -46 C64 -14 38 -2 22 10 C10 20 6 30 6 50" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="6" cy="94" r="22"/>
+    </g>
+  </defs>
+  <!-- carta de atrás (naranja, signo azul) -->
+  <g transform="translate(352 232) rotate(10)">
+    <use href="#efcard"/>
+    <use href="#efpanel" fill="#F69C6B" stroke="#121C72" stroke-width="3"/>
+    <use href="#efq" stroke="#121C72" fill="#121C72" transform="translate(14 0)"/>
+  </g>
+  <!-- carta de enfrente (roja, signo blanco) -->
+  <g transform="translate(166 280) rotate(-16)">
+    <use href="#efcard"/>
+    <use href="#efpanel" fill="#EF3554" stroke="#121C72" stroke-width="3"/>
+    <use href="#efq" stroke="#FFFFFF" fill="#FFFFFF"/>
+  </g>
+</svg>

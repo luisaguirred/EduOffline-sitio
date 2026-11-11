@@ -7,14 +7,14 @@
 <meta name="description" content="EduOffline reúne asistencia, evaluación, exámenes y juegos para tu clase. Se instala en tu computadora y tus datos se quedan contigo.">
 <link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
-<link rel="stylesheet" href="fuentes.css?v=20261108b">
-<link rel="stylesheet" href="styles.css?v=20261108b">
+<link rel="stylesheet" href="fuentes.css?v=20261111d">
+<link rel="stylesheet" href="styles.css?v=20261111d">
 <script>try{var t=localStorage.getItem('eduoffline_sitio_tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
 <header class="top">
   <a class="brand" href="#inicio" aria-label="EduOffline, inicio"><img class="logo-l" src="assets/eduoffline-horizontal.svg" alt="EduOffline" height="26"><img class="logo-d" src="assets/eduoffline-horizontal-dark.svg" alt="" height="26"></a>
-  <nav class="nav" aria-label="Principal" data-light>
+  <nav class="nav" id="menu-principal" aria-label="Principal" data-light>
     <a href="#inicio" class="light-item">Inicio</a>
     <a href="#funciones" class="light-item">Funciones</a>
     <a href="#mas-funciones" class="light-item">Más funciones</a>
@@ -26,6 +26,7 @@
     <a href="#descargar" class="light-item">Descargar</a>
   </nav>
   <div class="top-end">
+    <button class="menu-btn" type="button" aria-label="Abrir el menú" aria-expanded="false" aria-controls="menu-principal"><span aria-hidden="true"></span></button>
     <button class="theme" type="button" aria-label="Cambiar entre tema claro y oscuro"><span aria-hidden="true"></span></button>
     <a class="top-cta" href="#descargar">Obtener EduOffline</a>
   </div>
@@ -34,19 +35,22 @@
 <main>
   <section class="hero" id="inicio" data-spy>
     <canvas class="saberes" id="saberes" aria-hidden="true"></canvas>
-    <div class="float-cards" aria-hidden="true">
-      <div class="fc c1"><b>🎬</b><span>Modo Presentación</span><i>Diapositiva 4 de 12</i></div>
-      <div class="fc c2 tint-a"><b>🎱</b><span>Bingo</span><i>B-12 · ¡Línea!</i></div>
-      <div class="fc c3"><b>✓</b><span>Asistencia</span><i>Sesión por QR</i></div>
-      <div class="fc c4 tint-b"><b>📝</b><span>Modo Examen</span><i>Inicio sincronizado</i></div>
-      <div class="fc c5"><b>🧊</b><span>Modelos 3D</span><i>Gira la célula</i></div>
-      <div class="fc c6 tint-c"><b>▦</b><span>Rúbrica</span><i>Puntos por criterio</i></div>
-      <div class="fc c7"><b>🎞</b><span>Video interactivo</span><i>Preguntas en el video</i></div>
-      <div class="fc c8 tint-a"><b>📚</b><span>Banco de estudio</span><i>Descarga en PDF</i></div>
-      <div class="fc c9 tint-b"><b>📦</b><span>Clases empaquetadas</span><i>Paso 2 de 5</i></div>
-      <div class="fc c10 tint-c"><b>📐</b><span>Graficadora</span><i>y = x² − 3</i></div>
-      <div class="fc c11 tint-a"><b>🏫</b><span>Modo administración</span><i>Docentes y grupos</i></div>
-    </div>
+    <nav class="float-cards" aria-label="Funciones destacadas">
+      <a class="fc c1 tl" href="funciones.html#t-presentar" aria-label="Modo Presentación: Tus diapositivas en la pantalla de cada alumno, sincronizadas contigo."><b aria-hidden="true">🎬</b><span class="tip" aria-hidden="true"><strong>Modo Presentación</strong>Tus diapositivas en la pantalla de cada alumno, sincronizadas contigo.</span></a>
+      <a class="fc c2 tl tint-a" href="#educard" aria-label="EduCard: Cartas con palabras o imágenes: gana quien completa primero la forma."><b aria-hidden="true"><img src="assets/juegos/educard.svg" alt=""></b><span class="tip" aria-hidden="true"><strong>EduCard</strong>Cartas con palabras o imágenes: gana quien completa primero la forma.</span></a>
+      <a class="fc c3 tl up" href="funciones.html#t-grupos" aria-label="Asistencia: Pase de lista con QR o código, con tolerancia y un dispositivo por alumno."><b aria-hidden="true">✓</b><span class="tip" aria-hidden="true"><strong>Asistencia</strong>Pase de lista con QR o código, con tolerancia y un dispositivo por alumno.</span></a>
+      <a class="fc c4 tr tint-b" href="#funciones" data-tab="t-exam" aria-label="Modo Examen: Inicio sincronizado, supervisión en vivo y versiones A, B, C y D."><b aria-hidden="true">📝</b><span class="tip" aria-hidden="true"><strong>Modo Examen</strong>Inicio sincronizado, supervisión en vivo y versiones A, B, C y D.</span></a>
+      <a class="fc c5 tr" href="funciones.html#modelo-3d" aria-label="Modelos 3D: Modelos que el alumno gira y explora parte por parte."><b aria-hidden="true">🧊</b><span class="tip" aria-hidden="true"><strong>Modelos 3D</strong>Modelos que el alumno gira y explora parte por parte.</span></a>
+      <a class="fc c6 tr up tint-c" href="funciones.html#t-evaluacion" aria-label="Rúbricas: Califica con puntos por criterio o con lista de cotejo."><b aria-hidden="true">▦</b><span class="tip" aria-hidden="true"><strong>Rúbricas</strong>Califica con puntos por criterio o con lista de cotejo.</span></a>
+      <a class="fc c7 tl" href="funciones.html#asignaciones" aria-label="Video interactivo: Preguntas que aparecen en el momento exacto del video o audio."><b aria-hidden="true">🎞</b><span class="tip" aria-hidden="true"><strong>Video interactivo</strong>Preguntas que aparecen en el momento exacto del video o audio.</span></a>
+      <a class="fc c8 tr up tint-a" href="funciones.html#bancos" aria-label="Banco de estudio: Definiciones y preguntas por unidad, descargables en PDF."><b aria-hidden="true">📚</b><span class="tip" aria-hidden="true"><strong>Banco de estudio</strong>Definiciones y preguntas por unidad, descargables en PDF.</span></a>
+      <a class="fc c9 tl up tint-b" href="funciones.html#t-clases" aria-label="Clases empaquetadas: Toda una clase lista para dar paso a paso."><b aria-hidden="true">📦</b><span class="tip" aria-hidden="true"><strong>Clases empaquetadas</strong>Toda una clase lista para dar paso a paso.</span></a>
+      <a class="fc c10 tr tint-c" href="funciones.html#t-rapidas" aria-label="Graficadora: Graficador tipo GeoGebra que funciona sin internet."><b aria-hidden="true">📐</b><span class="tip" aria-hidden="true"><strong>Graficadora</strong>Graficador tipo GeoGebra que funciona sin internet.</span></a>
+      <a class="fc c11 tr tint-a" href="funciones.html#direccion" aria-label="Panel de la dirección: Cuentas, grupos y docentes de toda la escuela."><b aria-hidden="true">🏫</b><span class="tip" aria-hidden="true"><strong>Panel de la dirección</strong>Cuentas, grupos y docentes de toda la escuela.</span></a>
+      <a class="fc c12 tl tint-b" href="#eduquiz" aria-label="EduQuiz: Preguntas en vivo: rapidez, rachas y podio en el proyector."><b aria-hidden="true"><img src="assets/juegos/eduquiz.svg" alt=""></b><span class="tip" aria-hidden="true"><strong>EduQuiz</strong>Preguntas en vivo: rapidez, rachas y podio en el proyector.</span></a>
+      <a class="fc c13 tr tint-c" href="#eduflip" aria-label="EduFlip: Memoria en tiempo real: cada alumno con su propio tablero."><b aria-hidden="true"><img src="assets/juegos/eduflip.svg" alt=""></b><span class="tip" aria-hidden="true"><strong>EduFlip</strong>Memoria en tiempo real: cada alumno con su propio tablero.</span></a>
+    </nav>
+    <div class="fc-info" id="fc-info" aria-live="polite" hidden></div>
     <div class="hero-in">
       <h1 class="wordmark"><img class="logo-l" src="assets/eduoffline-logo-lema.svg" alt="EduOffline — Offline Education"><img class="logo-d" src="assets/eduoffline-logo-lema-dark.svg" alt=""></h1>
       <p class="tagline">Enseña jugando, <em>evalúa sin complicarte.</em></p>
@@ -157,11 +161,26 @@
   <section class="band" id="juegos" data-spy>
     <header class="band-h"><span>03 / Juegos</span><span>Multijugador en el salón</span></header>
     <h2 class="big right">Repasar <em>también puede ser competir</em></h2>
-    <div class="shots single wide"><figure class="shot"><img src="assets/capturas/juegos.webp" alt="Sección de juegos con los trece juegos disponibles y la opción de abrir una sala de QuizBlast" width="1600" height="1000" loading="lazy"><figcaption>Trece juegos listos para abrir una sala con tu grupo.</figcaption></figure></div>
+    <div class="features games-features">
+      <article class="feature" id="eduquiz">
+        <div class="feature-text"><span class="tag"><img class="game-ic" src="assets/juegos/eduquiz.svg" alt=""> Preguntas en vivo</span><h3>EduQuiz</h3><p>Toda la clase responde la misma pregunta desde su celular. El proyector muestra la pregunta, la cuenta regresiva y la clasificación; cada alumno ve en su pantalla si acertó y cuántos puntos ganó.</p><ul><li data-info="Cada acierto vale 500 puntos y hasta 200 más por rapidez. Las rachas dan puntos extra a las 3 y a las 5 respuestas seguidas.">Puntos por acierto, rapidez y rachas</li><li data-info="Música, cuenta 3-2-1, tic-tac y sonido de resultados salen solo en la computadora del maestro, para no llenar el salón de ruido.">Sonido solo en la computadora del maestro</li><li data-info="Arma la partida con preguntas de tus bancos y diccionarios sin guardar un archivo nuevo, o con tus listas de preguntas.">Preguntas desde tus bancos</li><li data-info="Al terminar: podio, clasificación final y estadísticas de la clase y de cada alumno.">Podio y estadísticas</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/eduquiz.webp" alt="Pregunta de EduQuiz en el proyector con cuatro opciones y la clasificación" width="1600" height="900" loading="lazy"><figcaption>La pregunta y la clasificación en el proyector.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/eduquiz-alumno.webp" alt="Opciones de respuesta de EduQuiz en el celular de un alumno" width="560" height="1212" loading="lazy"><figcaption>El alumno responde desde su celular.</figcaption></figure></div>
+      </article>
+      <article class="feature" id="educard">
+        <div class="feature-text"><span class="tag"><img class="game-ic" src="assets/juegos/educard.svg" alt=""> Cartas y patrones</span><h3>EduCard</h3><p>Se anuncia una carta con una palabra o una imagen y cada alumno la busca en su cartón. Gana quien se dé cuenta primero de que completó la forma y lo reclame: el juego no le avisa.</p><ul><li data-info="Línea, dos líneas, cuatro esquinas, forma L o T, cartón lleno, o una forma que dibujas con el dedo o el mouse en la sala de espera.">Forma de ganar, incluso dibujada</li><li data-info="Crea listas con imágenes y en el proyector se anuncia la imagen; el alumno busca la palabra en su cartón.">Variante con imágenes</li><li data-info="Si eliges varias columnas (por ejemplo inglés y español, o do / did / done), cada carta sale una sola vez en una de ellas y cualquier forma es válida.">Varias formas de la misma palabra</li><li data-info="Pausa que detiene el tiempo, siguiente carta, terminar y sonidos de concurso, desde el proyector o desde tu celular.">Proyector y celular a la vez</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/educard.webp" alt="Proyector de EduCard con la carta anunciada, las cartas anteriores y el avance de la partida" width="1600" height="900" loading="lazy"><figcaption>La carta anunciada y el avance en el proyector.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/educard-alumno.webp" alt="Cartón de EduCard en el celular de un alumno" width="560" height="1212" loading="lazy"><figcaption>Cada alumno con su cartón.</figcaption></figure></div>
+      </article>
+      <article class="feature" id="eduflip">
+        <div class="feature-text"><span class="tag"><img class="game-ic" src="assets/juegos/eduflip.svg" alt=""> Memoria en tiempo real</span><h3>EduFlip</h3><p>Cada alumno tiene su propio tablero con las mismas parejas en distinto orden y todos juegan al mismo tiempo: nadie espera turno. El proyector muestra el avance de la clase sin exhibir los errores de nadie.</p><ul><li data-info="Pareja correcta +100, rapidez hasta +30, cada tres parejas seguidas +50 y tablero completo +100. Equivocarse no resta.">Puntos que premian participar</li><li data-info="Termina cuando el primer alumno completa su tablero o cuando se acaba el tiempo. Puedes agregar tiempo a todos en cualquier momento.">Tiempo configurable y tiempo extra</li><li data-info="Parejas por tablero, duración y si las parejas encontradas se quedan descubiertas o desaparecen.">Configuración en la sala de espera</li><li data-info="Primeros cinco en vivo, rachas, primera pareja, racha perfecta y, al final, podio, precisión y estadísticas de la clase.">Clasificación y reconocimientos</li></ul></div>
+        <div class="feature-shots"><figure class="shot"><img src="assets/capturas/eduflip.webp" alt="Proyector de EduFlip con la clasificación en vivo y la actividad de la clase" width="1600" height="900" loading="lazy"><figcaption>Clasificación en vivo y actividad de la clase.</figcaption></figure><figure class="shot phone"><img src="assets/capturas/eduflip-alumno.webp" alt="Tablero de EduFlip en el celular de un alumno con una pareja encontrada" width="560" height="1212" loading="lazy"><figcaption>Cada alumno con su propio tablero.</figcaption></figure></div>
+      </article>
+    </div>
+    <div class="shots single wide"><figure class="shot"><img src="assets/capturas/juegos.webp" alt="Sección de juegos con los trece juegos disponibles y la opción de abrir una sala de EduQuiz" width="1600" height="1000" loading="lazy"><figcaption>Trece juegos listos para abrir una sala con tu grupo, desde la computadora o desde tu celular.</figcaption></figure></div>
     <ul class="grid-games">
-      <li><b>⚡</b>QuizBlast</li><li><b>🧩</b>MemoPares</li><li><b>🚀</b>Duelo de Naves</li><li><b>🎯</b>Francotirador de Errores</li>
-      <li><b>🎱</b>Bingo</li><li><b>🏁</b>BrainRace</li><li><b>⚡</b>Clasificación Relámpago</li><li><b>🕐</b>Línea de Tiempo</li>
-      <li><b>🛑</b>Stop / Basta</li><li><b>🌧️</b>WordRain</li><li><b>🧺</b>CatchTime</li><li><b>🎈</b>VerbBlast</li><li><b>🔤</b>Palabra Oculta</li>
+      <li><b><img src="assets/juegos/eduquiz.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduQuiz</li><li><b><img src="assets/juegos/eduflip.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduFlip</li><li><b><img src="assets/juegos/educard.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduCard</li><li><b><img src="assets/juegos/eduduel.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduDuel</li>
+      <li><b><img src="assets/juegos/edufix.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduFix</li><li><b><img src="assets/juegos/edurace.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduRace</li><li><b><img src="assets/juegos/edusort.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduSort</li><li><b><img src="assets/juegos/eduline.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduLine</li>
+      <li><b><img src="assets/juegos/edustop.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduStop</li><li><b><img src="assets/juegos/edurain.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduRain</li><li><b><img src="assets/juegos/educatch.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduCatch</li><li><b><img src="assets/juegos/edublast.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduBlast</li>
+      <li><b><img src="assets/juegos/eduword.svg" alt="" style="width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em"></b>EduWord</li>
     </ul>
   </section>
 
@@ -386,9 +405,9 @@
   <figure><img alt=""><figcaption></figcaption></figure>
   <button class="lb-btn lb-next" type="button" aria-label="Imagen siguiente">›</button>
 </dialog>
-<script src="main.js?v=20261108b"></script>
-<script src="lightbox.js?v=20261108b"></script>
-<script src="detalles.js?v=20261108b"></script>
-<script src="modelo3d.js?v=20261108b"></script>
+<script src="main.js?v=20261111d"></script>
+<script src="lightbox.js?v=20261111d"></script>
+<script src="detalles.js?v=20261111d"></script>
+<script src="modelo3d.js?v=20261111d"></script>
 </body>
 </html>

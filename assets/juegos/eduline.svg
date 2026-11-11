@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EduLine">
+  <title>EduLine</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3CC8C8"/><stop offset="1" stop-color="#178E9E"/></linearGradient></defs>
+  <rect x="8" y="8" width="496" height="496" rx="118" fill="url(#g)"/>
+  <path d="M70 300 H442" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round"/>
+  <g fill="#FFFFFF"><circle cx="130" cy="300" r="26"/><circle cx="256" cy="300" r="26"/><circle cx="382" cy="300" r="26"/></g>
+  <g fill="#178E9E"><circle cx="130" cy="300" r="10"/><circle cx="256" cy="300" r="10"/><circle cx="382" cy="300" r="10"/></g>
+  <g stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"><path d="M130 270 V160"/><path d="M256 270 V120"/><path d="M382 270 V180"/></g>
+  <g fill="#FFFFFF"><path d="M136 160 H200 L186 180 L200 200 H136 Z"/><path d="M262 120 H326 L312 140 L326 160 H262 Z"/><path d="M388 180 H440 L428 198 L440 216 H388 Z" opacity=".9"/></g>
+  <g fill="#FFFFFF" opacity=".7"><rect x="100" y="356" width="60" height="14" rx="7"/><rect x="226" y="356" width="60" height="14" rx="7"/><rect x="352" y="356" width="60" height="14" rx="7"/></g>
+</svg>

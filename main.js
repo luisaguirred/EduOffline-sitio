@@ -21,7 +21,9 @@
       const c=core.getBoundingClientRect(),cc=c.left+c.width/2;
       for(const it of items){
         const r=it.getBoundingClientRect();
-        const lit=Math.max(0,1-Math.abs(r.left+r.width/2-cc)/Math.max(r.width*.62,1));
+        // Distancia en x (menú en fila) y en y (menú en columna del celular).
+      const cy=c.top+c.height/2,dx=(r.left+r.width/2-cc)/Math.max(r.width*.62,1),dy=(r.top+r.height/2-cy)/Math.max(r.height*.9,1);
+      const lit=Math.max(0,1-Math.hypot(dx,dy));
         it.style.setProperty('--lit',lit.toFixed(3));
       }
     }
@@ -50,6 +52,32 @@
 
   // Menú: sigue a la sección en pantalla.
   const nav=makeLight(document.querySelector('.nav'));
+  // Celular: el menú se despliega con el botón y se cierra al elegir una sección.
+  const topBar=document.querySelector('.top'),menuBtn=document.querySelector('.menu-btn');
+  if(menuBtn){
+    const setOpen=o=>{topBar.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',String(o));menuBtn.setAttribute('aria-label',o?'Cerrar el menú':'Abrir el menú');
+      if(o)requestAnimationFrame(()=>dispatchEvent(new Event('resize')));};
+    menuBtn.addEventListener('click',()=>setOpen(!topBar.classList.contains('open')));
+    document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+    addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false);});
+    document.addEventListener('click',e=>{if(topBar.classList.contains('open')&&!topBar.contains(e.target))setOpen(false);});
+  }
+  // Íconos del efecto principal en celular (sin mouse): el primer toque muestra su
+  // información con "Ver más"; tocar el mismo ícono otra vez abre su sección.
+  const fcInfo=document.getElementById('fc-info');
+  if(fcInfo){
+    const touchMode=()=>matchMedia('(max-width:820px)').matches||matchMedia('(hover:none)').matches;
+    document.querySelectorAll('.float-cards .fc').forEach(a=>a.addEventListener('click',e=>{
+      if(!touchMode()||a.classList.contains('sel'))return;
+      e.preventDefault();
+      document.querySelectorAll('.float-cards .fc.sel').forEach(x=>x.classList.remove('sel'));a.classList.add('sel');
+      const tip=a.querySelector('.tip');const title=tip.querySelector('strong').textContent;const desc=tip.textContent.slice(title.length);
+      fcInfo.innerHTML='';const st=document.createElement('strong');st.textContent=title;const sp=document.createElement('span');sp.textContent=desc;
+      const go=document.createElement('a');go.href=a.getAttribute('href');go.textContent='Ver más →';
+      go.addEventListener('click',()=>{if(a.dataset.tab){const t=document.getElementById(a.dataset.tab);if(t)t.click();}});
+      fcInfo.append(st,sp,document.createElement('br'),go);fcInfo.hidden=false;
+    }));
+  }
   const links=new Map(nav.items.map(a=>[a.getAttribute('href').slice(1),a]));
   const seen=new Map();
   const spy=new IntersectionObserver(es=>{
@@ -88,6 +116,8 @@
       else if(e.key==='End'){e.preventDefault();select(tabs.items[n-1],true);}
     });
   });
+  // Íconos del efecto principal con data-tab: abren esa pestaña al llegar a Funciones.
+  document.querySelectorAll('.fc[data-tab]').forEach(a=>a.addEventListener('click',()=>{const t=document.getElementById(a.dataset.tab);if(t)select(t);}));
   }
 
   // Constelación de saberes: símbolos de varias materias unidos por trazos; las chispas viajan entre ellos.

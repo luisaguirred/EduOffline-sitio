@@ -1,0 +1,34 @@
+# Servidor del sitio en Railway. El HTTPS lo pone Railway (certificado automático),
+# así que aquí Caddy solo atiende HTTP en el puerto que Railway indica con PORT.
+{
+	admin off
+	auto_https off
+	persist_config off
+}
+
+:{$PORT:8080} {
+	root * /srv
+	encode zstd gzip
+
+	# www.tudominio.com → tudominio.com (una sola dirección para el sitio)
+	@www header_regexp www Host ^www\.(.+)$
+	redir @www https://{re.www.1}{uri} permanent
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options SAMEORIGIN
+		-Server
+	}
+
+	# Las páginas siempre se revisan; CSS y JS llevan ?v= en los enlaces y se guardan
+	# un año; imágenes, fuentes y modelos, un día.
+	@html path / *.html
+	header @html Cache-Control "no-cache"
+	@code path *.css *.js
+	header @code Cache-Control "public, max-age=31536000, immutable"
+	@media path /assets/* /vendor/*
+	header @media Cache-Control "public, max-age=86400"
+
+	file_server
+}

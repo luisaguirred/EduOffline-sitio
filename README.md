@@ -5,6 +5,11 @@ Sitio estático en HTML, CSS y JavaScript, sin compilación. Inspirado en el est
 ## Ver el sitio
 Desde esta carpeta: `python3 -m http.server 8080` y abre http://localhost:8080. Se publica subiendo estos archivos a cualquier hosting estático.
 
+## Publicación (GitHub → Railway, dominio en Namecheap)
+- Railway lee el sitio del repositorio de GitHub (rama `master`, carpeta `sitio/`) y lo vuelve a publicar solo cada vez que se sube un cambio a esa carpeta.
+- `Dockerfile` + `Caddyfile`: imagen de Caddy que sirve los archivos en el puerto `PORT` que da Railway, con compresión, caché (las páginas siempre se revisan; CSS/JS con `?v=` un año; imágenes un día) y redirección de `www.` al dominio sin `www`. `.dockerignore` deja fuera este README y los archivos de configuración.
+- En Railway: servicio desde GitHub → Settings → **Root Directory** `/sitio`, **Branch** `master`, **Watch Paths** `/sitio/**`; Networking → **Generate Domain** para probar y **+ Custom Domain** para el dominio propio (Railway da un CNAME y un TXT; en Namecheap: Advanced DNS → CNAME `@` y `www` hacia el destino de Railway, y el TXT tal cual). El certificado HTTPS lo pone Railway solo (Let's Encrypt).
+
 ## Archivos
 - `index.html`: contenido, en orden de secciones.
 - `styles.css`: colores y tipografías en `:root`, con tema cuaderno (claro) y pizarrón (oscuro).
@@ -18,6 +23,15 @@ Desde esta carpeta: `python3 -m http.server 8080` y abre http://localhost:8080. 
 
 ## Efecto de luz
 `makeLight` agrega a cada `[data-light]` tres capas: `.light-core` (bloque), `.light-tail` (estela que llega más tarde) y `.light-glow` (resplandor). Para ajustar el recorrido cambia los `transition` de esas clases, y los colores con `--light-a` y `--light-b`. Cada `.light-item` recibe `--lit` (de 0 a 1) para encenderse cuando la luz pasa cerca.
+
+## Íconos del efecto principal
+En la portada, `.float-cards` son enlaces solo con ícono (sin texto visible). Al pasar el mouse o con el teclado aparece la burbuja `.tip` con el nombre y una línea de información; `tl`/`tr` abren la burbuja hacia la derecha o la izquierda y `up` hacia arriba. `data-tab="t-exam"` abre esa pestaña de Funciones (en `main.js`). Los íconos de EduQuiz, EduCard y EduFlip están en `assets/juegos/` (copias de `public/icons/games/` de la plataforma).
+
+## Celular (≤ 820 px)
+La barra superior muestra logo, botón de menú (`.menu-btn`, abre el panel `.nav` con la clase `.top.open`) y tema. Los íconos del efecto principal pasan debajo del texto en cuadrícula; el primer toque muestra su información en `#fc-info` con "Ver más" y el segundo abre la sección.
+
+## Juegos principales
+En `#juegos` hay un bloque por juego (`#eduquiz`, `#educard`, `#eduflip`) con capturas `assets/capturas/edu*.webp` y `edu*-alumno.webp`, tomadas de la plataforma de demostración en modo claro con nombres ficticios.
 
 ## Constelación de la portada
 `saberes` dibuja en `<canvas id="saberes">` símbolos de varias materias unidos por trazos, con chispas que viajan entre ellos y encienden el símbolo al llegar. Los símbolos se apartan del cursor y se iluminan cerca de él. Los textos están en `LABELS` y los colores en las variables `--fx-*`. La zona sin símbolos se calcula con el tamaño de `.hero-in`. Se detiene fuera de pantalla y queda fija con `prefers-reduced-motion`.
