@@ -18,7 +18,9 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - `detalles.js`: despliega la descripción de cada función.
 - `funciones.html`: guía detallada de funciones.
 - `privacidad.html`: aviso de privacidad del sitio y del programa (enlazado desde el pie de página).
-- **Caché del navegador:** los enlaces a `styles.css`, `fuentes.css` y los `.js` llevan `?v=AAAAMMDD…` en las tres páginas. Al cambiar alguno de esos archivos, sube ese número en las tres para que los visitantes no vean la versión vieja.
+- `tema.js`: aplica el tema guardado antes de pintar la página.
+- **Seguridad (`Caddyfile`):** HSTS y una política de contenido (CSP) que solo permite archivos del propio sitio. Por eso no hay scripts ni estilos en línea (`<script>…</script>`, `<style>`, `style="…"`): todo va en archivos `.js` y `.css`. Si algo deja de verse después de un cambio, revisar la consola del navegador: ahí aparece lo que la política bloqueó.
+- **Caché del navegador:** los enlaces a `styles.css`, `fuentes.css` y los `.js` (también `tema.js`) llevan `?v=AAAAMMDD…` en las tres páginas. Al cambiar alguno de esos archivos, sube ese número en las tres para que los visitantes no vean la versión vieja.
 - `fuentes.css` y `assets/fuentes/`: tipografías servidas desde el propio sitio (Atkinson Hyperlegible, Caveat, Fraunces; licencia OFL). El sitio no hace peticiones a terceros: no volver a agregar Google Fonts ni analítica sin actualizar el aviso.
 - `main.js`: efecto de luz (`makeLight`), constelación de la portada (`saberes`), pestañas, tema y regla lateral.
 

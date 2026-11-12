@@ -22,6 +22,16 @@
 		X-Content-Type-Options nosniff
 		Referrer-Policy strict-origin-when-cross-origin
 		X-Frame-Options SAMEORIGIN
+		# El navegador recuerda un año que este sitio solo se abre por HTTPS.
+		Strict-Transport-Security "max-age=31536000"
+		# Solo se cargan archivos del propio sitio: nada en línea ni de terceros.
+		# 'wasm-unsafe-eval', blob: y data: son para el visor 3D (model-viewer).
+		# Si se agrega un script o estilo en línea, o algo de otro dominio, hay que permitirlo aquí.
+		# El sha256 de style-src es el estilo que inyecta vendor/model-viewer.min.js: si se
+		# actualiza ese archivo, la consola del navegador indicará la huella nueva.
+		Content-Security-Policy "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'sha256-PXtZZkJMMyc18o/DN1ZEFOJ2qEGq95IQbVaJFMOXOb0='; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'; object-src 'none'"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+		Cross-Origin-Opener-Policy same-origin
 		-Server
 	}
 
