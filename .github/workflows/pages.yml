@@ -1,0 +1,43 @@
+# Publica el sitio en GitHub Pages (https://luisaguirred.github.io/EduOffline-sitio/)
+# cada vez que se sube un cambio a main. Solo se publican los archivos del sitio:
+# la configuración del servidor (Caddyfile, Dockerfile), el README y las copias
+# comprimidas para Caddy (.zst, .gz) se quedan fuera.
+name: GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reunir los archivos del sitio
+        run: |
+          mkdir _site
+          rsync -a \
+            --exclude '.git*' --exclude '.github' --exclude '_site' \
+            --exclude 'Caddyfile' --exclude 'Dockerfile' --exclude '.dockerignore' --exclude 'README.md' \
+            --exclude '*.zst' --exclude '*.gz' \
+            ./ _site/
+          find _site -type f | sort
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

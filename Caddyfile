@@ -11,7 +11,7 @@
 	encode zstd gzip
 
 	# Archivos de configuración y del repositorio: no se publican.
-	@private path /Caddyfile /Dockerfile /README.md /.dockerignore /.git /.git/*
+	@private path /Caddyfile /Dockerfile /README.md /.dockerignore /.git /.git/* /.github /.github/*
 	respond @private 404
 
 	# www.tudominio.com → tudominio.com (una sola dirección para el sitio)

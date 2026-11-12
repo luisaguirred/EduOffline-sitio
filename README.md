@@ -11,6 +11,12 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - En Railway: New Project → Deploy from GitHub repo → `EduOffline-sitio` (rama `main`, sin Root Directory); Networking → **Generate Domain** para probar y **+ Custom Domain** para el dominio propio (Railway da un CNAME y un TXT; en Namecheap: Advanced DNS → CNAME `@` y `www` hacia el destino de Railway, y el TXT tal cual). El certificado HTTPS lo pone Railway solo (Let's Encrypt).
 - Las capturas y los íconos de los juegos vienen de la plataforma: los íconos son copias de `public/icons/games/` de `EduOffline`.
 
+## Publicación de prueba en GitHub Pages
+- `.github/workflows/pages.yml` publica el sitio en https://luisaguirred.github.io/EduOffline-sitio/ con cada cambio a `main`, en paralelo a Railway. Deja fuera `Caddyfile`, `Dockerfile`, este README y las copias `.zst`/`.gz`.
+- En el repositorio: Settings → Pages → Source: **GitHub Actions**.
+- GitHub Pages no permite encabezados propios: ahí no aplican la política de contenido (CSP), `X-Frame-Options` ni el resto de los `header` del `Caddyfile`; HTTPS sí lo pone GitHub. La caché la fija GitHub (10 minutos). El modelo 3D se envía sin comprimir (620 KB).
+- `.github` está en `.dockerignore` para que no llegue a la imagen de Railway.
+
 ## Idiomas (inglés y español)
 - **Inglés es el idioma principal**: las páginas de la raíz (`index.html`, `funciones.html`, `privacidad.html`) están en inglés. La versión en español está en `es/`, con los mismos nombres de archivo y los mismos `id` de sección.
 - El botón `ES` / `EN` de la barra superior (`.lang`) abre la misma página en el otro idioma y conserva la sección (`#…`) en la que estaba el visitante. Cada página declara su versión en el otro idioma con `<link rel="alternate" hreflang>`.
