@@ -44,5 +44,10 @@
 	@media path /assets/* /vendor/*
 	header @media Cache-Control "public, max-age=86400"
 
-	file_server
+	# Si existe una copia ya comprimida (archivo.zst o archivo.gz) se envía esa, según lo
+	# que acepte el navegador. La usan el modelo 3D y el visor: Caddy no comprime .glb por
+	# su cuenta, y así el modelo pasa de 620 KB a ~240 KB por visita.
+	file_server {
+		precompressed zstd gzip
+	}
 }
