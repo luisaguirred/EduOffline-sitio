@@ -14,7 +14,7 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 ## Publicación de prueba en GitHub Pages
 - `.github/workflows/pages.yml` publica el sitio en https://luisaguirred.github.io/EduOffline-sitio/ con cada cambio a `main`, en paralelo a Railway. Deja fuera `Caddyfile`, `Dockerfile`, este README y las copias `.zst`/`.gz`.
 - En el repositorio: Settings → Pages → Source: **GitHub Actions**.
-- GitHub Pages no permite encabezados propios: ahí no aplican la política de contenido (CSP), `X-Frame-Options` ni el resto de los `header` del `Caddyfile`; HTTPS sí lo pone GitHub. La caché la fija GitHub (10 minutos). El modelo 3D se envía sin comprimir (620 KB).
+- GitHub Pages no permite encabezados propios: ahí no aplican la política de contenido (CSP), `X-Frame-Options` ni el resto de los `header` del `Caddyfile`; HTTPS sí lo pone GitHub. La caché la fija GitHub (10 minutos). GitHub comprime con gzip el modelo 3D (~320 KB) y el visor.
 - `.github` está en `.dockerignore` para que no llegue a la imagen de Railway.
 
 ## Idiomas (inglés y español)
