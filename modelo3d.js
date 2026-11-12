@@ -4,19 +4,37 @@
 // modelo (1 MB) se cargan solo cuando el visor está por aparecer en pantalla.
 (function () {
   'use strict';
-  var INFO = {
-    'Membrana celular': 'Envoltura que separa la célula de su entorno y decide qué entra y qué sale.',
-    'Núcleo': 'Guarda el material genético (ADN) y dirige las funciones de la célula.',
-    'Nucléolo': 'Zona dentro del núcleo donde se fabrican los ribosomas.',
-    'Retículo endoplásmico rugoso': 'Red de membranas con ribosomas pegados que fabrica proteínas.',
-    'Retículo endoplásmico liso': 'Red de membranas sin ribosomas que produce lípidos y elimina sustancias tóxicas.',
-    'Aparato de Golgi': 'Empaca las proteínas y las envía a donde se necesitan.',
-    'Mitocondrias': 'Producen la energía que la célula usa para funcionar.',
-    'Lisosomas': 'Contienen enzimas que digieren desechos y partes viejas de la célula.',
-    'Vacuola': 'Almacena agua, nutrientes y desechos.',
-    'Centriolos': 'Ayudan a organizar la división de la célula.',
-    'Ribosomas': 'Pequeñas estructuras que arman las proteínas.'
+  // Los materiales del modelo (.glb) tienen nombre en español: en inglés se muestra
+  // el nombre traducido. Idioma según <html lang> (inglés en la raíz, español en /es/).
+  var ES = document.documentElement.lang.indexOf('es') === 0;
+  var T = ES ? {
+    model: 'Modelo 3D', loading: 'Cargando modelo… ', modelError: 'No se pudo cargar el modelo 3D.',
+    viewerError: 'No se pudo cargar el visor 3D.',
+    hint: 'Elige una parte para resaltarla. Gira el modelo arrastrando y acércalo con la rueda o con dos dedos.'
+  } : {
+    model: '3D model', loading: 'Loading model… ', modelError: 'The 3D model could not be loaded.',
+    viewerError: 'The 3D viewer could not be loaded.',
+    hint: 'Choose a part to highlight it. Rotate the model by dragging and zoom with the wheel or two fingers.'
   };
+  // nombre del material → [nombre en inglés, descripción en español, descripción en inglés]
+  var PARTS = {
+    'Membrana celular': ['Cell membrane', 'Envoltura que separa la célula de su entorno y decide qué entra y qué sale.', 'The outer layer that separates the cell from its surroundings and controls what goes in and out.'],
+    'Núcleo': ['Nucleus', 'Guarda el material genético (ADN) y dirige las funciones de la célula.', 'Holds the genetic material (DNA) and directs the cell’s functions.'],
+    'Nucléolo': ['Nucleolus', 'Zona dentro del núcleo donde se fabrican los ribosomas.', 'The area inside the nucleus where ribosomes are made.'],
+    'Retículo endoplásmico rugoso': ['Rough endoplasmic reticulum', 'Red de membranas con ribosomas pegados que fabrica proteínas.', 'A network of membranes studded with ribosomes that makes proteins.'],
+    'Retículo endoplásmico liso': ['Smooth endoplasmic reticulum', 'Red de membranas sin ribosomas que produce lípidos y elimina sustancias tóxicas.', 'A network of membranes without ribosomes that makes lipids and removes toxic substances.'],
+    'Aparato de Golgi': ['Golgi apparatus', 'Empaca las proteínas y las envía a donde se necesitan.', 'Packages proteins and ships them where they are needed.'],
+    'Mitocondrias': ['Mitochondria', 'Producen la energía que la célula usa para funcionar.', 'Produce the energy the cell uses to work.'],
+    'Lisosomas': ['Lysosomes', 'Contienen enzimas que digieren desechos y partes viejas de la célula.', 'Contain enzymes that digest waste and worn-out parts of the cell.'],
+    'Vacuola': ['Vacuole', 'Almacena agua, nutrientes y desechos.', 'Stores water, nutrients and waste.'],
+    'Centriolos': ['Centrioles', 'Ayudan a organizar la división de la célula.', 'Help organize cell division.'],
+    'Ribosomas': ['Ribosomes', 'Pequeñas estructuras que arman las proteínas.', 'Tiny structures that assemble proteins.']
+  };
+  function label(name) { var p = PARTS[name]; return ES || !p ? name : p[0]; }
+  function info(name) { var p = PARTS[name]; return p ? p[ES ? 1 : 2] : ''; }
+  // El visor se busca junto a este script, para que funcione igual desde /es/.
+  var here = document.currentScript ? document.currentScript.src : location.href;
+  var VIEWER = new URL('vendor/model-viewer.min.js', here).href;
   var boxes = Array.prototype.slice.call(document.querySelectorAll('.m3d[data-src]'));
   if (!boxes.length) return;
 
@@ -26,7 +44,7 @@
     if (!scriptPromise) {
       scriptPromise = new Promise(function (resolve, reject) {
         var s = document.createElement('script');
-        s.src = 'vendor/model-viewer.min.js';
+        s.src = VIEWER;
         s.onload = resolve; s.onerror = reject;
         document.head.appendChild(s);
       });
@@ -43,7 +61,7 @@
     loadViewer().then(function () {
       var mv = document.createElement('model-viewer');
       mv.setAttribute('src', box.dataset.src);
-      mv.setAttribute('alt', box.dataset.alt || 'Modelo 3D');
+      mv.setAttribute('alt', box.dataset.alt || T.model);
       mv.setAttribute('camera-controls', '');
       mv.setAttribute('auto-rotate', '');
       mv.setAttribute('auto-rotate-delay', '1500');
@@ -53,14 +71,14 @@
       mv.className = 'm3d-view';
       box.querySelector('.m3d-stage').appendChild(mv);
       mv.addEventListener('progress', function (e) {
-        if (status) status.textContent = 'Cargando modelo… ' + Math.round(e.detail.totalProgress * 100) + ' %';
+        if (status) status.textContent = T.loading + Math.round(e.detail.totalProgress * 100) + ' %';
       });
       mv.addEventListener('error', function () {
-        if (status) status.textContent = 'No se pudo cargar el modelo 3D.';
+        if (status) status.textContent = T.modelError;
       });
       mv.addEventListener('load', function () { buildLegend(box, mv); if (status) status.hidden = true; });
     }).catch(function () {
-      if (status) status.textContent = 'No se pudo cargar el visor 3D.';
+      if (status) status.textContent = T.viewerError;
     });
   }
 
@@ -84,11 +102,11 @@
       if (sel >= 0) {
         var name = mats[sel].name;
         note.innerHTML = '';
-        var b = document.createElement('strong'); b.textContent = name;
+        var b = document.createElement('strong'); b.textContent = label(name);
         note.appendChild(b);
-        note.appendChild(document.createTextNode(': ' + (INFO[name] || '')));
+        note.appendChild(document.createTextNode(': ' + info(name)));
       } else {
-        note.textContent = 'Elige una parte para resaltarla. Gira el modelo arrastrando y acércalo con la rueda o con dos dedos.';
+        note.textContent = T.hint;
       }
     }
     list.innerHTML = '';
@@ -101,7 +119,7 @@
       sw.className = 'm3d-swatch';
       sw.style.background = css(original[i]);
       btn.appendChild(sw);
-      btn.appendChild(document.createTextNode(m.name));
+      btn.appendChild(document.createTextNode(label(m.name)));
       btn.addEventListener('click', function () {
         current = current === i ? -1 : i;
         if (current >= 0) mv.removeAttribute('auto-rotate');

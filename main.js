@@ -1,6 +1,8 @@
 // Efecto de luz entre categorías: la misma función sirve para el menú y las pestañas.
 // Lo usan index.html y funciones.html: cada parte se activa solo si su elemento existe en la página.
 (function(){
+  // Idioma de la página (<html lang>): inglés en la raíz, español en /es/.
+  const ES=document.documentElement.lang.startsWith('es');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function makeLight(root){
@@ -55,7 +57,7 @@
   // Celular: el menú se despliega con el botón y se cierra al elegir una sección.
   const topBar=document.querySelector('.top'),menuBtn=document.querySelector('.menu-btn');
   if(menuBtn){
-    const setOpen=o=>{topBar.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',String(o));menuBtn.setAttribute('aria-label',o?'Cerrar el menú':'Abrir el menú');
+    const setOpen=o=>{topBar.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',String(o));menuBtn.setAttribute('aria-label',o?(ES?'Cerrar el menú':'Close menu'):(ES?'Abrir el menú':'Open menu'));
       if(o)requestAnimationFrame(()=>dispatchEvent(new Event('resize')));};
     menuBtn.addEventListener('click',()=>setOpen(!topBar.classList.contains('open')));
     document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
@@ -73,7 +75,7 @@
       document.querySelectorAll('.float-cards .fc.sel').forEach(x=>x.classList.remove('sel'));a.classList.add('sel');
       const tip=a.querySelector('.tip');const title=tip.querySelector('strong').textContent;const desc=tip.textContent.slice(title.length);
       fcInfo.innerHTML='';const st=document.createElement('strong');st.textContent=title;const sp=document.createElement('span');sp.textContent=desc;
-      const go=document.createElement('a');go.href=a.getAttribute('href');go.textContent='Ver más →';
+      const go=document.createElement('a');go.href=a.getAttribute('href');go.textContent=ES?'Ver más →':'Learn more →';
       go.addEventListener('click',()=>{if(a.dataset.tab){const t=document.getElementById(a.dataset.tab);if(t)t.click();}});
       fcInfo.append(st,sp,document.createElement('br'),go);fcInfo.hidden=false;
     }));
@@ -123,7 +125,7 @@
   // Constelación de saberes: símbolos de varias materias unidos por trazos; las chispas viajan entre ellos.
   const saberes=!document.getElementById('saberes')?{refresh(){}}:(function(){
     const canvas=document.getElementById('saberes'),ctx=canvas.getContext('2d'),hero=canvas.parentElement;
-    const LABELS=['π','H₂O','Aa','E=mc²','∑','♪','√x','¿?','△','ñ','x²','ADN','∫','1/2','Fe','α','ABC','∞','°C','a²+b²','λ','%','Δ','Na'];
+    const LABELS=['π','H₂O','Aa','E=mc²','∑','♪','√x',ES?'¿?':'?!','△',ES?'ñ':'Ω','x²',ES?'ADN':'DNA','∫','1/2','Fe','α','ABC','∞','°C','a²+b²','λ','%','Δ','Na'];
     let W=0,H=0,dpr=1,clear={x:0,y:0,rx:1,ry:1},nodes=[],links=[],sparks=[],pal={},raf=0,onScreen=true,pointer=null;
 
     function readPalette(){
@@ -247,6 +249,9 @@
     document.fonts?.load('600 28px Caveat').then(rebuild,()=>{});
     return{refresh(){readPalette();nodes.forEach((n,i)=>{n.tone=pal.tones[i%3];});if(reduce)draw(0,false);}};
   })();
+
+  // Cambio de idioma: abre la misma página en el otro idioma, en la misma sección.
+  document.querySelectorAll('a.lang').forEach(a=>a.addEventListener('click',()=>{if(location.hash)a.hash=location.hash;}));
 
   // Tema.
   document.querySelector('.theme').addEventListener('click',()=>{

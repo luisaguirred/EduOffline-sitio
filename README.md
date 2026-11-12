@@ -11,8 +11,15 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - En Railway: New Project → Deploy from GitHub repo → `EduOffline-sitio` (rama `main`, sin Root Directory); Networking → **Generate Domain** para probar y **+ Custom Domain** para el dominio propio (Railway da un CNAME y un TXT; en Namecheap: Advanced DNS → CNAME `@` y `www` hacia el destino de Railway, y el TXT tal cual). El certificado HTTPS lo pone Railway solo (Let's Encrypt).
 - Las capturas y los íconos de los juegos vienen de la plataforma: los íconos son copias de `public/icons/games/` de `EduOffline`.
 
+## Idiomas (inglés y español)
+- **Inglés es el idioma principal**: las páginas de la raíz (`index.html`, `funciones.html`, `privacidad.html`) están en inglés. La versión en español está en `es/`, con los mismos nombres de archivo y los mismos `id` de sección.
+- El botón `ES` / `EN` de la barra superior (`.lang`) abre la misma página en el otro idioma y conserva la sección (`#…`) en la que estaba el visitante. Cada página declara su versión en el otro idioma con `<link rel="alternate" hreflang>`.
+- Las páginas de `es/` usan `../` para llegar a `assets/`, `vendor/`, CSS y JS (son los mismos archivos para los dos idiomas).
+- Los textos que pone JavaScript (`main.js`, `lightbox.js`, `modelo3d.js`) se eligen según `<html lang>`. Los nombres de las partes de la célula vienen en español dentro del `.glb`; su traducción está en `PARTS` de `modelo3d.js`.
+- **Al cambiar un texto, cambiarlo en los dos idiomas.** Al subir el `?v=` de CSS/JS, subirlo en las seis páginas.
+
 ## Archivos
-- `index.html`: contenido, en orden de secciones.
+- `index.html`: contenido, en orden de secciones (inglés; `es/index.html` en español).
 - `styles.css`: colores y tipografías en `:root`, con tema cuaderno (claro) y pizarrón (oscuro).
 - `lightbox.js`: amplía las capturas al hacer clic.
 - `detalles.js`: despliega la descripción de cada función.
@@ -20,7 +27,7 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - `privacidad.html`: aviso de privacidad del sitio y del programa (enlazado desde el pie de página).
 - `tema.js`: aplica el tema guardado antes de pintar la página.
 - **Seguridad (`Caddyfile`):** HSTS y una política de contenido (CSP) que solo permite archivos del propio sitio. Por eso no hay scripts ni estilos en línea (`<script>…</script>`, `<style>`, `style="…"`): todo va en archivos `.js` y `.css`. Si algo deja de verse después de un cambio, revisar la consola del navegador: ahí aparece lo que la política bloqueó.
-- **Caché del navegador:** los enlaces a `styles.css`, `fuentes.css` y los `.js` (también `tema.js`) llevan `?v=AAAAMMDD…` en las tres páginas. Al cambiar alguno de esos archivos, sube ese número en las tres para que los visitantes no vean la versión vieja.
+- **Caché del navegador:** los enlaces a `styles.css`, `fuentes.css` y los `.js` (también `tema.js`) llevan `?v=AAAAMMDD…` en las seis páginas (tres en inglés y tres en `es/`). Al cambiar alguno de esos archivos, sube ese número en las seis para que los visitantes no vean la versión vieja.
 - `fuentes.css` y `assets/fuentes/`: tipografías servidas desde el propio sitio (Atkinson Hyperlegible, Caveat, Fraunces; licencia OFL). El sitio no hace peticiones a terceros: no volver a agregar Google Fonts ni analítica sin actualizar el aviso.
 - `main.js`: efecto de luz (`makeLight`), constelación de la portada (`saberes`), pestañas, tema y regla lateral.
 

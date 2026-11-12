@@ -23,7 +23,7 @@
   document.querySelectorAll('.shot img').forEach(img=>{
     img.tabIndex=0;
     img.setAttribute('role','button');
-    img.setAttribute('aria-label','Ampliar imagen: '+img.alt);
+    img.setAttribute('aria-label',(document.documentElement.lang.startsWith('es')?'Ampliar imagen: ':'Enlarge image: ')+img.alt);
     img.addEventListener('click',()=>open(img));
     img.addEventListener('keydown',e=>{
       if(e.key==='Enter'||e.key===' '){e.preventDefault();open(img);}

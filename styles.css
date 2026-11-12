@@ -47,6 +47,8 @@ em{font-family:var(--hand);font-style:normal;font-weight:700;font-size:1.14em;le
 .fc-info{display:none}
 .theme{width:52px;border:0;border-left:1px solid var(--line);background:none;color:var(--ink);font-size:0;cursor:pointer}
 .theme span{display:inline-block;width:18px;height:18px;border:2px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.lang{display:flex;align-items:center;justify-content:center;width:52px;border-left:1px solid var(--line);color:var(--ink);font:700 13px var(--body);letter-spacing:.06em;text-decoration:none}
+.lang:hover,.lang:focus-visible{background:var(--line)}
 .top-cta{display:flex;align-items:center;padding:0 22px;background:var(--cta-bg);color:var(--cta-fg);font:700 14px var(--body);text-decoration:none;white-space:nowrap}
 
 /* La luz: un marcatextos que se desliza, una estela que llega tarde y un resplandor. */
