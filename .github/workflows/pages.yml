@@ -1,7 +1,6 @@
-# Publica el sitio en GitHub Pages (https://luisaguirred.github.io/EduOffline-sitio/)
-# cada vez que se sube un cambio a main. Solo se publican los archivos del sitio:
-# la configuración del servidor (Caddyfile, Dockerfile), el README y las copias
-# comprimidas para Caddy (.zst, .gz) se quedan fuera.
+# Publica el sitio en GitHub Pages (https://eduoffline.com) cada vez que se sube
+# un cambio a main. Solo se publican los archivos del sitio: .github y el README
+# se quedan fuera.
 name: GitHub Pages
 
 on:
@@ -30,9 +29,7 @@ jobs:
         run: |
           mkdir _site
           rsync -a \
-            --exclude '.git*' --exclude '.github' --exclude '_site' \
-            --exclude 'Caddyfile' --exclude 'Dockerfile' --exclude '.dockerignore' --exclude 'README.md' \
-            --exclude '*.zst' --exclude '*.gz' \
+            --exclude '.git*' --exclude '.github' --exclude '_site' --exclude 'README.md' \
             ./ _site/
           find _site -type f | sort
       - uses: actions/configure-pages@v5

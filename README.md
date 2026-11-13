@@ -5,17 +5,12 @@ Sitio estático en HTML, CSS y JavaScript, sin compilación. Inspirado en el est
 ## Ver el sitio
 Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://localhost:8080. Se publica subiendo estos archivos a cualquier hosting estático.
 
-## Publicación (GitHub → Railway, dominio en Namecheap)
-- Este repositorio (`luisaguirred/EduOffline-sitio`, rama `main`) es solo el sitio, separado de la plataforma (`luisaguirred/EduOffline`). Railway lo vuelve a publicar solo cada vez que se sube un cambio a `main`.
-- `Dockerfile` + `Caddyfile`: imagen de Caddy que sirve los archivos en el puerto `PORT` que da Railway, con compresión, caché (las páginas siempre se revisan; CSS/JS con `?v=` un año; imágenes un día) y redirección de `www.` al dominio sin `www`. `.dockerignore` deja fuera este README y los archivos de configuración.
-- En Railway: New Project → Deploy from GitHub repo → `EduOffline-sitio` (rama `main`, sin Root Directory); Networking → **Generate Domain** para probar y **+ Custom Domain** para el dominio propio (Railway da un CNAME y un TXT; en Namecheap: Advanced DNS → CNAME `@` y `www` hacia el destino de Railway, y el TXT tal cual). El certificado HTTPS lo pone Railway solo (Let's Encrypt).
+## Publicación (GitHub Pages, dominio en Namecheap)
+- Este repositorio (`luisaguirred/EduOffline-sitio`, rama `main`) es solo el sitio, separado de la plataforma (`luisaguirred/EduOffline`).
+- `.github/workflows/pages.yml` publica el sitio en https://eduoffline.com con cada cambio a `main` (Settings → Pages → Source: **GitHub Actions**, Custom domain `eduoffline.com`, Enforce HTTPS). Deja fuera `.github` y este README.
+- DNS en Namecheap (Advanced DNS): cuatro `A` para `@` (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) y `CNAME` `www` → `luisaguirred.github.io.`; `www` redirige solo al dominio sin `www`. El reenvío de correo (`MX` y el `TXT` de SPF) está en Mail Settings y no se toca. El certificado HTTPS lo pone GitHub.
+- GitHub Pages no permite encabezados propios: la CSP va como `<meta>` en cada página, y no hay forma de impedir que otro sitio muestre este dentro de un marco (`frame-ancestors`/`X-Frame-Options`). La caché la fija GitHub (10 minutos) y comprime con gzip HTML, CSS, JS y el modelo 3D.
 - Las capturas y los íconos de los juegos vienen de la plataforma: los íconos son copias de `public/icons/games/` de `EduOffline`.
-
-## Publicación de prueba en GitHub Pages
-- `.github/workflows/pages.yml` publica el sitio en https://luisaguirred.github.io/EduOffline-sitio/ con cada cambio a `main`, en paralelo a Railway. Deja fuera `Caddyfile`, `Dockerfile`, este README y las copias `.zst`/`.gz`.
-- En el repositorio: Settings → Pages → Source: **GitHub Actions**.
-- GitHub Pages no permite encabezados propios: ahí no aplican la política de contenido (CSP), `X-Frame-Options` ni el resto de los `header` del `Caddyfile`; HTTPS sí lo pone GitHub. La caché la fija GitHub (10 minutos). GitHub comprime con gzip el modelo 3D (~320 KB) y el visor.
-- `.github` está en `.dockerignore` para que no llegue a la imagen de Railway.
 
 ## Idiomas (inglés y español)
 - **Inglés es el idioma principal**: las páginas de la raíz (`index.html`, `funciones.html`, `privacidad.html`) están en inglés. La versión en español está en `es/`, con los mismos nombres de archivo y los mismos `id` de sección.
@@ -32,7 +27,7 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - `funciones.html`: guía detallada de funciones.
 - `privacidad.html`: aviso de privacidad del sitio y del programa (enlazado desde el pie de página).
 - `tema.js`: aplica el tema guardado antes de pintar la página.
-- **Seguridad (`Caddyfile`):** HSTS y una política de contenido (CSP) que solo permite archivos del propio sitio. Por eso no hay scripts ni estilos en línea (`<script>…</script>`, `<style>`, `style="…"`): todo va en archivos `.js` y `.css`. Si algo deja de verse después de un cambio, revisar la consola del navegador: ahí aparece lo que la política bloqueó.
+- **Seguridad (CSP):** cada página lleva al inicio de `<head>` un `<meta http-equiv="Content-Security-Policy">` que solo permite archivos del propio sitio (GitHub Pages no permite ponerla como encabezado). Por eso no hay scripts ni estilos en línea (`<script>…</script>`, `<style>`, `style="…"`): todo va en archivos `.js` y `.css`. `'wasm-unsafe-eval'`, `blob:` y `data:` son para el visor 3D; el `sha256` de `style-src` es el estilo que inyecta `vendor/model-viewer.min.js` (si se actualiza ese archivo, la consola del navegador indicará la huella nueva). Si se agrega algo de otro dominio, hay que permitirlo en las seis páginas y actualizar el aviso de privacidad.
 - **Caché del navegador:** los enlaces a `styles.css`, `fuentes.css` y los `.js` (también `tema.js`) llevan `?v=AAAAMMDD…` en las seis páginas (tres en inglés y tres en `es/`). Al cambiar alguno de esos archivos, sube ese número en las seis para que los visitantes no vean la versión vieja.
 - `fuentes.css` y `assets/fuentes/`: tipografías servidas desde el propio sitio (Atkinson Hyperlegible, Caveat, Fraunces; licencia OFL). El sitio no hace peticiones a terceros: no volver a agregar Google Fonts ni analítica sin actualizar el aviso.
 - `main.js`: efecto de luz (`makeLight`), constelación de la portada (`saberes`), pestañas, tema y regla lateral.
@@ -68,4 +63,4 @@ En `#preguntas`, con `<details>` (sin JavaScript). Linux y macOS se explican den
 - **Capturas:** están en `assets/capturas/`, en modo claro y tomadas de una plataforma de demostración, sin nada de la base real: los alumnos aparecen como "Alumno 01". Muestran la marca EduOffline, así que hay que repetirlas al cambiar el nombre.
 - **Contacto:** falta el contacto del proyecto; cuando exista, agregarlo en `privacidad.html` (sección de derechos) y en `PROJECT_CONTACT` de `server/privacy.js`. Revisar la fecha de `privacidad.html` al cambiarlo.
 - **Modelo 3D de muestra:** `modelo3d.js` convierte cada `<div class="m3d" data-src="…">` en un visor con la lista de partes (al elegir una se resalta y aparece qué es). Usa `vendor/model-viewer.min.js` (copia del que trae la plataforma) y `assets/modelos/celula-animal.glb` (generado con `contenido/ejemplos/celula-animal/make-cell.js`). Solo se descargan cuando el visor está por aparecer en pantalla. El modelo está cuantizado (`gltf-transform dedup`, `weld`, `quantize` y `prune`: 1.1 MB → 620 KB, sin cambio visible) y no usa Draco ni meshopt, que necesitarían un decodificador de otro sitio.
-- **Copias comprimidas (`.zst` y `.gz`):** Caddy envía `celula-animal.glb.zst`/`.gz` y `model-viewer.min.js.zst`/`.gz` en lugar del original (`precompressed` en el `Caddyfile`), ~240 KB cada uno. **Si se cambia el modelo o el visor, hay que volver a generarlas**, o se enviaría la versión vieja: `for f in assets/modelos/celula-animal.glb vendor/model-viewer.min.js; do zstd -19 -f "$f" -o "$f.zst"; gzip -9 -k -f -n "$f"; done` Las descripciones de cada organelo están en `modelo3d.js`.
+- Las descripciones de cada organelo están en `modelo3d.js`.
