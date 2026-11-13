@@ -1,12 +1,18 @@
 # Publica el sitio en GitHub Pages (https://eduoffline.com) cada vez que se sube
-# un cambio a main. Solo se publican los archivos del sitio: .github y el README
-# se quedan fuera.
+# un cambio a main, y llena versiones.html con las versiones publicadas.
+# Solo se publican los archivos del sitio: .github y el README se quedan fuera.
 name: GitHub Pages
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+  # desktop/scripts/publish-release.sh (repositorio EduOffline) avisa al publicar una versión.
+  repository_dispatch:
+    types: [versiones]
+  # Por si el aviso falla: la lista de versiones se actualiza también una vez al día.
+  schedule:
+    - cron: '17 9 * * *'
 
 permissions:
   contents: read
@@ -32,6 +38,13 @@ jobs:
             --exclude '.git*' --exclude '.github' --exclude '_site' --exclude 'README.md' \
             ./ _site/
           find _site -type f | sort
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Lista de versiones (repositorio EduOffline-releases)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node .github/scripts/versiones.mjs _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

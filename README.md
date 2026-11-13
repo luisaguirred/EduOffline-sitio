@@ -12,12 +12,20 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - GitHub Pages no permite encabezados propios: la CSP va como `<meta>` en cada página, y no hay forma de impedir que otro sitio muestre este dentro de un marco (`frame-ancestors`/`X-Frame-Options`). La caché la fija GitHub (10 minutos) y comprime con gzip HTML, CSS, JS y el modelo 3D.
 - Las capturas y los íconos de los juegos vienen de la plataforma: los íconos son copias de `public/icons/games/` de `EduOffline`.
 
+## Página de versiones (`versiones.html`)
+- Muestra cada versión publicada en el repositorio público `luisaguirred/EduOffline-releases`, con sus notas y la descarga de cada plataforma, en inglés (`versiones.html`) y en español (`es/versiones.html`). El código sigue privado en `luisaguirred/EduOffline`.
+- La lista no está en el repositorio: al publicar, `.github/scripts/versiones.mjs` la escribe entre `<!-- versiones:inicio -->` y `<!-- versiones:fin -->`. Lo que hay entre esas marcas en el repositorio es el texto para cuando aún no hay versiones.
+- **Cuándo se actualiza:** al publicar una versión con `desktop/scripts/publish-release.sh` (repositorio EduOffline), que avisa al sitio; con cada cambio a `main`; y una vez al día por si el aviso falla. GitHub desactiva las tareas diarias de un repositorio sin actividad en 60 días; se reactivan desde la pestaña Actions.
+- **Notas en dos idiomas:** en la descripción de la versión, el texto después de `<!-- en -->` va a la página en inglés y el que sigue a `<!-- es -->` a la de español; sin marcas, el mismo texto va a las dos. GitHub convierte el Markdown a HTML. Las imágenes pegadas en las notas no se ven en el sitio (la CSP solo permite imágenes propias).
+- **Plataformas:** se reconocen por la extensión del archivo: Windows (`.exe`, `.msi`), macOS (`.dmg`, `.pkg`), Linux (`.AppImage`, `.deb`, `.rpm`); el resto aparece como "Otros archivos". Los `.blockmap` y `latest*.yml` (para las actualizaciones automáticas) no se muestran.
+- **Probar sin GitHub:** `VERSIONES_JSON=ejemplo.json node .github/scripts/versiones.mjs carpeta`, sobre una copia del sitio (el JSON tiene la forma de la API de releases).
+
 ## Idiomas (inglés y español)
 - **Inglés es el idioma principal**: las páginas de la raíz (`index.html`, `funciones.html`, `privacidad.html`) están en inglés. La versión en español está en `es/`, con los mismos nombres de archivo y los mismos `id` de sección.
 - El botón `ES` / `EN` de la barra superior (`.lang`) abre la misma página en el otro idioma y conserva la sección (`#…`) en la que estaba el visitante. Cada página declara su versión en el otro idioma con `<link rel="alternate" hreflang>`.
 - Las páginas de `es/` usan `../` para llegar a `assets/`, `vendor/`, CSS y JS (son los mismos archivos para los dos idiomas).
 - Los textos que pone JavaScript (`main.js`, `lightbox.js`, `modelo3d.js`) se eligen según `<html lang>`. Los nombres de las partes de la célula vienen en español dentro del `.glb`; su traducción está en `PARTS` de `modelo3d.js`.
-- **Al cambiar un texto, cambiarlo en los dos idiomas.** Al subir el `?v=` de CSS/JS, subirlo en las seis páginas.
+- **Al cambiar un texto, cambiarlo en los dos idiomas.** Al subir el `?v=` de CSS/JS, subirlo en las ocho páginas.
 
 ## Archivos
 - `index.html`: contenido, en orden de secciones (inglés; `es/index.html` en español).
@@ -26,9 +34,10 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - `detalles.js`: despliega la descripción de cada función.
 - `funciones.html`: guía detallada de funciones.
 - `privacidad.html`: aviso de privacidad del sitio y del programa (enlazado desde el pie de página).
+- `versiones.html`: versiones y cambios (ver arriba).
 - `tema.js`: aplica el tema guardado antes de pintar la página.
-- **Seguridad (CSP):** cada página lleva al inicio de `<head>` un `<meta http-equiv="Content-Security-Policy">` que solo permite archivos del propio sitio (GitHub Pages no permite ponerla como encabezado). Por eso no hay scripts ni estilos en línea (`<script>…</script>`, `<style>`, `style="…"`): todo va en archivos `.js` y `.css`. `'wasm-unsafe-eval'`, `blob:` y `data:` son para el visor 3D; el `sha256` de `style-src` es el estilo que inyecta `vendor/model-viewer.min.js` (si se actualiza ese archivo, la consola del navegador indicará la huella nueva). Si se agrega algo de otro dominio, hay que permitirlo en las seis páginas y actualizar el aviso de privacidad.
-- **Caché del navegador:** los enlaces a `styles.css`, `fuentes.css` y los `.js` (también `tema.js`) llevan `?v=AAAAMMDD…` en las seis páginas (tres en inglés y tres en `es/`). Al cambiar alguno de esos archivos, sube ese número en las seis para que los visitantes no vean la versión vieja.
+- **Seguridad (CSP):** cada página lleva al inicio de `<head>` un `<meta http-equiv="Content-Security-Policy">` que solo permite archivos del propio sitio (GitHub Pages no permite ponerla como encabezado). Por eso no hay scripts ni estilos en línea (`<script>…</script>`, `<style>`, `style="…"`): todo va en archivos `.js` y `.css`. `'wasm-unsafe-eval'`, `blob:` y `data:` son para el visor 3D; el `sha256` de `style-src` es el estilo que inyecta `vendor/model-viewer.min.js` (si se actualiza ese archivo, la consola del navegador indicará la huella nueva). Si se agrega algo de otro dominio, hay que permitirlo en las ocho páginas y actualizar el aviso de privacidad.
+- **Caché del navegador:** los enlaces a `styles.css`, `fuentes.css` y los `.js` (también `tema.js`) llevan `?v=AAAAMMDD…` en las ocho páginas (cuatro en inglés y cuatro en `es/`). Al cambiar alguno de esos archivos, sube ese número en las ocho para que los visitantes no vean la versión vieja.
 - `fuentes.css` y `assets/fuentes/`: tipografías servidas desde el propio sitio (Atkinson Hyperlegible, Caveat, Fraunces; licencia OFL). El sitio no hace peticiones a terceros: no volver a agregar Google Fonts ni analítica sin actualizar el aviso.
 - `main.js`: efecto de luz (`makeLight`), constelación de la portada (`saberes`), pestañas, tema y regla lateral.
 
@@ -57,7 +66,7 @@ En `#instalacion`, con el Xiaomi AX3000T como ejemplo. Los nombres de menú del 
 En `#preguntas`, con `<details>` (sin JavaScript). Linux y macOS se explican dentro de `#instalacion`; hoy su instalación es manual.
 
 ## Pendientes
-- **Descarga:** es libre. Cuando exista la primera versión, activa el botón de `#descargar` con https://github.com/luisaguirred/EduOffline-releases/releases/latest
+- **Descarga:** es libre. Cuando exista la primera versión, activa el botón de `#descargar` con https://github.com/luisaguirred/EduOffline-releases/releases/latest (el repositorio ya existe; la lista completa está en `versiones.html`).
 - **Donaciones:** falta el enlace del servicio que elija el maestro.
 - **Nombre:** EduOffline (antes EduPlay, registrado en el IMPI). El logo vectorizado está en `assets/eduoffline-*.svg`; el script que lo genera, en `contenido/Marca/`.
 - **Capturas:** están en `assets/capturas/`, en modo claro y tomadas de una plataforma de demostración, sin nada de la base real: los alumnos aparecen como "Alumno 01". Muestran la marca EduOffline, así que hay que repetirlas al cambiar el nombre.

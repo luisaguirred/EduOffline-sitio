@@ -202,7 +202,7 @@ li.has-info{padding:0!important}
 .mob-grid li{display:flex;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
 .mob-grid li>span{font-size:1.4rem;line-height:1}
 .mob-grid p{margin:2px 0 0;color:var(--muted);line-height:1.5;font-size:.95rem}
-.type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:0 0 16px}
+.type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:10px;margin:0 0 16px}
 .type-card{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
 .type-card span{font-size:1.4rem;display:block;margin-bottom:6px}
 .type-card p{margin:4px 0 0;color:var(--muted);line-height:1.5;font-size:.95rem}
@@ -341,3 +341,30 @@ li.has-info{padding:0!important}
    Van aquí porque la política de seguridad (CSP) no permite estilos en línea. */
 .ic-inline{width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em}
 .priv p,.priv li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+/* Página de versiones (versiones.html): la lista la llena .github/scripts/versiones.mjs al publicar. */
+.releases{display:grid;gap:clamp(18px,3vw,28px)}
+.releases-empty{margin:0;padding:18px 20px;border:1px dashed var(--line);border-radius:14px;background:var(--card);color:var(--muted)}
+.release{padding:clamp(18px,3vw,28px);border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 3px 0 var(--shadow);scroll-margin-top:calc(var(--bar) + 12px)}
+.rel-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:12px}
+.rel-head h2{margin:0;font:700 clamp(22px,2.6vw,30px)/1.15 var(--display)}
+.rel-head time{margin-left:auto;color:var(--muted);font-size:.92rem}
+.rel-badge{padding:3px 10px;border-radius:99px;background:var(--marker);color:var(--on-marker);font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.rel-badge.pre{background:var(--tint-b);color:var(--ink)}
+.rel-notes{line-height:1.65;overflow-wrap:anywhere}
+.rel-notes h1,.rel-notes h2,.rel-notes h3,.rel-notes h4{margin:18px 0 6px;font:700 1.05rem/1.3 var(--body)}
+.rel-notes ul,.rel-notes ol{padding-left:1.2em}
+.rel-notes li{margin:4px 0}
+.rel-notes code{padding:1px 5px;border-radius:5px;background:var(--surface);font-size:.92em}
+.rel-notes pre{overflow-x:auto;padding:12px;border-radius:10px;background:var(--surface);white-space:pre-wrap}
+.rel-notes img{max-width:100%;height:auto}
+.rel-notes .anchor{display:none}
+.rel-files{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.rel-files h3{margin:0 0 10px;font:700 .82rem var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.rel-files ul{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:10px;margin:0;padding:0;list-style:none}
+.rel-dl{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:2px solid var(--ink);border-radius:12px;background:var(--bg);color:inherit;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.rel-dl:hover,.rel-dl:focus-visible{transform:translateY(-2px);box-shadow:0 4px 0 color-mix(in srgb,var(--light-a) 80%,#000)}
+.rel-dl strong::before{content:"↓ "}
+.rel-dl span{color:var(--muted);font-size:.85rem;overflow-wrap:anywhere}
+.rel-gh{margin:12px 0 0;font-size:.9rem}
+.final .all-versions{margin-top:14px;font-size:.95rem}
+.final .all-versions a{color:inherit;text-underline-offset:3px}
