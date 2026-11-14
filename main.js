@@ -253,6 +253,20 @@
   // Cambio de idioma: abre la misma página en el otro idioma, en la misma sección.
   document.querySelectorAll('a.lang').forEach(a=>a.addEventListener('click',()=>{if(location.hash)a.hash=location.hash;}));
 
+  // Juegos: al tocar uno se muestra su descripción y captura; tocarlo otra vez la cierra.
+  // Sin JavaScript se ven todas las descripciones.
+  const gg=document.querySelector('[data-gg]');
+  if(gg){
+    const ggBtns=[...gg.querySelectorAll('.gg-btn')],ggItems=[...gg.querySelectorAll('.gg-item')];
+    const ggOpen=id=>{ggBtns.forEach(b=>b.setAttribute('aria-expanded',String(b.getAttribute('aria-controls')===id)));ggItems.forEach(it=>{it.hidden=it.id!==id;});};
+    ggOpen(null);
+    ggBtns.forEach(b=>b.addEventListener('click',()=>{
+      const id=b.getAttribute('aria-controls'),on=b.getAttribute('aria-expanded')==='true';
+      ggOpen(on?null:id);
+      if(!on)document.getElementById(id).scrollIntoView({block:'nearest',behavior:reduce?'auto':'smooth'});
+    }));
+  }
+
   // Tema.
   document.querySelector('.theme').addEventListener('click',()=>{
     const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;

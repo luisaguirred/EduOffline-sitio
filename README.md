@@ -53,6 +53,9 @@ La barra superior muestra logo, botón de menú (`.menu-btn`, abre el panel `.na
 ## Juegos principales
 En `#juegos` hay un bloque por juego (`#eduquiz`, `#educard`, `#eduflip`) con capturas `assets/capturas/edu*.webp` y `edu*-alumno.webp`, tomadas de la plataforma de demostración en modo claro con nombres ficticios.
 
+## Lista de los trece juegos
+Debajo de los juegos principales, `.grid-games` muestra los trece juegos por nombre. Cada uno es un botón (`.gg-btn`): al tocarlo aparece debajo su descripción y una captura del celular del alumno (`.gg-item`, en `main.js`, bloque `data-gg`); tocarlo otra vez la cierra. Sin JavaScript se ven todas las descripciones. Las capturas son `assets/capturas/<juego>-alumno.webp` (560×1212, modo claro, datos de demostración, como las de EduQuiz, EduCard y EduFlip). Las descripciones salen de "Juegos - reglas para alumnos.md" del programa.
+
 ## Constelación de la portada
 `saberes` dibuja en `<canvas id="saberes">` símbolos de varias materias unidos por trazos, con chispas que viajan entre ellos y encienden el símbolo al llegar. Los símbolos se apartan del cursor y se iluminan cerca de él. Los textos están en `LABELS` y los colores en las variables `--fx-*`. La zona sin símbolos se calcula con el tamaño de `.hero-in`. Se detiene fuera de pantalla y queda fija con `prefers-reduced-motion`.
 

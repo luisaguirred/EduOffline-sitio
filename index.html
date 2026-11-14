@@ -11,9 +11,9 @@
 <link rel="alternate" hreflang="x-default" href="./">
 <link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
-<link rel="stylesheet" href="fuentes.css?v=20261113a">
-<link rel="stylesheet" href="styles.css?v=20261113a">
-<script src="tema.js?v=20261113a"></script>
+<link rel="stylesheet" href="fuentes.css?v=20261113b">
+<link rel="stylesheet" href="styles.css?v=20261113b">
+<script src="tema.js?v=20261113b"></script>
 </head>
 <body>
 <header class="top">
@@ -181,12 +181,70 @@
       </article>
     </div>
     <div class="shots single wide"><figure class="shot"><img src="assets/capturas/juegos.webp" alt="Games section with the thirteen available games and the option to open an EduQuiz room" width="1600" height="1000" loading="lazy"><figcaption>Thirteen games ready to open a room with your class, from the computer or from your phone.</figcaption></figure></div>
+    <!-- Cada juego: al tocarlo se muestra su descripción y una captura (main.js, data-gg). -->
+    <div class="gg" data-gg>
+    <p class="gg-hint">Tap a game to see what it’s about.</p>
     <ul class="grid-games">
-      <li><b><img src="assets/juegos/eduquiz.svg" alt="" class="ic-inline"></b>EduQuiz</li><li><b><img src="assets/juegos/eduflip.svg" alt="" class="ic-inline"></b>EduFlip</li><li><b><img src="assets/juegos/educard.svg" alt="" class="ic-inline"></b>EduCard</li><li><b><img src="assets/juegos/eduduel.svg" alt="" class="ic-inline"></b>EduDuel</li>
-      <li><b><img src="assets/juegos/edufix.svg" alt="" class="ic-inline"></b>EduFix</li><li><b><img src="assets/juegos/edurace.svg" alt="" class="ic-inline"></b>EduRace</li><li><b><img src="assets/juegos/edusort.svg" alt="" class="ic-inline"></b>EduSort</li><li><b><img src="assets/juegos/eduline.svg" alt="" class="ic-inline"></b>EduLine</li>
-      <li><b><img src="assets/juegos/edustop.svg" alt="" class="ic-inline"></b>EduStop</li><li><b><img src="assets/juegos/edurain.svg" alt="" class="ic-inline"></b>EduRain</li><li><b><img src="assets/juegos/educatch.svg" alt="" class="ic-inline"></b>EduCatch</li><li><b><img src="assets/juegos/edublast.svg" alt="" class="ic-inline"></b>EduBlast</li>
-      <li><b><img src="assets/juegos/eduword.svg" alt="" class="ic-inline"></b>EduWord</li>
+      <li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-eduquiz"><b><img src="assets/juegos/eduquiz.svg" alt="" class="ic-inline"></b>EduQuiz</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-eduflip"><b><img src="assets/juegos/eduflip.svg" alt="" class="ic-inline"></b>EduFlip</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-educard"><b><img src="assets/juegos/educard.svg" alt="" class="ic-inline"></b>EduCard</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-eduduel"><b><img src="assets/juegos/eduduel.svg" alt="" class="ic-inline"></b>EduDuel</button></li>
+      <li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-edufix"><b><img src="assets/juegos/edufix.svg" alt="" class="ic-inline"></b>EduFix</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-edurace"><b><img src="assets/juegos/edurace.svg" alt="" class="ic-inline"></b>EduRace</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-edusort"><b><img src="assets/juegos/edusort.svg" alt="" class="ic-inline"></b>EduSort</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-eduline"><b><img src="assets/juegos/eduline.svg" alt="" class="ic-inline"></b>EduLine</button></li>
+      <li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-edustop"><b><img src="assets/juegos/edustop.svg" alt="" class="ic-inline"></b>EduStop</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-edurain"><b><img src="assets/juegos/edurain.svg" alt="" class="ic-inline"></b>EduRain</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-educatch"><b><img src="assets/juegos/educatch.svg" alt="" class="ic-inline"></b>EduCatch</button></li><li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-edublast"><b><img src="assets/juegos/edublast.svg" alt="" class="ic-inline"></b>EduBlast</button></li>
+      <li><button type="button" class="gg-btn" aria-expanded="false" aria-controls="gg-eduword"><b><img src="assets/juegos/eduword.svg" alt="" class="ic-inline"></b>EduWord</button></li>
     </ul>
+    <div class="gg-detail" aria-live="polite">
+      <article class="gg-item" id="gg-eduquiz">
+        <figure class="shot phone"><img src="assets/capturas/eduquiz-alumno.webp" alt="EduQuiz on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Live questions</span><h3>EduQuiz</h3><p>The whole class answers the same question from their phones. Each correct answer is worth 500 points plus up to 200 for speed, and streaks give bonus points. The projector shows the question, the countdown, the leaderboard and, at the end, the podium.</p></div>
+      </article>
+      <article class="gg-item" id="gg-eduflip">
+        <figure class="shot phone"><img src="assets/capturas/eduflip-alumno.webp" alt="EduFlip on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Real-time memory</span><h3>EduFlip</h3><p>Each student has their own board with the same pairs in a different order, and everyone plays at once. Points come from pairs, speed and streaks; mistakes don’t cost anything. It ends when someone completes their board or time runs out.</p></div>
+      </article>
+      <article class="gg-item" id="gg-educard">
+        <figure class="shot phone"><img src="assets/capturas/educard-alumno.webp" alt="EduCard on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Cards and patterns</span><h3>EduCard</h3><p>A card with a word or picture is called and each student looks for it on their board. The winner is whoever first completes the chosen pattern (line, corners, L, T, full board or one you draw) and claims it: the game doesn’t tell them.</p></div>
+      </article>
+      <article class="gg-item" id="gg-eduduel">
+        <figure class="shot phone"><img src="assets/capturas/eduduel-alumno.webp" alt="EduDuel on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Spaceship duel</span><h3>EduDuel</h3><p>Each student flies a ship in the same arena. A question appears at the top and every ship carries a possible answer: shoot the right one. A wrong hit costs a life, and whoever carries the right answer has to dodge everyone else.</p></div>
+      </article>
+      <article class="gg-item" id="gg-edufix">
+        <figure class="shot phone"><img src="assets/capturas/edufix-alumno.webp" alt="EduFix on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Spot the mistake</span><h3>EduFix</h3><p>A sentence appears with a single hidden mistake, and its words move around the screen. Students tap the wrong word: the faster, the more points. Tapping a correct word costs a life.</p></div>
+      </article>
+      <article class="gg-item" id="gg-edurace">
+        <figure class="shot phone"><img src="assets/capturas/edurace-alumno.webp" alt="EduRace on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Question race</span><h3>EduRace</h3><p>Everyone answers the same list of questions and moves ahead in the race with each correct answer. A missed question goes back to the end of their list to try again. The first to finish wins.</p></div>
+      </article>
+      <article class="gg-item" id="gg-edusort">
+        <figure class="shot phone"><img src="assets/capturas/edusort-alumno.webp" alt="EduSort on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Lightning sorting</span><h3>EduSort</h3><p>A word appears and students tap its category as fast as they can: verb tenses, good and bad practices, whatever you prepare. Mistakes go back to the end of the list. The first to sort everything wins.</p></div>
+      </article>
+      <article class="gg-item" id="gg-eduline">
+        <figure class="shot phone"><img src="assets/capturas/eduline-alumno.webp" alt="EduLine on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Timeline</span><h3>EduLine</h3><p>Shuffled cards (historical events, steps of a process, parts of a story) that students drag into order. One attempt per sequence: points for each card in place, and more for a perfect order and speed.</p></div>
+      </article>
+      <article class="gg-item" id="gg-edustop">
+        <figure class="shot phone"><img src="assets/capturas/edustop-alumno.webp" alt="EduStop on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Categories game</span><h3>EduStop</h3><p>A letter comes up along with several categories: name, animal, country… Each student writes a word for each one. The first to finish presses “Stop!” and the round ends for everyone. An answer nobody else wrote is worth 10 points; a repeated one, 5.</p></div>
+      </article>
+      <article class="gg-item" id="gg-edurain">
+        <figure class="shot phone"><img src="assets/capturas/edurain-alumno.webp" alt="EduRain on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Word rain</span><h3>EduRain</h3><p>Verbs fall and each color marks a verb tense. Students type the correct form before the verb reaches the bottom line; if one gets there, they’re out. Whoever lasts longest wins.</p></div>
+      </article>
+      <article class="gg-item" id="gg-educatch">
+        <figure class="shot phone"><img src="assets/capturas/educatch-alumno.webp" alt="EduCatch on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Catch the verb</span><h3>EduCatch</h3><p>Verb forms fall and each student catches the one asked for with their basket, dragging it with a finger or tilting the phone. Traps cost lives. It starts with a 3-2-1 countdown and the projector shows a live leaderboard.</p></div>
+      </article>
+      <article class="gg-item" id="gg-edublast">
+        <figure class="shot phone"><img src="assets/capturas/edublast-alumno.webp" alt="EduBlast on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Pop the balloon</span><h3>EduBlast</h3><p>The top of the screen says which verb forms to find, and students pop the balloons that have them, by tapping the screen or with the camera and the tip of their index finger. Golden balloons bring a surprise question with extra points for whoever solves it first.</p></div>
+      </article>
+      <article class="gg-item" id="gg-eduword">
+        <figure class="shot phone"><img src="assets/capturas/eduword-alumno.webp" alt="EduWord on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <div><span class="tag">Hidden word</span><h3>EduWord</h3><p>With a hint, each student guesses their word in six tries. Letters turn green (right place), yellow (somewhere else) or gray (not in the word). Whoever gets it in the fewest tries wins.</p></div>
+      </article>
+    </div>
+    </div>
   </section>
 
   <section class="band" id="como-funciona" data-spy>
@@ -411,9 +469,9 @@
   <figure><img alt=""><figcaption></figcaption></figure>
   <button class="lb-btn lb-next" type="button" aria-label="Next image">›</button>
 </dialog>
-<script src="main.js?v=20261113a"></script>
-<script src="lightbox.js?v=20261113a"></script>
-<script src="detalles.js?v=20261113a"></script>
-<script src="modelo3d.js?v=20261113a"></script>
+<script src="main.js?v=20261113b"></script>
+<script src="lightbox.js?v=20261113b"></script>
+<script src="detalles.js?v=20261113b"></script>
+<script src="modelo3d.js?v=20261113b"></script>
 </body>
 </html>
