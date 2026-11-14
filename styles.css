@@ -334,7 +334,8 @@ li.has-info{padding:0!important}
 /* Íconos de juego dentro de una línea de texto, y texto del aviso de privacidad.
    Van aquí porque la política de seguridad (CSP) no permite estilos en línea. */
 .ic-inline{width:1.3em;height:1.3em;object-fit:contain;vertical-align:-0.25em}
-.priv p,.priv li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+/* Texto justificado en todo el sitio (con guiones según el idioma de la página); la portada y el cierre siguen centrados. */
+main :is(p,li,dd,td,figcaption):not(:where(.hero-in *,.final *,.lightbox *,.m3d-status)){text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 /* Página de versiones (versiones.html): la lista la llena .github/scripts/versiones.mjs al publicar. */
 .releases{display:grid;gap:clamp(18px,3vw,28px)}
 .releases-empty{margin:0;padding:18px 20px;border:1px dashed var(--line);border-radius:14px;background:var(--card);color:var(--muted)}
