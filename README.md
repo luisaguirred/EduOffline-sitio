@@ -50,11 +50,8 @@ En la portada, `.float-cards` son enlaces solo con ícono (sin texto visible). A
 ## Celular (≤ 820 px)
 La barra superior muestra logo, botón de menú (`.menu-btn`, abre el panel `.nav` con la clase `.top.open`) y tema. Los íconos del efecto principal pasan debajo del texto en cuadrícula; el primer toque muestra su información en `#fc-info` con "Ver más" y el segundo abre la sección.
 
-## Juegos principales
-En `#juegos` hay un bloque por juego (`#eduquiz`, `#educard`, `#eduflip`) con capturas `assets/capturas/edu*.webp` y `edu*-alumno.webp`, tomadas de la plataforma de demostración en modo claro con nombres ficticios.
-
-## Lista de los trece juegos
-Debajo de los juegos principales, `.grid-games` muestra los trece juegos por nombre. Cada uno es un botón (`.gg-btn`): al tocarlo aparece debajo su descripción y una captura del celular del alumno (`.gg-item`, en `main.js`, bloque `data-gg`); tocarlo otra vez la cierra. Sin JavaScript se ven todas las descripciones. Las capturas son `assets/capturas/<juego>-alumno.webp` (560×1212, modo claro, datos de demostración, como las de EduQuiz, EduCard y EduFlip). Las descripciones salen de "Juegos - reglas para alumnos.md" del programa.
+## Juegos
+`#juegos` muestra solo los nombres de los trece juegos (`.gg-list`, una fila `.gg-row` por juego con `id` = nombre del juego, p. ej. `#eduquiz`). El botón de cada fila (`.gg-btn`, con el ícono `+`) despliega debajo su descripción y su video o captura del celular del alumno (`.gg-item`, en `main.js`, bloque `data-gg`); tocarlo otra vez lo cierra y solo hay uno abierto a la vez. Un enlace a `#eduquiz`, `#educard`, etc. (como los de la portada) abre ese juego. Sin JavaScript se ven todas las descripciones. Las capturas son `assets/capturas/<juego>-alumno.webp` (560×1212, modo claro, datos de demostración). Las descripciones salen de "Juegos - reglas para alumnos.md" del programa.
 - **Videos:** EduQuiz, EduFlip, EduCard, EduCatch y EduBlast muestran un video de juego (`assets/videos/<juego>.mp4`, sin sonido y en bucle; su portada `<juego>.webp` es el primer cuadro) en lugar de la captura. Se reproduce al abrir el juego y se pausa al cerrarlo. Son copias de `public/media/game-previews/` del programa. Al hacer el video de otro juego: copiarlo aquí, generar su portada y cambiar su `<img>` por el `<video>` en `index.html` y `es/index.html`. La CSP permite videos del propio sitio (`media-src 'self'`).
 
 ## Constelación de la portada

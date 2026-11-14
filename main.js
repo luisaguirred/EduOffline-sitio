@@ -253,7 +253,7 @@
   // Cambio de idioma: abre la misma página en el otro idioma, en la misma sección.
   document.querySelectorAll('a.lang').forEach(a=>a.addEventListener('click',()=>{if(location.hash)a.hash=location.hash;}));
 
-  // Juegos: al tocar uno se muestra su descripción y captura; tocarlo otra vez la cierra.
+  // Juegos: solo los nombres; el botón + muestra la descripción y el video o captura, y otra vez la cierra.
   // Sin JavaScript se ven todas las descripciones.
   const gg=document.querySelector('[data-gg]');
   if(gg){
@@ -266,8 +266,11 @@
     ggBtns.forEach(b=>b.addEventListener('click',()=>{
       const id=b.getAttribute('aria-controls'),on=b.getAttribute('aria-expanded')==='true';
       ggOpen(on?null:id);
-      if(!on)document.getElementById(id).scrollIntoView({block:'nearest',behavior:reduce?'auto':'smooth'});
+      if(!on)b.closest('.gg-row').scrollIntoView({block:'nearest',behavior:reduce?'auto':'smooth'});
     }));
+    // Un enlace a #eduquiz (por ejemplo, desde la portada) abre ese juego.
+    const ggHash=()=>{const r=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(r&&r.classList.contains('gg-row'))ggOpen('gg-'+r.id);};
+    ggHash();addEventListener('hashchange',ggHash);
   }
 
   // Tema.
