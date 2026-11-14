@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'sha256-PXtZZkJMMyc18o/DN1ZEFOJ2qEGq95IQbVaJFMOXOb0='; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'sha256-PXtZZkJMMyc18o/DN1ZEFOJ2qEGq95IQbVaJFMOXOb0='; img-src 'self' data: blob:; media-src 'self'; font-src 'self'; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EduOffline — Enseña jugando</title>
 <meta name="description" content="EduOffline reúne asistencia, evaluación, exámenes y juegos para tu clase. Se instala en tu computadora y tus datos se quedan contigo.">
@@ -11,9 +11,9 @@
 <link rel="alternate" hreflang="x-default" href="../">
 <link rel="icon" href="../assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../assets/icono.png">
-<link rel="stylesheet" href="../fuentes.css?v=20261113b">
-<link rel="stylesheet" href="../styles.css?v=20261113b">
-<script src="../tema.js?v=20261113b"></script>
+<link rel="stylesheet" href="../fuentes.css?v=20261113c">
+<link rel="stylesheet" href="../styles.css?v=20261113c">
+<script src="../tema.js?v=20261113c"></script>
 </head>
 <body>
 <header class="top">
@@ -192,15 +192,15 @@
     </ul>
     <div class="gg-detail" aria-live="polite">
       <article class="gg-item" id="gg-eduquiz">
-        <figure class="shot phone"><img src="../assets/capturas/eduquiz-alumno.webp" alt="EduQuiz en el celular de un alumno" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="../assets/videos/eduquiz.mp4" poster="../assets/videos/eduquiz.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduQuiz en el celular de un alumno"></video></figure>
         <div><span class="tag">Preguntas en vivo</span><h3>EduQuiz</h3><p>Toda la clase responde la misma pregunta desde su celular. Cada acierto vale 500 puntos y hasta 200 más por rapidez, y las rachas dan puntos extra. El proyector muestra la pregunta, la cuenta regresiva, la clasificación y, al final, el podio.</p></div>
       </article>
       <article class="gg-item" id="gg-eduflip">
-        <figure class="shot phone"><img src="../assets/capturas/eduflip-alumno.webp" alt="EduFlip en el celular de un alumno" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="../assets/videos/eduflip.mp4" poster="../assets/videos/eduflip.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduFlip en el celular de un alumno"></video></figure>
         <div><span class="tag">Memoria en tiempo real</span><h3>EduFlip</h3><p>Cada alumno tiene su propio tablero con las mismas parejas en distinto orden, y todos juegan a la vez. Gana puntos por pareja, rapidez y rachas; equivocarse no resta. Termina cuando alguien completa su tablero o se acaba el tiempo.</p></div>
       </article>
       <article class="gg-item" id="gg-educard">
-        <figure class="shot phone"><img src="../assets/capturas/educard-alumno.webp" alt="EduCard en el celular de un alumno" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="../assets/videos/educard.mp4" poster="../assets/videos/educard.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduCard en el celular de un alumno"></video></figure>
         <div><span class="tag">Cartas y patrones</span><h3>EduCard</h3><p>Se anuncia una carta con una palabra o una imagen y cada alumno la busca en su cartón. Gana quien completa primero la forma elegida (línea, esquinas, L, T, cartón lleno o una que dibujes) y la reclama: el juego no le avisa.</p></div>
       </article>
       <article class="gg-item" id="gg-eduduel">
@@ -232,11 +232,11 @@
         <div><span class="tag">Lluvia de verbos</span><h3>EduRain</h3><p>Los verbos caen y cada color indica un tiempo verbal. El alumno escribe la forma correcta antes de que lleguen a la línea de abajo; si uno llega, queda eliminado. Gana quien aguanta más.</p></div>
       </article>
       <article class="gg-item" id="gg-educatch">
-        <figure class="shot phone"><img src="../assets/capturas/educatch-alumno.webp" alt="EduCatch en el celular de un alumno" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="../assets/videos/educatch.mp4" poster="../assets/videos/educatch.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduCatch en el celular de un alumno"></video></figure>
         <div><span class="tag">Atrapa el verbo</span><h3>EduCatch</h3><p>Caen formas de verbos y cada alumno atrapa la que se pide con su canasta, arrastrándola con el dedo o inclinando el celular. Las trampas quitan vidas. Empieza con una cuenta 3-2-1 y el proyector muestra la clasificación en vivo.</p></div>
       </article>
       <article class="gg-item" id="gg-edublast">
-        <figure class="shot phone"><img src="../assets/capturas/edublast-alumno.webp" alt="EduBlast en el celular de un alumno" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="../assets/videos/edublast.mp4" poster="../assets/videos/edublast.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduBlast en el celular de un alumno"></video></figure>
         <div><span class="tag">Revienta el globo</span><h3>EduBlast</h3><p>Arriba se indica qué formas del verbo hay que encontrar y el alumno revienta los globos que las tienen, tocando la pantalla o con la cámara y la punta de su dedo índice. Los globos dorados traen una pregunta sorpresa con puntos extra para el primero que la resuelve.</p></div>
       </article>
       <article class="gg-item" id="gg-eduword">
@@ -471,9 +471,9 @@
   <figure><img alt=""><figcaption></figcaption></figure>
   <button class="lb-btn lb-next" type="button" aria-label="Imagen siguiente">›</button>
 </dialog>
-<script src="../main.js?v=20261113b"></script>
-<script src="../lightbox.js?v=20261113b"></script>
-<script src="../detalles.js?v=20261113b"></script>
-<script src="../modelo3d.js?v=20261113b"></script>
+<script src="../main.js?v=20261113c"></script>
+<script src="../lightbox.js?v=20261113c"></script>
+<script src="../detalles.js?v=20261113c"></script>
+<script src="../modelo3d.js?v=20261113c"></script>
 </body>
 </html>

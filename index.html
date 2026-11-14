@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'sha256-PXtZZkJMMyc18o/DN1ZEFOJ2qEGq95IQbVaJFMOXOb0='; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'sha256-PXtZZkJMMyc18o/DN1ZEFOJ2qEGq95IQbVaJFMOXOb0='; img-src 'self' data: blob:; media-src 'self'; font-src 'self'; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EduOffline — Teach through play</title>
 <meta name="description" content="EduOffline brings attendance, grading, exams and games together for your class. It installs on your computer and your data stays with you.">
@@ -11,9 +11,9 @@
 <link rel="alternate" hreflang="x-default" href="./">
 <link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
-<link rel="stylesheet" href="fuentes.css?v=20261113b">
-<link rel="stylesheet" href="styles.css?v=20261113b">
-<script src="tema.js?v=20261113b"></script>
+<link rel="stylesheet" href="fuentes.css?v=20261113c">
+<link rel="stylesheet" href="styles.css?v=20261113c">
+<script src="tema.js?v=20261113c"></script>
 </head>
 <body>
 <header class="top">
@@ -192,15 +192,15 @@
     </ul>
     <div class="gg-detail" aria-live="polite">
       <article class="gg-item" id="gg-eduquiz">
-        <figure class="shot phone"><img src="assets/capturas/eduquiz-alumno.webp" alt="EduQuiz on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="assets/videos/eduquiz.mp4" poster="assets/videos/eduquiz.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduQuiz on a student’s phone"></video></figure>
         <div><span class="tag">Live questions</span><h3>EduQuiz</h3><p>The whole class answers the same question from their phones. Each correct answer is worth 500 points plus up to 200 for speed, and streaks give bonus points. The projector shows the question, the countdown, the leaderboard and, at the end, the podium.</p></div>
       </article>
       <article class="gg-item" id="gg-eduflip">
-        <figure class="shot phone"><img src="assets/capturas/eduflip-alumno.webp" alt="EduFlip on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="assets/videos/eduflip.mp4" poster="assets/videos/eduflip.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduFlip on a student’s phone"></video></figure>
         <div><span class="tag">Real-time memory</span><h3>EduFlip</h3><p>Each student has their own board with the same pairs in a different order, and everyone plays at once. Points come from pairs, speed and streaks; mistakes don’t cost anything. It ends when someone completes their board or time runs out.</p></div>
       </article>
       <article class="gg-item" id="gg-educard">
-        <figure class="shot phone"><img src="assets/capturas/educard-alumno.webp" alt="EduCard on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="assets/videos/educard.mp4" poster="assets/videos/educard.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduCard on a student’s phone"></video></figure>
         <div><span class="tag">Cards and patterns</span><h3>EduCard</h3><p>A card with a word or picture is called and each student looks for it on their board. The winner is whoever first completes the chosen pattern (line, corners, L, T, full board or one you draw) and claims it: the game doesn’t tell them.</p></div>
       </article>
       <article class="gg-item" id="gg-eduduel">
@@ -232,11 +232,11 @@
         <div><span class="tag">Word rain</span><h3>EduRain</h3><p>Verbs fall and each color marks a verb tense. Students type the correct form before the verb reaches the bottom line; if one gets there, they’re out. Whoever lasts longest wins.</p></div>
       </article>
       <article class="gg-item" id="gg-educatch">
-        <figure class="shot phone"><img src="assets/capturas/educatch-alumno.webp" alt="EduCatch on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="assets/videos/educatch.mp4" poster="assets/videos/educatch.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduCatch on a student’s phone"></video></figure>
         <div><span class="tag">Catch the verb</span><h3>EduCatch</h3><p>Verb forms fall and each student catches the one asked for with their basket, dragging it with a finger or tilting the phone. Traps cost lives. It starts with a 3-2-1 countdown and the projector shows a live leaderboard.</p></div>
       </article>
       <article class="gg-item" id="gg-edublast">
-        <figure class="shot phone"><img src="assets/capturas/edublast-alumno.webp" alt="EduBlast on a student’s phone" width="560" height="1212" loading="lazy"></figure>
+        <figure class="shot phone gg-video"><video src="assets/videos/edublast.mp4" poster="assets/videos/edublast.webp" width="320" height="624" muted loop playsinline preload="none" aria-label="Video: EduBlast on a student’s phone"></video></figure>
         <div><span class="tag">Pop the balloon</span><h3>EduBlast</h3><p>The top of the screen says which verb forms to find, and students pop the balloons that have them, by tapping the screen or with the camera and the tip of their index finger. Golden balloons bring a surprise question with extra points for whoever solves it first.</p></div>
       </article>
       <article class="gg-item" id="gg-eduword">
@@ -471,9 +471,9 @@
   <figure><img alt=""><figcaption></figcaption></figure>
   <button class="lb-btn lb-next" type="button" aria-label="Next image">›</button>
 </dialog>
-<script src="main.js?v=20261113b"></script>
-<script src="lightbox.js?v=20261113b"></script>
-<script src="detalles.js?v=20261113b"></script>
-<script src="modelo3d.js?v=20261113b"></script>
+<script src="main.js?v=20261113c"></script>
+<script src="lightbox.js?v=20261113c"></script>
+<script src="detalles.js?v=20261113c"></script>
+<script src="modelo3d.js?v=20261113c"></script>
 </body>
 </html>

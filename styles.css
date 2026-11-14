@@ -128,6 +128,8 @@ em{font-family:var(--hand);font-style:normal;font-weight:700;font-size:1.14em;le
 .shot{margin:0}
 .shot img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(29,42,68,.14)}
 .shot.phone img{border-radius:22px;border:5px solid #1d2a44}
+.shot video{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(29,42,68,.14)}
+.shot.phone video{border-radius:22px;border:5px solid #1d2a44}
 .shot figcaption{margin-top:10px;color:var(--muted);font-size:.92rem;line-height:1.45}
 .abc+.shots{border-top:1px solid var(--line)}
 /* Guía de instalación */

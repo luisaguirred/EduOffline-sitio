@@ -258,7 +258,10 @@
   const gg=document.querySelector('[data-gg]');
   if(gg){
     const ggBtns=[...gg.querySelectorAll('.gg-btn')],ggItems=[...gg.querySelectorAll('.gg-item')];
-    const ggOpen=id=>{ggBtns.forEach(b=>b.setAttribute('aria-expanded',String(b.getAttribute('aria-controls')===id)));ggItems.forEach(it=>{it.hidden=it.id!==id;});};
+    // El video del juego abierto se reproduce (sin sonido, en bucle); los demás se pausan.
+    const ggOpen=id=>{ggBtns.forEach(b=>b.setAttribute('aria-expanded',String(b.getAttribute('aria-controls')===id)));
+      ggItems.forEach(it=>{it.hidden=it.id!==id;const v=it.querySelector('video');if(!v)return;
+        if(it.hidden)v.pause();else if(!reduce){v.play().catch(()=>{});}else v.controls=true;});};
     ggOpen(null);
     ggBtns.forEach(b=>b.addEventListener('click',()=>{
       const id=b.getAttribute('aria-controls'),on=b.getAttribute('aria-expanded')==='true';
