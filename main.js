@@ -305,6 +305,8 @@
     demo.play().catch(()=>{setMuted(true);return demo.play();}).catch(()=>{}).finally(syncBtn);
   };
   if(demo){
+    // Sin "Guardar video como" en el menú del clic derecho (el botón de descarga lo quita controlslist).
+    demo.addEventListener('contextmenu',e=>e.preventDefault());
     demo.addEventListener('volumechange',()=>{if(demo.muted!==want){want=demo.muted;soundOff=demo.muted;}syncBtn();});
     soundBtn&&soundBtn.addEventListener('click',()=>{soundOff=false;setMuted(false);if(!demo.volume)demo.volume=1;demo.play().catch(()=>{});syncBtn();});
     syncBtn();
