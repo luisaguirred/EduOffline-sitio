@@ -109,17 +109,37 @@
         }
         return last=bag.pop();
       }
+      // .lfx-on enciende el efecto: con mouse mientras está encima, con teclado mientras tiene el foco,
+      // y en pantallas táctiles durante un momento al tocarlo.
+      var timer=0, lastType='mouse';
       function play(){
+        clearTimeout(timer);
+        box.classList.remove('lfx-on');
         ALL.forEach(function(c){box.classList.remove(c);});
         var e=mq.matches?'lfx-glow':next(); // con movimiento reducido solo cambia la luz
         e.split(' ').forEach(function(c){box.classList.add(c);});
+        void box.offsetWidth; // reinicia las animaciones si se vuelve a tocar
+        box.classList.add('lfx-on');
         if(e==='lfx-dust')dust(box,svg,opt.dust);
       }
-      box.addEventListener('pointerenter',function(e){if(e.pointerType!=='touch')play();});
+      function off(){clearTimeout(timer);box.classList.remove('lfx-on');}
+      function flash(){play();timer=setTimeout(off,1500);}
+      box.addEventListener('pointerdown',function(e){lastType=e.pointerType;});
+      box.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')play();});
+      box.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse')off();});
+      box.addEventListener('click',function(){if(lastType!=='mouse')flash();lastType='mouse';});
       box.addEventListener('focus',function(){if(box.matches(':focus-visible'))play();});
+      box.addEventListener('blur',off);
+      // En el celular, el logo grande muestra un efecto la primera vez que aparece en pantalla.
+      if(opt.intro&&window.matchMedia('(hover: none)').matches&&'IntersectionObserver' in window){
+        var io=new IntersectionObserver(function(en){
+          if(en[0].isIntersecting){io.disconnect();setTimeout(flash,500);}
+        },{threshold:.6});
+        io.observe(box);
+      }
     }).catch(function(){});
   }
 
   setup(document.querySelector('.brand'),{dust:5});
-  setup(document.querySelector('.wordmark'),{dust:12,wrap:true,label:true});
+  setup(document.querySelector('.wordmark'),{dust:12,wrap:true,label:true,intro:true});
 })();

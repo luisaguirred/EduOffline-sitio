@@ -399,43 +399,43 @@ main :is(p,li,dd,td,figcaption):not(:where(.hero-in *,.final *,.lightbox *,.m3d-
 .lfx-l{transform-box:fill-box;transform-origin:left center}
 .lfx-particle{position:absolute;left:0;top:0;border-radius:50%;pointer-events:none}
 .lfx::before,.lfx::after{content:"";position:absolute;pointer-events:none;opacity:0}
-.lfx:is(:hover,:focus-visible) .lfx-svg{transition-duration:var(--lfx-in)}
+.lfx.lfx-on .lfx-svg{transition-duration:var(--lfx-in)}
 /* Resplandor */
-.lfx-glow:is(:hover,:focus-visible) .lfx-svg{filter:drop-shadow(0 0 2px var(--lfx-glow)) drop-shadow(0 0 var(--lfx-gr,9px) var(--lfx-glow))}
+.lfx-glow.lfx-on .lfx-svg{filter:drop-shadow(0 0 2px var(--lfx-glow)) drop-shadow(0 0 var(--lfx-gr,9px) var(--lfx-glow))}
 /* Elevación */
-.lfx-lift:is(:hover,:focus-visible) .lfx-svg{transform:translateY(var(--lfx-up,-2px)) scale(1.04)}
-.lfx-lift:not(.lfx-glow):is(:hover,:focus-visible) .lfx-svg{filter:drop-shadow(0 var(--lfx-sh,3px) var(--lfx-sh,3px) rgba(14,47,109,.2)) drop-shadow(0 0 0 transparent)}
+.lfx-lift.lfx-on .lfx-svg{transform:translateY(var(--lfx-up,-2px)) scale(1.04)}
+.lfx-lift:not(.lfx-glow).lfx-on .lfx-svg{filter:drop-shadow(0 var(--lfx-sh,3px) var(--lfx-sh,3px) rgba(14,47,109,.2)) drop-shadow(0 0 0 transparent)}
 /* Destello */
-.lfx-shine:is(:hover,:focus-visible) .lfx-beam{animation:lfx-beam 720ms cubic-bezier(.4,0,.2,1) 60ms both}
+.lfx-shine.lfx-on .lfx-beam{animation:lfx-beam 720ms cubic-bezier(.4,0,.2,1) 60ms both}
 @keyframes lfx-beam{from{opacity:1;transform:translateX(0)}to{opacity:1;transform:translateX(var(--lfx-bd))}}
 /* Trazado luminoso */
-.lfx-trace-on:is(:hover,:focus-visible) .lfx-trace{opacity:1;filter:drop-shadow(0 0 2px var(--lfx-glow))}
-.lfx-trace-on:is(:hover,:focus-visible) .lfx-trace *{animation:lfx-draw 1100ms cubic-bezier(.45,0,.2,1) forwards}
-.lfx-trace-on:is(:hover,:focus-visible) .lfx-content{animation:lfx-dim 1300ms ease both}
+.lfx-trace-on.lfx-on .lfx-trace{opacity:1;filter:drop-shadow(0 0 2px var(--lfx-glow))}
+.lfx-trace-on.lfx-on .lfx-trace *{animation:lfx-draw 1100ms cubic-bezier(.45,0,.2,1) forwards}
+.lfx-trace-on.lfx-on .lfx-content{animation:lfx-dim 1300ms ease both}
 @keyframes lfx-draw{to{stroke-dashoffset:0}}
 @keyframes lfx-dim{0%{opacity:1}15%{opacity:.25}75%{opacity:.25}100%{opacity:1}}
 /* Onda expansiva */
 .lfx.lfx-wave::after{left:50%;top:50%;width:var(--lfx-wv,56px);height:var(--lfx-wv,56px);margin:calc(var(--lfx-wv,56px) / -2) 0 0 calc(var(--lfx-wv,56px) / -2);border-radius:50%;border:2px solid var(--lfx-tq);transform:scale(.2)}
-.lfx-wave:is(:hover,:focus-visible)::after{animation:lfx-wave 900ms cubic-bezier(.2,.6,.3,1) both}
+.lfx-wave.lfx-on::after{animation:lfx-wave 900ms cubic-bezier(.2,.6,.3,1) both}
 @keyframes lfx-wave{0%{opacity:.7;transform:scale(.2)}100%{opacity:0;transform:scale(3)}}
 /* Señal sin conexión */
-.lfx-wifi:is(:hover,:focus-visible) .lfx-w{animation:lfx-sig 1200ms ease both}
-.lfx-wifi:is(:hover,:focus-visible) .lfx-w3{animation-delay:120ms}
-.lfx-wifi:is(:hover,:focus-visible) .lfx-w2{animation-delay:240ms}
-.lfx-wifi:is(:hover,:focus-visible) .lfx-w1{animation-delay:360ms}
-.lfx-wifi:is(:hover,:focus-visible) .lfx-slash{animation:lfx-stroke 420ms cubic-bezier(.5,0,.2,1) 760ms both}
+.lfx-wifi.lfx-on .lfx-w{animation:lfx-sig 1200ms ease both}
+.lfx-wifi.lfx-on .lfx-w3{animation-delay:120ms}
+.lfx-wifi.lfx-on .lfx-w2{animation-delay:240ms}
+.lfx-wifi.lfx-on .lfx-w1{animation-delay:360ms}
+.lfx-wifi.lfx-on .lfx-slash{animation:lfx-stroke 420ms cubic-bezier(.5,0,.2,1) 760ms both}
 @keyframes lfx-sig{0%{opacity:1}20%{opacity:.15}55%{opacity:1;stroke:var(--lfx-tq);fill:var(--lfx-tq)}100%{opacity:1}}
 @keyframes lfx-stroke{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 /* Lista de tareas */
-.lfx-check:is(:hover,:focus-visible) .lfx-c{animation:lfx-stroke 260ms ease-out both}
-.lfx-check:is(:hover,:focus-visible) .lfx-l{animation:lfx-grow 320ms var(--lfx-ease) both}
-.lfx-check:is(:hover,:focus-visible) .lfx-l1{animation-delay:140ms}
-.lfx-check:is(:hover,:focus-visible) .lfx-c2{animation-delay:260ms}.lfx-check:is(:hover,:focus-visible) .lfx-l2{animation-delay:400ms}
-.lfx-check:is(:hover,:focus-visible) .lfx-c3{animation-delay:520ms}.lfx-check:is(:hover,:focus-visible) .lfx-l3{animation-delay:660ms}
+.lfx-check.lfx-on .lfx-c{animation:lfx-stroke 260ms ease-out both}
+.lfx-check.lfx-on .lfx-l{animation:lfx-grow 320ms var(--lfx-ease) both}
+.lfx-check.lfx-on .lfx-l1{animation-delay:140ms}
+.lfx-check.lfx-on .lfx-c2{animation-delay:260ms}.lfx-check.lfx-on .lfx-l2{animation-delay:400ms}
+.lfx-check.lfx-on .lfx-c3{animation-delay:520ms}.lfx-check.lfx-on .lfx-l3{animation-delay:660ms}
 @keyframes lfx-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 /* Subrayado de marcador */
 .lfx.lfx-marker::before{left:14px;right:14px;top:50%;height:11px;margin-top:2px;background:var(--marker);border-radius:3px 8px 4px 9px;transform:scaleX(0) skewX(-8deg);transform-origin:left;z-index:-1;opacity:.85;transition:transform var(--lfx-out) var(--lfx-ease)}
-.lfx-marker:is(:hover,:focus-visible)::before{transform:scaleX(1) skewX(-8deg);transition-duration:420ms}
+.lfx-marker.lfx-on::before{transform:scaleX(1) skewX(-8deg);transition-duration:420ms}
 /* Logo grande de la portada */
 .wordmark .lfx-box{position:relative;display:block;width:fit-content;max-width:100%;margin:0 auto;
   --lfx-tw:5px;--lfx-tiw:1.4px;--lfx-gr:22px;--lfx-up:-5px;--lfx-sh:8px;--lfx-wv:140px}
