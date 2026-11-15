@@ -366,6 +366,11 @@ main :is(p,li,dd,td,figcaption):not(:where(.hero-in *,.final *,.lightbox *,.m3d-
 .final .all-versions{margin-top:14px;font-size:.95rem}
 /* Video corto de la portada (assets/videos/demo-en.mp4 y demo-es.mp4) */
 .demo-video{margin:0;padding:clamp(14px,3vw,36px)}
+.demo-frame{position:relative;max-width:1100px;margin:0 auto}
+.demo-sound{position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:0;border-radius:999px;background:var(--cta-bg);color:var(--cta-fg);font:700 15px var(--body);cursor:pointer;box-shadow:0 4px 14px rgba(3,20,52,.35);transition:transform .2s}
+.demo-sound:hover,.demo-sound:focus-visible{transform:translateY(-2px)}
+.demo-sound[hidden]{display:none}
+@media (max-width:520px){.demo-sound{top:8px;right:8px;padding:8px 12px;font-size:13px}}
 .demo-video video{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto;aspect-ratio:16/9;border-radius:16px;background:#031434;box-shadow:0 18px 40px rgba(3,20,52,.28)}
 /* Botones de descarga de la portada (los llena .github/scripts/versiones.mjs) */
 .dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;max-width:1080px;margin:0 auto;padding:0;list-style:none}

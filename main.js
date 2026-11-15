@@ -288,13 +288,30 @@
     const onScroll=()=>{const m=document.documentElement.scrollHeight-innerHeight;mark.style.top=(m>0?scrollY/m*100:0)+'%';};
     addEventListener('scroll',onScroll,{passive:true});onScroll();
   }
-  // Video corto de la portada: se reproduce (sin sonido, en bucle) solo mientras se ve en
-  // pantalla, y no se descarga hasta que el visitante llega a él. Con "reducir movimiento"
-  // no arranca solo: queda la portada y los controles para reproducirlo.
+  // Video corto de la portada: se reproduce (en bucle) solo mientras se ve en pantalla, y no se
+  // descarga hasta que el visitante llega a él. Trae música: suena si el navegador lo permite
+  // (el visitante ya tocó la página); si no, arranca sin sonido y aparece "Activar sonido".
+  // Con "reducir movimiento" no arranca solo: queda la portada y los controles.
   const demo=document.querySelector('.demo-video video');
+  const soundBtn=document.querySelector('.demo-sound');
+  let soundOff=false; // el visitante lo silenció a propósito: no volver a activarlo
+  let want=true;      // último "muted" que puso esta página; otro valor lo cambió el visitante
+  const setMuted=m=>{want=m;demo.muted=m;};
+  const syncBtn=()=>{if(soundBtn)soundBtn.hidden=!demo.muted;};
+  const playDemo=()=>{
+    demo.preload='auto';
+    const touched=!navigator.userActivation||navigator.userActivation.hasBeenActive;
+    setMuted(soundOff||!touched);
+    demo.play().catch(()=>{setMuted(true);return demo.play();}).catch(()=>{}).finally(syncBtn);
+  };
+  if(demo){
+    demo.addEventListener('volumechange',()=>{if(demo.muted!==want){want=demo.muted;soundOff=demo.muted;}syncBtn();});
+    soundBtn&&soundBtn.addEventListener('click',()=>{soundOff=false;setMuted(false);if(!demo.volume)demo.volume=1;demo.play().catch(()=>{});syncBtn();});
+    syncBtn();
+  }
   if(demo&&'IntersectionObserver' in window&&!reduce){
     new IntersectionObserver(es=>es.forEach(e=>{
-      if(e.isIntersecting){demo.preload='auto';demo.play().catch(()=>{});}else if(!demo.paused)demo.pause();
+      if(e.isIntersecting)playDemo();else if(!demo.paused)demo.pause();
     }),{threshold:.45}).observe(demo);
   }
 })();
