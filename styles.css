@@ -383,28 +383,28 @@ main :is(p,li,dd,td,figcaption):not(:where(.hero-in *,.final *,.lightbox *,.m3d-
 .gg-item p{margin:0;color:var(--muted);line-height:1.65}
 @media(max-width:620px){.gg-item{grid-template-columns:1fr}.gg-item .shot{max-width:220px;margin:0 auto}}
 
-/* Efectos del logo (logo-fx.js): un efecto distinto cada vez que el cursor entra en .brand. Ver README.md. */
-:root{--lfx-ink:#0e2f6d;--lfx-blue:#3986e9;--lfx-or:#fc5e01;--lfx-tq:#10b3c7;--lfx-glow:rgba(16,179,199,.55);--lfx-shine:#fff;--lfx-shine-a:.85;--lfx-p1:#10b3c7;--lfx-p2:#3986e9;--lfx-p3:#fc5e01;--lfx-in:300ms;--lfx-out:250ms;--lfx-ease:cubic-bezier(.2,.7,.2,1)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--lfx-ink:#fff;--lfx-blue:#29a8ff;--lfx-tq:#46e3f0;--lfx-glow:rgba(70,227,240,.55);--lfx-shine:#9ff6ff;--lfx-shine-a:.9;--lfx-p1:#46e3f0;--lfx-p2:#29a8ff;--lfx-p3:#ff8a3d}}
-:root[data-theme="dark"]{--lfx-ink:#fff;--lfx-blue:#29a8ff;--lfx-tq:#46e3f0;--lfx-glow:rgba(70,227,240,.55);--lfx-shine:#9ff6ff;--lfx-shine-a:.9;--lfx-p1:#46e3f0;--lfx-p2:#29a8ff;--lfx-p3:#ff8a3d}
-.brand.lfx{position:relative;isolation:isolate}
+/* Efectos del logo (logo-fx.js): un efecto distinto cada vez que el cursor entra en el logo de la barra (.brand) o en el de la portada (.wordmark .lfx-box). Ver README.md. */
+:root{--lfx-ink:#0e2f6d;--lfx-blue:#3986e9;--lfx-or:#fc5e01;--lfx-tq:#10b3c7;--lfx-glow:rgba(16,179,199,.55);--lfx-shine:#fff;--lfx-shine-a:.85;--lfx-p1:#10b3c7;--lfx-p2:#3986e9;--lfx-p3:#fc5e01;--lfx-g1:#3f3f3f;--lfx-g2:#c1c1c1;--lfx-g3:#555b66;--lfx-in:300ms;--lfx-out:250ms;--lfx-ease:cubic-bezier(.2,.7,.2,1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--lfx-ink:#fff;--lfx-blue:#29a8ff;--lfx-tq:#46e3f0;--lfx-glow:rgba(70,227,240,.55);--lfx-shine:#9ff6ff;--lfx-shine-a:.9;--lfx-p1:#46e3f0;--lfx-p2:#29a8ff;--lfx-p3:#ff8a3d;--lfx-g1:#fff;--lfx-g2:#fff;--lfx-g3:#d6dcea}}
+:root[data-theme="dark"]{--lfx-ink:#fff;--lfx-blue:#29a8ff;--lfx-tq:#46e3f0;--lfx-glow:rgba(70,227,240,.55);--lfx-shine:#9ff6ff;--lfx-shine-a:.9;--lfx-p1:#46e3f0;--lfx-p2:#29a8ff;--lfx-p3:#ff8a3d;--lfx-g1:#fff;--lfx-g2:#fff;--lfx-g3:#d6dcea}
+.lfx{position:relative;isolation:isolate}
 .lfx-svg{display:block;height:26px;width:auto;overflow:visible;transform:translateY(0) scale(1);filter:drop-shadow(0 0 0 transparent) drop-shadow(0 0 0 transparent);transition:transform var(--lfx-out) var(--lfx-ease),filter var(--lfx-out) var(--lfx-ease)}
-.lfx-ink-f{fill:var(--lfx-ink)}.lfx-ink-s{stroke:var(--lfx-ink)}.lfx-blue-s{stroke:var(--lfx-blue)}.lfx-or-s{stroke:var(--lfx-or)}
+.lfx-ink-f{fill:var(--lfx-ink)}.lfx-ink-s{stroke:var(--lfx-ink)}.lfx-blue-s{stroke:var(--lfx-blue)}.lfx-or-s{stroke:var(--lfx-or)}.lfx-blue-f{fill:var(--lfx-blue)}.lfx-g1-s{stroke:var(--lfx-g1)}.lfx-g1-f{fill:var(--lfx-g1)}.lfx-g2-f{fill:var(--lfx-g2)}.lfx-g3-s{stroke:var(--lfx-g3)}.lfx-g3-f{fill:var(--lfx-g3)}
 .lfx-stop-on{stop-color:var(--lfx-shine);stop-opacity:var(--lfx-shine-a)}.lfx-stop-off{stop-color:var(--lfx-shine);stop-opacity:0}
 .lfx-beam{opacity:0}
 .lfx-trace{opacity:0;pointer-events:none;transition:opacity var(--lfx-out)}
 .lfx-trace *{fill:none!important;stroke:var(--lfx-tq)!important;stroke-dasharray:1 1;stroke-dashoffset:1}
-.lfx-trace>path{stroke-width:14px!important}.lfx-trace g *{stroke-width:6px!important}
+.lfx-trace>path{stroke-width:var(--lfx-tw,14px)!important}.lfx-trace g *{stroke-width:var(--lfx-tiw,6px)!important}
 .lfx-slash,.lfx-c{stroke-dasharray:1 1}
 .lfx-l{transform-box:fill-box;transform-origin:left center}
 .lfx-particle{position:absolute;left:0;top:0;border-radius:50%;pointer-events:none}
-.brand.lfx::before,.brand.lfx::after{content:"";position:absolute;pointer-events:none;opacity:0}
-.brand.lfx:is(:hover,:focus-visible) .lfx-svg{transition-duration:var(--lfx-in)}
+.lfx::before,.lfx::after{content:"";position:absolute;pointer-events:none;opacity:0}
+.lfx:is(:hover,:focus-visible) .lfx-svg{transition-duration:var(--lfx-in)}
 /* Resplandor */
-.lfx-glow:is(:hover,:focus-visible) .lfx-svg{filter:drop-shadow(0 0 2px var(--lfx-glow)) drop-shadow(0 0 9px var(--lfx-glow))}
+.lfx-glow:is(:hover,:focus-visible) .lfx-svg{filter:drop-shadow(0 0 2px var(--lfx-glow)) drop-shadow(0 0 var(--lfx-gr,9px) var(--lfx-glow))}
 /* Elevación */
-.lfx-lift:is(:hover,:focus-visible) .lfx-svg{transform:translateY(-2px) scale(1.04)}
-.lfx-lift:not(.lfx-glow):is(:hover,:focus-visible) .lfx-svg{filter:drop-shadow(0 3px 3px rgba(14,47,109,.2)) drop-shadow(0 0 0 transparent)}
+.lfx-lift:is(:hover,:focus-visible) .lfx-svg{transform:translateY(var(--lfx-up,-2px)) scale(1.04)}
+.lfx-lift:not(.lfx-glow):is(:hover,:focus-visible) .lfx-svg{filter:drop-shadow(0 var(--lfx-sh,3px) var(--lfx-sh,3px) rgba(14,47,109,.2)) drop-shadow(0 0 0 transparent)}
 /* Destello */
 .lfx-shine:is(:hover,:focus-visible) .lfx-beam{animation:lfx-beam 720ms cubic-bezier(.4,0,.2,1) 60ms both}
 @keyframes lfx-beam{from{opacity:1;transform:translateX(0)}to{opacity:1;transform:translateX(var(--lfx-bd))}}
@@ -415,7 +415,7 @@ main :is(p,li,dd,td,figcaption):not(:where(.hero-in *,.final *,.lightbox *,.m3d-
 @keyframes lfx-draw{to{stroke-dashoffset:0}}
 @keyframes lfx-dim{0%{opacity:1}15%{opacity:.25}75%{opacity:.25}100%{opacity:1}}
 /* Onda expansiva */
-.brand.lfx-wave::after{left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;border:2px solid var(--lfx-tq);transform:scale(.2)}
+.lfx.lfx-wave::after{left:50%;top:50%;width:var(--lfx-wv,56px);height:var(--lfx-wv,56px);margin:calc(var(--lfx-wv,56px) / -2) 0 0 calc(var(--lfx-wv,56px) / -2);border-radius:50%;border:2px solid var(--lfx-tq);transform:scale(.2)}
 .lfx-wave:is(:hover,:focus-visible)::after{animation:lfx-wave 900ms cubic-bezier(.2,.6,.3,1) both}
 @keyframes lfx-wave{0%{opacity:.7;transform:scale(.2)}100%{opacity:0;transform:scale(3)}}
 /* Señal sin conexión */
@@ -434,10 +434,15 @@ main :is(p,li,dd,td,figcaption):not(:where(.hero-in *,.final *,.lightbox *,.m3d-
 .lfx-check:is(:hover,:focus-visible) .lfx-c3{animation-delay:520ms}.lfx-check:is(:hover,:focus-visible) .lfx-l3{animation-delay:660ms}
 @keyframes lfx-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 /* Subrayado de marcador */
-.brand.lfx-marker::before{left:14px;right:14px;top:50%;height:11px;margin-top:2px;background:var(--marker);border-radius:3px 8px 4px 9px;transform:scaleX(0) skewX(-8deg);transform-origin:left;z-index:-1;opacity:.85;transition:transform var(--lfx-out) var(--lfx-ease)}
+.lfx.lfx-marker::before{left:14px;right:14px;top:50%;height:11px;margin-top:2px;background:var(--marker);border-radius:3px 8px 4px 9px;transform:scaleX(0) skewX(-8deg);transform-origin:left;z-index:-1;opacity:.85;transition:transform var(--lfx-out) var(--lfx-ease)}
 .lfx-marker:is(:hover,:focus-visible)::before{transform:scaleX(1) skewX(-8deg);transition-duration:420ms}
-@media(max-width:820px){.lfx-svg{height:24px}}
+/* Logo grande de la portada */
+.wordmark .lfx-box{position:relative;display:block;width:fit-content;max-width:100%;margin:0 auto;
+  --lfx-tw:5px;--lfx-tiw:1.4px;--lfx-gr:22px;--lfx-up:-5px;--lfx-sh:8px;--lfx-wv:140px}
+.wordmark .lfx-svg{height:clamp(150px,26vw,250px);max-width:100%}
+.lfx.lfx-marker.lfx-box::before{left:4%;right:4%;top:auto;bottom:1%;height:11%;margin:0;border-radius:6px 16px 8px 18px}
+@media(max-width:820px){.brand .lfx-svg{height:24px}}
 @media(prefers-reduced-motion:reduce){
-  .brand.lfx .lfx-svg{transform:none!important}
-  .brand.lfx *,.brand.lfx::before,.brand.lfx::after{animation:none!important}
+  .lfx .lfx-svg{transform:none!important}
+  .lfx *,.lfx::before,.lfx::after{animation:none!important}
 }
