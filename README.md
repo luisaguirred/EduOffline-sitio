@@ -41,6 +41,9 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - `fuentes.css` y `assets/fuentes/`: tipografías servidas desde el propio sitio (Atkinson Hyperlegible, Caveat, Fraunces; licencia OFL). El sitio no hace peticiones a terceros: no volver a agregar Google Fonts ni analítica sin actualizar el aviso.
 - `main.js`: efecto de luz (`makeLight`), constelación de la portada (`saberes`), pestañas, tema y regla lateral.
 
+## Efectos del logo
+`logo-fx.js` cambia las `<img>` del logo de la barra superior (`.brand`) por el SVG en línea (lo lee de `assets/eduoffline-horizontal.svg`) y, cada vez que el cursor entra o se llega con el teclado, muestra un efecto distinto: resplandor, elevación, destello, partículas, trazado luminoso, onda, señal sin conexión, lista de tareas, subrayado de marcador y dos combinaciones. Baraja la lista y no repite ninguno hasta mostrarlos todos. Los estilos están al final de `styles.css` (clases `lfx-*`, colores en `--lfx-*`). Con `prefers-reduced-motion` solo aparece el resplandor. Si el SVG no se puede leer (por ejemplo, al abrir el archivo sin servidor), se quedan las imágenes sin efecto. Para quitar un efecto, sácalo de `POOL` en `logo-fx.js`.
+
 ## Efecto de luz
 `makeLight` agrega a cada `[data-light]` tres capas: `.light-core` (bloque), `.light-tail` (estela que llega más tarde) y `.light-glow` (resplandor). Para ajustar el recorrido cambia los `transition` de esas clases, y los colores con `--light-a` y `--light-b`. Cada `.light-item` recibe `--lit` (de 0 a 1) para encenderse cuando la luz pasa cerca.
 
