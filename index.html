@@ -11,9 +11,9 @@
 <link rel="alternate" hreflang="x-default" href="./">
 <link rel="icon" href="assets/eduoffline-app-icon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/icono.png">
-<link rel="stylesheet" href="fuentes.css?v=20261115c">
-<link rel="stylesheet" href="styles.css?v=20261115c">
-<script src="tema.js?v=20261115c"></script>
+<link rel="stylesheet" href="fuentes.css?v=20261115d">
+<link rel="stylesheet" href="styles.css?v=20261115d">
+<script src="tema.js?v=20261115d"></script>
 </head>
 <body>
 <header class="top">
@@ -61,10 +61,10 @@
       <p class="tagline">Teach through play, <em>grade without the hassle.</em></p>
       <p class="lead">Attendance, assignments, exams and live games for your class, in a single program that runs on your computer.</p>
       <div class="actions">
-        <a class="btn solid" href="#descargar"><span aria-hidden="true">↓</span> Get it for Windows</a>
+        <a class="btn solid" href="#descargar"><span aria-hidden="true">↓</span> Download for free</a>
         <a class="btn line" href="#funciones"><span aria-hidden="true">▦</span> See features</a>
       </div>
-      <p class="meta">Windows <i>·</i> Your data on your computer <i>·</i> Students over your school’s network</p>
+      <p class="meta">Windows, macOS and Linux <i>·</i> Your data on your computer <i>·</i> Students over your school’s network</p>
     </div>
   </section>
 
@@ -242,7 +242,7 @@
   <section class="band" id="como-funciona" data-spy>
     <header class="band-h"><span>04 / How it works</span><span>No servers to manage</span></header>
     <ol class="steps">
-      <li><span>01</span><h3>Install</h3><p>EduOffline installs on your computer and sits ready next to the Windows clock.</p></li>
+      <li><span>01</span><h3>Install</h3><p>EduOffline installs on your computer and sits ready as an icon next to the clock, starting with your computer.</p></li>
       <li><span>02</span><h3>Create your account</h3><p>The first time, you create your teacher account and start with your first class.</p></li>
       <li><span>03</span><h3>Connect your class</h3><p>Your students sign in from their browser, connected to the same network as your computer.</p></li>
       <li><span>04</span><h3>Stay up to date</h3><p>EduOffline lets you know when there’s a new version. You download it whenever you want, and it installs when you close the program, never in the middle of class.</p></li>
@@ -361,18 +361,17 @@
       </ol>
 
       <h3 id="linux-mac">Linux and macOS</h3>
-      <p>For now the installer is Windows only. On Linux and macOS, EduOffline is installed manually from the program files; it’s meant for users with some terminal experience.</p>
+      <p>The installer works the same as on Windows: EduOffline sits as an icon in the menu bar (macOS) or the top bar (Linux), starts with the computer and shows the address and QR code for your students.</p>
       <div class="guide-two">
         <div>
-          <h4>Install and open EduOffline</h4>
+          <h4>Install EduOffline</h4>
           <ol class="guide-steps">
-            <li>Install <strong>Node.js 20</strong> (LTS version) from <code>nodejs.org</code>.</li>
-            <li>Open a terminal in the program folder and install its components: <code>npm ci --omit=dev</code></li>
-            <li>Start it with your data in a separate folder: <code>EDUOFFLINE_DATA_DIR=~/EduOffline-data node server.js</code></li>
-            <li>The first time, the terminal shows the administrator’s temporary password: save it. Then open <code>http://localhost:3000</code> and create your teacher account.</li>
-            <li>Leave the terminal open during class; when you close it, EduOffline stops.</li>
+            <li><strong>macOS:</strong> download the file for your Mac (<em>Apple chip</em> for M1 or newer, <em>Intel</em> for older ones), open it and drag EduOffline to <em>Applications</em>.</li>
+            <li>The first time, open it with <em>right-click → Open</em> (on macOS 15: <em>System Settings → Privacy &amp; Security → Open Anyway</em>). Allow incoming connections when it asks, so your students can join.</li>
+            <li><strong>Linux:</strong> on Ubuntu, Debian or Mint, open the <code>.deb</code> file and install it. On any other distribution, use the <code>.AppImage</code>: right-click → <em>Properties → Allow executing as program</em>, then open it.</li>
+            <li>On GNOME, the icon in the top bar needs the <em>AppIndicator</em> extension (Ubuntu already includes it). If you use a firewall: <code>sudo ufw allow 3000:3031/tcp</code>.</li>
           </ol>
-          <p class="guide-note">On these systems there’s no icon next to the clock and no automatic updates, and real-time captions aren’t available on macOS yet. Some components may ask for build tools when installing.</p>
+          <p class="guide-note">Your data is saved in <code>~/Library/Application Support/EduOffline/datos</code> (macOS) or <code>~/.config/EduOffline/datos</code> (Linux). On macOS, EduOffline lets you know when there’s a new version and opens its download page; real-time captions aren’t available on macOS yet.</p>
         </div>
         <div>
           <h4>Address for your students</h4>
@@ -429,7 +428,7 @@
       <details class="faq-item"><summary>Do I need internet?</summary><p>No. EduOffline works on your classroom network, even without internet. Only a few features need it: generating voices for conversations, exporting to Google Forms and downloading updates.</p></details>
       <details class="faq-item"><summary>Do my students have to install anything?</summary><p>No. They sign in from the browser on their phone, tablet or computer, connected to the same network as your computer.</p></details>
       <details class="faq-item"><summary>How many students can connect at once?</summary><p>In our tests, more than 200 students submitted activities at the same time without delays. When a whole class signs in at the same instant, getting in may take a few seconds. In practice, the limit is usually the router: plan on 30 to 40 students per router.</p></details>
-      <details class="faq-item"><summary>Where is my data stored?</summary><p>On your computer. On Windows, in <code>%APPDATA%\EduOffline\datos</code>; on Linux and macOS, in the folder you specify when starting it. Updating or uninstalling the program doesn’t delete that folder.</p></details>
+      <details class="faq-item"><summary>Where is my data stored?</summary><p>On your computer. On Windows, in <code>%APPDATA%\EduOffline\datos</code>; on macOS, in <code>~/Library/Application Support/EduOffline/datos</code>; on Linux, in <code>~/.config/EduOffline/datos</code>. Updating or uninstalling the program doesn’t delete that folder.</p></details>
       <details class="faq-item"><summary>How do I make backups?</summary><p>In <strong>Settings → Automatic backup</strong> you choose the folder or USB drive, how many hours between backups and what to include. To restore, pick the backup with <strong>Browse</strong> and decide whether to merge it with your current data or replace it; both options ask for your password.</p></details>
       <details class="faq-item"><summary>Can several teachers use the same computer?</summary><p>Yes. Each teacher signs in with their own account and sees only their classes, students, content and backups. The administrator creates the teacher accounts and can manage everyone’s information, so that account should belong to someone trustworthy.</p></details>
       <details class="faq-item"><summary>Can I use the school’s Wi-Fi?</summary><p>Yes, if it lets devices communicate with each other. Many school networks block this (client isolation); in that case, use your own router like the one in this guide.</p></details>
@@ -438,19 +437,20 @@
       <details class="faq-item"><summary>Do the games use my students’ camera?</summary><p>Only EduBlast, and only if the student chooses to: they see themselves on their phone and pop the balloons with their index finger. The image is processed on that phone, without internet, and is never recorded or sent anywhere. The first time, the phone downloads hand tracking (about 10 MB) from your computer, during the waiting room. In EduCatch, the gyroscope works the same way: the phone’s movement only moves the basket. Anyone can always play by tapping the screen.</p></details>
       <details class="faq-item"><summary>Why does the browser say the connection isn’t secure?</summary><p>The secure address (<code>https</code>) uses a certificate created by your own computer, which the browser doesn’t recognize. It’s only needed for streaming with your phone’s camera and for two optional game modes: tilting the phone in EduCatch and playing with the camera in EduBlast. Accept the warning the first time; students who prefer not to can play by tapping the screen.</p></details>
       <details class="faq-item"><summary>I forgot my password. What do I do?</summary><p>If you’re a teacher, the administrator can give you a new one from <strong>Accounts</strong>. If you forgot the administrator’s, it can be reset from the computer where EduOffline is installed.</p></details>
-      <details class="faq-item"><summary>How does it update?</summary><p>On Windows, EduOffline lets you know when there’s a new version. You download it from <strong>Settings → Updates</strong> and it installs when you close the program or with <strong>Install now</strong>; a copy of your data is saved first. On Linux and macOS, updating is manual.</p></details>
+      <details class="faq-item"><summary>How does it update?</summary><p>On Windows, EduOffline lets you know when there’s a new version. You download it from <strong>Settings → Updates</strong> and it installs when you close the program or with <strong>Install now</strong>; a copy of your data is saved first. Linux works the same way; on macOS it lets you know and opens the download page.</p></details>
       <details class="faq-item"><summary>What happens if the power goes out?</summary><p>Whatever was already submitted stays saved. If an exam was running, its time keeps counting even while the computer is off. A small UPS prevents these interruptions.</p></details>
       <details class="faq-item"><summary>What can I do from the computer and what from my phone?</summary><div class="faq-two"><div><strong>Computer</strong><p>Everything: create classes and units; prepare activities, exams, banks, presentations and lessons; set up grading and download reports; manage accounts, backups and updates.</p></div><div><strong>Phone</strong><p>Teach while walking around the room: random student, teams, timer, noise traffic light, roll call and QR, announcements, presentations, prepared lessons, games, camera streaming, exam monitoring and bubble-sheet grading, grading submissions and messages. Creating and editing content is done on the computer.</p></div></div><p><a href="funciones.html#movil">See the phone dashboard in detail</a></p></details>
-      <details class="faq-item"><summary>Does it work on Mac and Linux?</summary><p>Yes, with a manual installation. See the “Linux and macOS” section of the setup guide.</p></details>
+      <details class="faq-item"><summary>Does it work on Mac and Linux?</summary><p>Yes. There are installers for macOS (Apple chip and Intel) and for Linux (.deb and AppImage). See the “Linux and macOS” section of the setup guide.</p></details>
     </div>
   </section>
 
   <section class="final" id="descargar" data-spy>
     <p class="eyebrow">08 / Download</p>
     <h2>Start <em>your next class.</em></h2>
-    <!-- Sin dirección de descarga todavía: ver README.md → Pendientes. -->
-    <a class="btn solid disabled" aria-disabled="true"><span aria-hidden="true">↓</span> Coming soon for Windows</a>
-    <p class="meta">64-bit Windows 10 and 11</p>
+    <!-- descarga:inicio -->
+    <a class="btn solid disabled" aria-disabled="true"><span aria-hidden="true">↓</span> Coming soon</a>
+    <p class="meta">Windows 10 and 11 <i>·</i> macOS <i>·</i> Linux</p>
+    <!-- descarga:fin -->
     <p class="all-versions"><a href="versiones.html">All versions and changelog →</a></p>
   </section>
 </main>
@@ -463,10 +463,10 @@
   <figure><img alt=""><figcaption></figcaption></figure>
   <button class="lb-btn lb-next" type="button" aria-label="Next image">›</button>
 </dialog>
-<script src="main.js?v=20261115c"></script>
-<script src="logo-fx.js?v=20261115c"></script>
-<script src="lightbox.js?v=20261115c"></script>
-<script src="detalles.js?v=20261115c"></script>
-<script src="modelo3d.js?v=20261115c"></script>
+<script src="main.js?v=20261115d"></script>
+<script src="logo-fx.js?v=20261115d"></script>
+<script src="lightbox.js?v=20261115d"></script>
+<script src="detalles.js?v=20261115d"></script>
+<script src="modelo3d.js?v=20261115d"></script>
 </body>
 </html>

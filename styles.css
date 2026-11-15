@@ -360,8 +360,19 @@ main :is(p,li,dd,td,figcaption):not(:where(.hero-in *,.final *,.lightbox *,.m3d-
 .rel-dl:hover,.rel-dl:focus-visible{transform:translateY(-2px);box-shadow:0 4px 0 color-mix(in srgb,var(--light-a) 80%,#000)}
 .rel-dl strong::before{content:"↓ "}
 .rel-dl span{color:var(--muted);font-size:.85rem;overflow-wrap:anywhere}
+.rel-files li{text-align:left;hyphens:manual}
+.rel-dl em{font:600 .9rem var(--body);font-style:normal}
 .rel-gh{margin:12px 0 0;font-size:.9rem}
 .final .all-versions{margin-top:14px;font-size:.95rem}
+/* Botones de descarga de la portada (los llena .github/scripts/versiones.mjs) */
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;max-width:1080px;margin:0 auto;padding:0;list-style:none}
+.dl-btn{display:flex;flex-direction:column;align-items:center;gap:3px;height:100%;padding:16px 14px;border-radius:14px;background:var(--cta-bg);color:var(--cta-fg);text-decoration:none;box-shadow:0 4px 0 color-mix(in srgb,var(--cta-bg) 62%,#000);transition:box-shadow .25s,transform .25s}
+.dl-btn:hover,.dl-btn:focus-visible{transform:translateY(-2px);box-shadow:0 6px 0 color-mix(in srgb,var(--light-a) 80%,#000)}
+.dl-btn strong{font:700 17px var(--body)}
+.dl-btn strong::before{content:"↓ "}
+.dl-btn span{font-size:.86rem;opacity:.92}
+.dl-btn small{font-size:.78rem;opacity:.75}
+.final .meta a{color:inherit;text-underline-offset:3px}
 .final .all-versions a{color:inherit;text-underline-offset:3px}
 /* Juegos: solo los nombres; el botón + despliega descripción y video o captura (main.js, data-gg). Mismo estilo que las preguntas frecuentes. */
 .gg{padding:clamp(16px,3vw,32px) clamp(16px,3vw,40px) clamp(28px,4vw,52px);max-width:900px}

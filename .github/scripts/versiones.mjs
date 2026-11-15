@@ -4,6 +4,9 @@
 //   GH_TOKEN=… node .github/scripts/versiones.mjs _site
 // Para probar sin GitHub: VERSIONES_JSON=ejemplo.json node .github/scripts/versiones.mjs carpeta
 //
+// También llena los botones de descarga de la portada (index.html y es/index.html, entre
+// <!-- descarga:inicio --> y <!-- descarga:fin -->) con la versión más reciente.
+//
 // Notas en dos idiomas: en la descripción de la versión, el texto después de <!-- en -->
 // va a la página en inglés y el que sigue a <!-- es --> a la de español. Si no hay
 // marcas, el mismo texto aparece en las dos.
@@ -21,14 +24,18 @@ const T = {
     noFiles: 'No downloads for this version.', notes: 'No notes for this version.',
     onGithub: 'View on GitHub', other: 'Other files',
     empty: 'No versions have been published yet. Check back soon.',
-    platforms: { windows: 'Windows', macos: 'macOS', linux: 'Linux' }
+    platforms: { windows: 'Windows', macos: 'macOS', linux: 'Linux' },
+    variants: { 'mac-arm64': 'Apple chip (M1 or newer)', 'mac-x64': 'Intel', appimage: 'AppImage · any distribution', deb: '.deb · Ubuntu, Debian, Mint', exe: 'Windows 10 and 11, 64-bit' },
+    soon: 'Coming soon', version: 'Version', notesLink: 'What’s new in this version', systems: 'Windows 10 and 11 <i>·</i> macOS <i>·</i> Linux'
   },
   es: {
     locale: 'es-MX', latest: 'Más reciente', pre: 'Versión preliminar', download: 'Descargar',
     noFiles: 'Esta versión no tiene descargas.', notes: 'Esta versión no tiene notas.',
     onGithub: 'Ver en GitHub', other: 'Otros archivos',
     empty: 'Todavía no se ha publicado ninguna versión. Vuelve pronto.',
-    platforms: { windows: 'Windows', macos: 'macOS', linux: 'Linux' }
+    platforms: { windows: 'Windows', macos: 'macOS', linux: 'Linux' },
+    variants: { 'mac-arm64': 'Chip Apple (M1 o posterior)', 'mac-x64': 'Intel', appimage: 'AppImage · cualquier distribución', deb: '.deb · Ubuntu, Debian, Mint', exe: 'Windows 10 y 11 de 64 bits' },
+    soon: 'Muy pronto', version: 'Versión', notesLink: 'Qué hay de nuevo en esta versión', systems: 'Windows 10 y 11 <i>·</i> macOS <i>·</i> Linux'
   }
 };
 
@@ -102,6 +109,14 @@ function platformOf(name) {
   if (/\.(appimage|deb|rpm|snap|flatpak)$/i.test(name) || /linux.*\.(tar\.gz|tgz|zip)$/i.test(name)) return 'linux';
   return 'other';
 }
+// Qué variante es cada archivo (procesador del Mac, formato de Linux).
+function variantOf(name) {
+  if (/\.(exe|msi)$/i.test(name)) return 'exe';
+  if (/\.(dmg|pkg)$/i.test(name)) return /arm64|aarch64|apple/i.test(name) ? 'mac-arm64' : /x64|x86_64|intel/i.test(name) ? 'mac-x64' : null;
+  if (/\.appimage$/i.test(name)) return 'appimage';
+  if (/\.deb$/i.test(name)) return 'deb';
+  return null;
+}
 function size(bytes) {
   return bytes >= 1048576 ? (bytes / 1048576).toFixed(0) + ' MB' : Math.max(1, Math.round(bytes / 1024)) + ' KB';
 }
@@ -119,12 +134,16 @@ async function renderRelease(r, lang, isLatest) {
   const notes = await markdown(splitNotes(r.body)[lang]);
   const files = (r.assets || []).filter(a => !HIDDEN.test(a.name));
   const order = ['windows', 'macos', 'linux', 'other'];
-  files.sort((a, b) => order.indexOf(platformOf(a.name)) - order.indexOf(platformOf(b.name)) || a.name.localeCompare(b.name));
+  const vOrder = ['exe', 'mac-arm64', 'mac-x64', 'appimage', 'deb'];
+  const vRank = n => { const i = vOrder.indexOf(variantOf(n)); return i < 0 ? 99 : i; };
+  files.sort((a, b) => order.indexOf(platformOf(a.name)) - order.indexOf(platformOf(b.name)) || vRank(a.name) - vRank(b.name) || a.name.localeCompare(b.name));
   const badges = (isLatest ? `<span class="rel-badge">${t.latest}</span>` : '') + (r.prerelease ? `<span class="rel-badge pre">${t.pre}</span>` : '');
   const links = files.map(a => {
     const p = platformOf(a.name);
+    const v = variantOf(a.name);
     const label = p === 'other' ? t.other : t.platforms[p];
-    return `<li><a class="rel-dl" href="${esc(a.browser_download_url)}"><strong>${label}</strong><span>${esc(a.name)} · ${size(a.size)}</span></a></li>`;
+    const sub = v && v !== 'exe' ? `<em>${esc(t.variants[v])}</em>` : '';
+    return `<li><a class="rel-dl" href="${esc(a.browser_download_url)}"><strong>${esc(label)}</strong>${sub}<span>${esc(a.name)} · ${size(a.size)}</span></a></li>`;
   }).join('');
   return `      <article class="release" id="${esc(id)}">
         <header class="rel-head"><h2>${esc(r.name || tag)}</h2>${badges}<time datetime="${esc((r.published_at || '').slice(0, 10))}">${esc(date)}</time></header>
@@ -146,8 +165,42 @@ async function fill(file, lang, releases) {
   await writeFile(path, page.slice(0, a + start.length) + '\n' + items + '\n' + page.slice(b));
 }
 
+// Botones de descarga de la portada: la versión estable más reciente, un botón por archivo.
+async function fillDownloads(file, lang, latest, page) {
+  const path = join(OUT, file);
+  let html;
+  try { html = await readFile(path, 'utf8'); } catch { return; }
+  const start = '<!-- descarga:inicio -->', end = '<!-- descarga:fin -->';
+  const a = html.indexOf(start), b = html.indexOf(end);
+  if (a < 0 || b < a) throw new Error(`${path}: faltan las marcas ${start} / ${end}`);
+  const t = T[lang];
+  const files = latest ? (latest.assets || []).filter(x => !HIDDEN.test(x.name) && variantOf(x.name)) : [];
+  const order = ['exe', 'mac-arm64', 'mac-x64', 'appimage', 'deb'];
+  files.sort((x, y) => order.indexOf(variantOf(x.name)) - order.indexOf(variantOf(y.name)));
+  let items;
+  if (!files.length) {
+    items = `    <a class="btn solid disabled" aria-disabled="true"><span aria-hidden="true">↓</span> ${t.soon}</a>
+    <p class="meta">${t.systems}</p>`;
+  } else {
+    const id = 'v-' + latest.tag_name.replace(/^v/i, '').replace(/[^\w.-]/g, '-');
+    const btns = files.map(x => {
+      const v = variantOf(x.name), p = platformOf(x.name);
+      const sub = v === 'exe' ? t.variants.exe : t.variants[v];
+      return `      <li><a class="dl-btn" href="${esc(x.browser_download_url)}"><strong>${t.platforms[p]}</strong><span>${esc(sub)}</span><small>${size(x.size)}</small></a></li>`;
+    }).join('\n');
+    items = `    <ul class="dl-grid">
+${btns}
+    </ul>
+    <p class="meta">${t.version} ${esc(latest.tag_name.replace(/^v/i, ''))} <i>·</i> <a href="${page}#${esc(id)}">${t.notesLink}</a></p>`;
+  }
+  await writeFile(path, html.slice(0, a + start.length) + '\n' + items + '\n    ' + html.slice(b));
+}
+
 const releases = (await loadReleases())
   .sort((x, y) => new Date(y.published_at || y.created_at) - new Date(x.published_at || x.created_at));
 await fill('versiones.html', 'en', releases);
 await fill('es/versiones.html', 'es', releases);
+const latestStable = releases.find(r => !r.prerelease) || null;
+await fillDownloads('index.html', 'en', latestStable, 'versiones.html');
+await fillDownloads('es/index.html', 'es', latestStable, 'versiones.html');
 console.log(`Versiones publicadas en el sitio: ${releases.length} (${REPO})`);

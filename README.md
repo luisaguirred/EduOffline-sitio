@@ -18,6 +18,7 @@ Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://lo
 - **Cuándo se actualiza:** al publicar una versión con `desktop/scripts/publish-release.sh` (repositorio EduOffline), que avisa al sitio; con cada cambio a `main`; y una vez al día por si el aviso falla. GitHub desactiva las tareas diarias de un repositorio sin actividad en 60 días; se reactivan desde la pestaña Actions.
 - **Notas en dos idiomas:** en la descripción de la versión, el texto después de `<!-- en -->` va a la página en inglés y el que sigue a `<!-- es -->` a la de español; sin marcas, el mismo texto va a las dos. GitHub convierte el Markdown a HTML. Las imágenes pegadas en las notas no se ven en el sitio (la CSP solo permite imágenes propias).
 - **Plataformas:** se reconocen por la extensión del archivo: Windows (`.exe`, `.msi`), macOS (`.dmg`, `.pkg`), Linux (`.AppImage`, `.deb`, `.rpm`); el resto aparece como "Otros archivos". Los `.blockmap` y `latest*.yml` (para las actualizaciones automáticas) no se muestran.
+- **Botones de descarga de la portada:** el mismo script llena `#descargar` de `index.html` y `es/index.html` (entre `<!-- descarga:inicio -->` y `<!-- descarga:fin -->`) con un botón por archivo de la versión estable más reciente: Windows, macOS chip Apple, macOS Intel, Linux AppImage y Linux .deb, más el enlace a sus cambios. Sin versiones publicadas, queda "Muy pronto". Los botones descargan directo de GitHub; el código sigue privado.
 - **Probar sin GitHub:** `VERSIONES_JSON=ejemplo.json node .github/scripts/versiones.mjs carpeta`, sobre una copia del sitio (el JSON tiene la forma de la API de releases).
 
 ## Idiomas (inglés y español)
@@ -70,7 +71,6 @@ En `#instalacion`, con el Xiaomi AX3000T como ejemplo. Los nombres de menú del 
 En `#preguntas`, con `<details>` (sin JavaScript). Linux y macOS se explican dentro de `#instalacion`; hoy su instalación es manual.
 
 ## Pendientes
-- **Descarga:** es libre. Cuando exista la primera versión, activa el botón de `#descargar` con https://github.com/luisaguirred/EduOffline-releases/releases/latest (el repositorio ya existe; la lista completa está en `versiones.html`).
 - **Donaciones:** falta el enlace del servicio que elija el maestro.
 - **Nombre:** EduOffline (antes EduPlay, registrado en el IMPI). El logo vectorizado está en `assets/eduoffline-*.svg`; el script que lo genera, en `contenido/Marca/`.
 - **Capturas:** están en `assets/capturas/`, en modo claro y tomadas de una plataforma de demostración, sin nada de la base real: los alumnos aparecen como "Alumno 01". Muestran la marca EduOffline, así que hay que repetirlas al cambiar el nombre.
