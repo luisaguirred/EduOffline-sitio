@@ -288,4 +288,13 @@
     const onScroll=()=>{const m=document.documentElement.scrollHeight-innerHeight;mark.style.top=(m>0?scrollY/m*100:0)+'%';};
     addEventListener('scroll',onScroll,{passive:true});onScroll();
   }
+  // Video corto de la portada: se reproduce (sin sonido, en bucle) solo mientras se ve en
+  // pantalla, y no se descarga hasta que el visitante llega a él. Con "reducir movimiento"
+  // no arranca solo: queda la portada y los controles para reproducirlo.
+  const demo=document.querySelector('.demo-video video');
+  if(demo&&'IntersectionObserver' in window&&!reduce){
+    new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){demo.preload='auto';demo.play().catch(()=>{});}else if(!demo.paused)demo.pause();
+    }),{threshold:.45}).observe(demo);
+  }
 })();
