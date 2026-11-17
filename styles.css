@@ -398,9 +398,11 @@ main :is(p,li,dd,td,figcaption):not(:where(.hero-in *,.final *,.lightbox *,.m3d-
 @media(prefers-reduced-motion:reduce){.gg-plus::after,.gg-ic{transition:none}}
 .gg-item{display:grid;grid-template-columns:minmax(150px,230px) minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:center;margin:4px 0 18px;padding:clamp(18px,3vw,28px);border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:0 3px 0 var(--shadow)}
 .gg-item[hidden]{display:none}
+.gg-item.gg-wide{grid-template-columns:minmax(220px,420px) minmax(0,1fr)}
+.shot.landscape video{border-radius:16px;border:5px solid #1d2a44}
 .gg-item .tag{display:block;margin-bottom:6px;color:var(--muted);font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase}
 .gg-item p{margin:0;color:var(--muted);line-height:1.65}
-@media(max-width:620px){.gg-item{grid-template-columns:1fr}.gg-item .shot{max-width:220px;margin:0 auto}}
+@media(max-width:620px){.gg-item,.gg-item.gg-wide{grid-template-columns:1fr}.gg-item .shot{max-width:220px;margin:0 auto}.gg-item .shot.landscape{max-width:420px}}
 
 /* Efectos del logo (logo-fx.js): un efecto distinto cada vez que el cursor entra en el logo de la barra (.brand) o en el de la portada (.wordmark .lfx-box). Ver README.md. */
 :root{--lfx-ink:#0e2f6d;--lfx-blue:#3986e9;--lfx-or:#fc5e01;--lfx-tq:#10b3c7;--lfx-glow:rgba(16,179,199,.55);--lfx-shine:#fff;--lfx-shine-a:.85;--lfx-p1:#10b3c7;--lfx-p2:#3986e9;--lfx-p3:#fc5e01;--lfx-g1:#3f3f3f;--lfx-g2:#c1c1c1;--lfx-g3:#555b66;--lfx-in:300ms;--lfx-out:250ms;--lfx-ease:cubic-bezier(.2,.7,.2,1)}
