@@ -1,6 +1,6 @@
 # Sitio de EduOffline
 
-Sitio estático en HTML, CSS y JavaScript, sin compilación. Inspirado en el estilo editorial de getartcraft.com, sin usar su marca, textos ni imágenes.
+Sitio estático en HTML, CSS y JavaScript, sin compilación. 
 
 ## Ver el sitio
 Desde la carpeta del repositorio: `python3 -m http.server 8080` y abre http://localhost:8080. Se publica subiendo estos archivos a cualquier hosting estático.
